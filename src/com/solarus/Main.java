@@ -27,12 +27,13 @@ public class Main {
         System.out.println("X = " + taillex_map);
         System.out.println("Y = " + tailley_map);
 
-        StdDraw.filledRectangle(14,14,15,15);
-        for (int dang_y=26; dang_y>=0; --dang_y){
-            for(int dang_x=27; dang_x>=0; --dang_x)  {
+        StdDraw.filledRectangle(15,15,16,16);
+        for (int dang_y=tailley_map-1; dang_y>=0; --dang_y){
+            for(int dang_x=taillex_map-1; dang_x>=0; --dang_x)  {
                 if (map[dang_y][dang_x] == 0) {
                     StdDraw.setPenColor(Color.blue);
-                    StdDraw.filledRectangle(dang_x, dang_y, 0.51, 0.51);
+                    StdDraw.setPenRadius(0.002);
+                    StdDraw.rectangle(dang_x, dang_y, 0.5, 0.5);
                 }else if(map[dang_y][dang_x] == 2) {
                     StdDraw.setPenColor(Color.orange);
                     StdDraw.filledCircle(dang_x,dang_y,0.1);
@@ -43,7 +44,7 @@ public class Main {
                 System.out.println("X = " + dang_x + " Y: " + dang_y);
             }
         }
-        StdDraw.filledCircle(0,0,3);
+        //StdDraw.filledCircle(0,0,3); // debug pour trouver origine axes
 
     }
 }
