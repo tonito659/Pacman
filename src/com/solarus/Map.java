@@ -46,21 +46,21 @@ public class Map {
     }
 
     public static void generateurGraphique(int[][] arrayMap){
-        for (int dang_y=30; dang_y>=0; --dang_y){
-            for(int dang_x=27; dang_x>=0; --dang_x)  {
-                if (labyrinthe[dang_y][dang_x] == 0) {
+        for (int ordonnee=30; ordonnee>=0; --ordonnee){
+            for(int abcisse=27; abcisse>=0; --abcisse)  {
+                if (labyrinthe[ordonnee][abcisse] == 0) {
                     StdDraw.setPenColor(Color.blue);
-                    StdDraw.filledRectangle(dang_x, dang_y, 0.51, 0.51);
+                    StdDraw.filledRectangle(abcisse, ordonnee, 0.51, 0.51);
                 }
 
-                else if(labyrinthe[dang_y][dang_x] == 2) {
+                else if(labyrinthe[ordonnee][abcisse] == 2) {
                     StdDraw.setPenColor(Color.orange);
-                    StdDraw.filledCircle(dang_x,dang_y,0.1);
-                }else if(labyrinthe[dang_y][dang_x] == 3) {
+                    StdDraw.filledCircle(abcisse,ordonnee,0.1);
+                }else if(labyrinthe[ordonnee][abcisse] == 3) {
                     StdDraw.setPenColor(Color.yellow);
-                    StdDraw.filledCircle(dang_x, dang_y, 0.3);
+                    StdDraw.filledCircle(abcisse, ordonnee, 0.3);
                 }
-                System.out.println("X = " + dang_x + " Y: " + dang_y);
+                System.out.println("X = " + abcisse + " Y: " + ordonnee);
             }
         }
 

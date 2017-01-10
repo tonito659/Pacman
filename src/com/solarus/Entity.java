@@ -22,5 +22,5 @@ public class Entity {
     }
 
 
-    public void deplacement(){}
+    //public void deplacement(){}
 }
