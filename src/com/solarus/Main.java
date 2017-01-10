@@ -11,20 +11,20 @@ public class Main {
 
 
     public static void main(String[] args) {
-         double depardX=15 , depardY=7;
+         double depardX=14 , depardY=7;
 
-        //int [][] map = Map.getLabyrinthe();
-        //int taillex_map = map.length;
-        //int tailley_map = map[1].length;
         Map pacmanMap = new Map();
+        //création d'un objet de type map
         pacmanMap.initalisationEcran();
         pacmanMap.generateurGraphique(pacmanMap.getLabyrinthe());
-
+        //j'applique a pacmanMap les méthodes présents dans la classe map
 
         StdDraw.filledCircle(0,0,3);
         StdDraw.setPenColor(Color.yellow);
         StdDraw.filledCircle(depardX, depardY, 0.5);
-        while(true){
+
+        pacmanMap.testMur(pacmanMap.getLabyrinthe(),15,7);
+       /* while(true){
 
             if (StdDraw.isKeyPressed(KeyEvent.VK_DOWN)) {
                 StdDraw.filledCircle(depardX, depardY-=0.1, 0.5);
@@ -47,7 +47,7 @@ public class Main {
                 break;
             }
             StdDraw.show(1);
-        }
+        }*/
 
 
     }
