@@ -1,37 +1,54 @@
 package com.solarus;
 import edu.princeton.cs.introcs.StdDraw;
+import java.awt.event.KeyEvent;
 
 import java.awt.*;
 
 public class Main {
 
 
-    public final static int X_MAX= 32;
-    public final static int Y_MAX= 32;
-    public final static float WIDTH= 1;
+
 
 
     public static void main(String[] args) {
-	// write your code here
+         double depardX=15 , depardY=7;
 
-
-
-
-        StdDraw.setCanvasSize(600,600);
-        StdDraw.setXscale(-WIDTH, X_MAX + WIDTH);
-        StdDraw.setYscale(-WIDTH, Y_MAX + WIDTH);
         //int [][] map = Map.getLabyrinthe();
         //int taillex_map = map.length;
         //int tailley_map = map[1].length;
-        StdDraw.filledRectangle(14,14,15,17);//fond noir
-        Map.generateurGraphique(Map.getLabyrinthe());
-
-        //System.out.println("X = " + taillex_map);
-        //System.out.println("Y = " + tailley_map);
-
+        Map pacmanMap = new Map();
+        pacmanMap.initalisationEcran();
+        pacmanMap.generateurGraphique(pacmanMap.getLabyrinthe());
 
 
         StdDraw.filledCircle(0,0,3);
+        StdDraw.setPenColor(Color.yellow);
+        StdDraw.filledCircle(depardX, depardY, 0.5);
+        while(true){
+
+            if (StdDraw.isKeyPressed(KeyEvent.VK_DOWN)) {
+                StdDraw.filledCircle(depardX, depardY-=0.1, 0.5);
+                StdDraw.clear(StdDraw.YELLOW);
+            }
+            if (StdDraw.isKeyPressed(KeyEvent.VK_UP)) {
+                StdDraw.filledCircle(depardX, depardY+=0.1, 0.5);
+                StdDraw.clear(StdDraw.YELLOW);
+            }
+            if (StdDraw.isKeyPressed(KeyEvent.VK_LEFT)) {
+                StdDraw.filledCircle(depardX-=0.1, depardY, 0.5);
+                StdDraw.clear(StdDraw.YELLOW);
+            }
+            if (StdDraw.isKeyPressed(KeyEvent.VK_RIGHT)) {
+                StdDraw.filledCircle(depardX+=0.1, depardY, 0.5);
+                StdDraw.clear(StdDraw.YELLOW);
+            }
+
+            if (StdDraw.isKeyPressed(KeyEvent.VK_ENTER)){
+                break;
+            }
+            StdDraw.show(1);
+        }
+
 
     }
 }
