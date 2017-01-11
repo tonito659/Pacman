@@ -11,7 +11,7 @@ public class Main {
 
 
     public static void main(String[] args) {
-         double depardX=14 , depardY=7;
+         double   depardY=7,depardX=15;
 
         Map pacmanMap = new Map();
         //création d'un objet de type map
@@ -23,7 +23,7 @@ public class Main {
         StdDraw.setPenColor(Color.yellow);
         StdDraw.filledCircle(depardX, depardY, 0.5);
 
-        pacmanMap.testMur(pacmanMap.getLabyrinthe(),15,7);
+        pacmanMap.testMur(pacmanMap.getLabyrinthe(),7,15);
        /* while(true){
 
             if (StdDraw.isKeyPressed(KeyEvent.VK_DOWN)) {
