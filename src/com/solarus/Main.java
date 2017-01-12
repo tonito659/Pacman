@@ -23,15 +23,12 @@ public class Main {
         //int [][] map = Map.getLabyrinthe();
         //int taillex_map = map.length;
         //int tailley_map = map[1].length;
-        StdDraw.filledRectangle(14,14,15,17);//fond noir
+        StdDraw.filledRectangle(14,14,20,20);//fond noir
         Map.generateurGraphique(Map.getLabyrinthe());
 
         //System.out.println("X = " + taillex_map);
         //System.out.println("Y = " + tailley_map);
 
-
-
-        StdDraw.filledCircle(0,0,3);
 
     }
 }

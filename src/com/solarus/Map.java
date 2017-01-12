@@ -29,9 +29,9 @@ public class Map {
                     {1,1,1,1,1,0,2,0,0,1,1,1,1,1,1,1,1,1,1,0,0,2,0,1,1,1,1,1},
                     {1,1,1,1,1,0,2,0,0,0,0,0,1,0,0,1,0,0,0,0,0,2,0,1,1,1,1,1},
                     {0,0,0,0,0,0,2,0,0,0,0,0,1,0,0,1,0,0,0,0,0,2,0,0,0,0,0,0},
-                    {0,2,2,2,2,2,2,0,0,1,1,1,1,0,0,1,1,1,1,0,0,2,2,2,2,2,2,0},
-                    {0,2,0,0,0,0,2,0,0,1,0,0,0,0,0,0,0,0,1,0,0,2,0,0,0,0,2,0},
-                    {0,2,0,0,0,0,2,0,0,1,0,0,0,0,0,0,0,0,1,0,0,2,0,0,0,0,2,0},
+                    {0,2,2,2,2,2,2,0,0,2,2,2,2,0,0,2,2,2,2,0,0,2,2,2,2,2,2,0},
+                    {0,2,0,0,0,0,2,0,0,2,0,0,0,0,0,0,0,0,2,0,0,2,0,0,0,0,2,0},
+                    {0,2,0,0,0,0,2,0,0,2,0,0,0,0,0,0,0,0,2,0,0,2,0,0,0,0,2,0},
                     {0,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,0},
                     {0,2,0,0,0,0,2,0,0,0,0,0,2,0,0,2,0,0,0,0,0,2,0,0,0,0,2,0},
                     {0,3,0,0,0,0,2,0,0,0,0,0,2,0,0,2,0,0,0,0,0,2,0,0,0,0,3,0},
@@ -50,15 +50,15 @@ public class Map {
             for(int abcisse=27; abcisse>=0; --abcisse)  {
                 if (labyrinthe[ordonnee][abcisse] == 0) {
                     StdDraw.setPenColor(Color.blue);
-                    StdDraw.filledRectangle(abcisse, ordonnee, 0.51, 0.51);
+                    StdDraw.filledRectangle(abcisse+2, ordonnee+1, 0.51, 0.51);
                 }
 
                 else if(labyrinthe[ordonnee][abcisse] == 2) {
                     StdDraw.setPenColor(Color.orange);
-                    StdDraw.filledCircle(abcisse,ordonnee,0.1);
+                    StdDraw.filledCircle(abcisse+2,ordonnee+1,0.1);
                 }else if(labyrinthe[ordonnee][abcisse] == 3) {
                     StdDraw.setPenColor(Color.yellow);
-                    StdDraw.filledCircle(abcisse, ordonnee, 0.3);
+                    StdDraw.filledCircle(abcisse+2, ordonnee+1, 0.3);
                 }
                 System.out.println("X = " + abcisse + " Y: " + ordonnee);
             }
