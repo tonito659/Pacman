@@ -6,10 +6,6 @@ import java.awt.*;
 
 public class Main {
 
-
-
-
-
     public static void main(String[] args) {
          double   depardY=7,depardX=15;
 
@@ -24,7 +20,7 @@ public class Main {
         StdDraw.filledCircle(depardX, depardY, 0.5);
 
         pacmanMap.testMur(pacmanMap.getLabyrinthe(),7,15);
-       /* while(true){
+        while(true){
 
             if (StdDraw.isKeyPressed(KeyEvent.VK_DOWN)) {
                 StdDraw.filledCircle(depardX, depardY-=0.1, 0.5);
@@ -47,7 +43,7 @@ public class Main {
                 break;
             }
             StdDraw.show(1);
-        }*/
+        }
 
 
     }
