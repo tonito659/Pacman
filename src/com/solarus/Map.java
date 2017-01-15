@@ -5,7 +5,7 @@ import edu.princeton.cs.introcs.StdDraw;
 import java.awt.*;
 
 public class Map {
-    public static final  int X_MAX= 30;
+    public static final  int X_MAX= 27;
     public static final  int Y_MAX= 30;
     public static final  float WIDTH= 1;
 
@@ -54,34 +54,37 @@ public class Map {
         for (int ordonnee=30; ordonnee>=0; --ordonnee){
             for(int abcisse=27; abcisse>=0; --abcisse)  {
                 if (arrayMap[ordonnee][abcisse] == 0) {
-                    StdDraw.setPenColor(Color.blue);
+                    StdDraw.setPenColor(StdDraw.BLUE);
                     StdDraw.filledRectangle(abcisse, ordonnee, 0.51, 0.51);
                 }
 
                 else if(arrayMap[ordonnee][abcisse] == 2) {
-                    StdDraw.setPenColor(Color.orange);
+                    StdDraw.setPenColor(StdDraw.ORANGE);
 
                     StdDraw.filledCircle(abcisse,ordonnee,0.1);
                 }else if(arrayMap[ordonnee][abcisse] == 3) {
-                    StdDraw.setPenColor(Color.orange);
+                    StdDraw.setPenColor(StdDraw.ORANGE);
                     StdDraw.filledCircle(abcisse, ordonnee, 0.3);
 
                     StdDraw.filledCircle(abcisse,ordonnee,0.1);
                 }else if(arrayMap[ordonnee][abcisse] == 3) {
-                    StdDraw.setPenColor(Color.yellow);
+                    StdDraw.setPenColor(StdDraw.ORANGE);
                     StdDraw.filledCircle(abcisse, ordonnee, 0.3);
 
                 }
-                System.out.println("X = " + abcisse + " Y: " + ordonnee);
+                //System.out.println("X = " + abcisse + " Y: " + ordonnee);
             }
         }
+
     }
 
     public  void initalisationEcran(){
         StdDraw.setCanvasSize(600,600);
         StdDraw.setXscale(-WIDTH, X_MAX + WIDTH);
         StdDraw.setYscale(-WIDTH, Y_MAX + WIDTH);
-        StdDraw.filledRectangle(14,14,15,17);//fond noir
+        StdDraw.clear(StdDraw.BLACK);
+
+
     }
 
     public  boolean [] testMur(int [][] map,int ordonneeEntity  , int abcisseEntity){
@@ -112,6 +115,60 @@ public class Map {
 
         return tableau;
     }
+
+    public static boolean testMurHaut(int ordonneeEntity  , int abcisseEntity){
+        Map pacmanMap = new Map();
+        int [][] temp = pacmanMap.getLabyrinthe();
+        boolean [] tableau= new boolean[4];
+        if(temp[(ordonneeEntity+=1)][abcisseEntity]==0){
+            //test Haut
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    public static boolean testMurDroite(int ordonneeEntity  , int abcisseEntity){
+        Map pacmanMap = new Map();
+        int [][] temp = pacmanMap.getLabyrinthe();
+        boolean [] tableau= new boolean[4];
+        if(temp[ordonneeEntity][(abcisseEntity+=1)]==0){
+            //test Droite
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    public static boolean testMurBas(int ordonneeEntity  , int abcisseEntity){
+        Map pacmanMap = new Map();
+        int [][] temp = pacmanMap.getLabyrinthe();
+        boolean [] tableau= new boolean[4];
+        if(temp[ordonneeEntity-=1][(abcisseEntity)]==0){
+            //test Bas
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    public static boolean testMurGauche(int ordonneeEntity  , int abcisseEntity){
+        Map pacmanMap = new Map();
+        int [][] temp = pacmanMap.getLabyrinthe();
+        boolean [] tableau= new boolean[4];
+        if(temp[ordonneeEntity][(abcisseEntity-=1)]==0){
+            //test Haut
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+
 }
 
 
