@@ -38,7 +38,8 @@ public class Fantome extends Entity{
     public boolean posIsIntersection(){
         // On teste si l'emplacement actuel du fantome est une intersection
         boolean intersect= false;
-        int [][] intersectMap = Map.getLabyrinthe();
+        Map pacmanMap = new Map();
+        int [][] intersectMap = pacmanMap.getLabyrinthe();
 
         if(seed == 3 ||seed == 9){
 

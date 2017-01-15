@@ -3,7 +3,7 @@ package com.solarus;
 
 public class Entity {
 
-    private int px, py;
+    protected int px, py;
 
     public int getX() {
         return px;
@@ -35,8 +35,9 @@ public class Entity {
 
     public boolean [] collisionsPossibles(){
         //indique les collisions, dans l'ordre : N, E, S, O
+        Map pacmanMap = new Map();
         boolean [] collision = new boolean[4];
-        int [][] temp = Map.getLabyrinthe();
+        int [][] temp = pacmanMap.getLabyrinthe();
         if(temp[this.py-1][this.px]==0){ //nord
             collision[0] = true;
         } else if(temp[this.py][this.px+1]==0){ //est

@@ -5,8 +5,8 @@ import edu.princeton.cs.introcs.StdDraw;
 import java.awt.*;
 
 public class Map {
-    public static final  int X_MAX= 32;
-    public static final  int Y_MAX= 32;
+    public static final  int X_MAX= 30;
+    public static final  int Y_MAX= 30;
     public static final  float WIDTH= 1;
 
     private int [][] labyrinthe =
@@ -45,12 +45,6 @@ public class Map {
                     // 0= Mur , 1=case vide , 2=petites graines , 3=grosse graines
             };
 
-
-    public Map() {
-        // constructeur de la classe map
-        this.labyrinthe = getLabyrinthe();
-    }
-
     public  int[][] getLabyrinthe() {
         return labyrinthe;
     }
@@ -58,7 +52,7 @@ public class Map {
 
     public static void generateurGraphique(int[][] arrayMap){
         for (int ordonnee=30; ordonnee>=0; --ordonnee){
-            for(int abcisse=28; abcisse>=0; --abcisse)  {
+            for(int abcisse=27; abcisse>=0; --abcisse)  {
                 if (arrayMap[ordonnee][abcisse] == 0) {
                     StdDraw.setPenColor(Color.blue);
                     StdDraw.filledRectangle(abcisse, ordonnee, 0.51, 0.51);
