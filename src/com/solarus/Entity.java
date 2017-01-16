@@ -52,7 +52,11 @@ public class Entity {
         } else if(temp[this.py][this.px+1]==0){ //ouest
             collision[3] = true;
         }
-
+        //System.out.println(collision[0]+"\t"+collision[1]+"\t"+collision[2]+"\t"+collision[3]);
+        System.out.println("X = "+ this.px+ "\t Y = "+ this.py);
+        System.out.println("\t"+temp[this.py][this.px+1]);
+        System.out.println(temp[this.py][this.px+1]+"\t\t"+temp[this.py][this.px+1]);
+        System.out.println("\t"+ temp[this.py+1][this.px]);
         return collision;
     }
     public boolean mouvement(int direction){
