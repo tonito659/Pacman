@@ -1,6 +1,5 @@
 package com.solarus;
 
-import com.sun.org.apache.xpath.internal.SourceTree;
 import edu.princeton.cs.introcs.StdDraw;
 
 import java.awt.event.KeyEvent;
@@ -18,34 +17,34 @@ public class Joueur extends Entity{
 
     // Concerne les attributs du pacman
 
-    protected int PositionXJoueur=15, PositionYJoueur=7;
+    protected int px =15, py =7;
     // oubliger de les metre en protected pour l'héritage
 
-    public Joueur(int nbVie, int score, String pseudo, int positionXJoueur, int positionYJoueur) {
+    public Joueur(int nbVie, int score, String pseudo, int px, int py) {
         this.nbVie = nbVie;
         this.score = score;
         this.pseudo = pseudo;
-        this.PositionXJoueur = positionXJoueur;
-        this.PositionYJoueur = positionYJoueur;
+        this.px = px;
+        this.py = py;
     }
 
-    public int getPositionXJoueur() {
-        return PositionXJoueur;
+    public int getPx() {
+        return px;
     }
 
-    public int getPositionYJoueur() {
-        return PositionYJoueur;
+    public int getPy() {
+        return py;
     }
 
-    public void setPositionXJoueur(int positionXJoueur) {
-        PositionXJoueur = positionXJoueur;
+    public void setPx(int px) {
+        this.px = px;
     }
 
-    public void setPositionYJoueur(int positionYJoueur) {
-        PositionYJoueur = positionYJoueur;
+    public void setPy(int py) {
+        this.py = py;
     }
 
-    public void moovePacman(){
+    public void movePacman(){
         Map pacmanMap = new Map();
         Joueur joueur1 = new Joueur(2,0,"Bogoss",14,7);
 
@@ -54,33 +53,33 @@ public class Joueur extends Entity{
             if (StdDraw.isKeyPressed(KeyEvent.VK_DOWN) ) {
                 StdDraw.clear(StdDraw.BLACK);
                 pacmanMap.generateurGraphique(pacmanMap.getLabyrinthe());
-                joueur1.setPositionYJoueur(joueur1.getPositionYJoueur()-1);
+                joueur1.setPy(joueur1.getPy()-1);
                 //test Bas
-                StdDraw.picture(joueur1.getPositionXJoueur(),joueur1.getPositionYJoueur(), "pacman2.png",0.9,0.9,270);
+                StdDraw.picture(joueur1.getPx(),joueur1.getPy(), "pacman2.png",0.9,0.9,270);
                 StdDraw.show(50);
             }
             if (StdDraw.isKeyPressed(KeyEvent.VK_UP)  ) {
                 StdDraw.clear(StdDraw.BLACK);
                 pacmanMap.generateurGraphique(pacmanMap.getLabyrinthe());
-                joueur1.setPositionYJoueur(joueur1.getPositionYJoueur()+1);
+                joueur1.setPy(joueur1.getPy()+1);
                 //test Haut
-                StdDraw.picture(joueur1.getPositionXJoueur(),joueur1.getPositionYJoueur(), "pacman2.png",0.9,0.9,90);
+                StdDraw.picture(joueur1.getPx(),joueur1.getPy(), "pacman2.png",0.9,0.9,90);
                 StdDraw.show(50);
             }
             if (StdDraw.isKeyPressed(KeyEvent.VK_LEFT) ) {
                 StdDraw.clear(StdDraw.BLACK);
                 pacmanMap.generateurGraphique(pacmanMap.getLabyrinthe());
-                joueur1.setPositionXJoueur(joueur1.getPositionXJoueur()-1);
+                joueur1.setPx(joueur1.getPx()-1);
                 //test Gauche
-                StdDraw.picture(joueur1.getPositionXJoueur(),joueur1.getPositionYJoueur(), "pacman2.png",0.9,0.9,180);
+                StdDraw.picture(joueur1.getPx(),joueur1.getPy(), "pacman2.png",0.9,0.9,180);
                 StdDraw.show(50);
             }
             if (StdDraw.isKeyPressed(KeyEvent.VK_RIGHT)) {
                 StdDraw.clear(StdDraw.BLACK);
                 pacmanMap.generateurGraphique(pacmanMap.getLabyrinthe());
-                joueur1.setPositionXJoueur(joueur1.getPositionXJoueur()+1);
+                joueur1.setPx(joueur1.getPx()+1);
                 // test Droite
-                StdDraw.picture(joueur1.getPositionXJoueur(),joueur1.getPositionYJoueur(), "pacman2.png",0.9,0.9,0);
+                StdDraw.picture(joueur1.getPx(),joueur1.getPy(), "pacman2.png",0.9,0.9,0);
                 StdDraw.show(50);
             }
 

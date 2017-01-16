@@ -3,7 +3,7 @@ package com.solarus;
 
 public class Entity {
 
-    protected int px=15, py=7;
+    private int px, py;
 
     public int getX() {
         return px;
@@ -49,5 +49,44 @@ public class Entity {
         }
 
         return collision;
+    }
+    public boolean mouvement(int direction){
+        // prend en paramètre 8,6,2,4 comme sur un pavé numérique,
+        // 8 = Nord
+        // 6 = Est
+        // 2 = Sud
+        // 4 = Ouest
+        //indique avec true si un mouvement a été effectué, false sinon
+        boolean hasMoved = false;
+        boolean [] collisions = this.collisionsPossibles();
+        switch (direction){
+            case 8:
+                if (!collisions[0]){
+                    setY(this.py+1);
+                    hasMoved = true;
+                }
+                break;
+            case 6:
+                if (!collisions[1]){
+                    setX(this.px+1);
+                    hasMoved = true;
+                }
+                break;
+
+            case 2:
+                if (!collisions[2]){
+                    setY(this.py-1);
+                    hasMoved = true;
+                }
+                break;
+            case 4:
+                if (!collisions[3]){
+                    setX(this.px-1);
+                    hasMoved = true;
+                }
+                break;
+
+        }
+        return hasMoved;
     }
 }
