@@ -19,38 +19,50 @@ public class Main {
 
 
 
-        pacmanMap.initialisationEcran();
+        pacmanMap.initalisationEcran();
         pacmanMap.generateurGraphique(pacmanMap.getLabyrinthe());
-
-
-        StdDraw.picture(joueur1.getX(), joueur1.getY(), "pacman2.png",0.9,0.9,180);
-        System.out.print("X ="+joueur1.getX()+" Y ="+joueur1.getX());
+        StdDraw.picture(joueur1.getPx(), joueur1.getPy(), "pacman2.png",0.9,0.9,180);
+        System.out.print("X ="+joueur1.getPx()+" Y ="+joueur1.getPy());
         StdDraw.enableDoubleBuffering();
+        //buffering sert a stocké la map en mémoire por pouvoir faire des changements sans aucun problème
         //j'applique a pacmanMap les méthodes présents dans la classe map
         StdDraw.setPenColor(Color.yellow);
 
-        int direction = 6;
         while(true){
 
             if (StdDraw.isKeyPressed(KeyEvent.VK_DOWN) ) {
-                direction = 2;
+                StdDraw.clear(StdDraw.BLACK);
+                pacmanMap.generateurGraphique(pacmanMap.getLabyrinthe());
+                joueur1.setPy(joueur1.getPy()-1);
+                //test Bas
+                StdDraw.picture(joueur1.getPx(),joueur1.getPy(), "pacman2.png",0.9,0.9,270);
+                StdDraw.show(50);
             }
             if (StdDraw.isKeyPressed(KeyEvent.VK_UP)  ) {
-                direction = 8;
+                StdDraw.clear(StdDraw.BLACK);
+                pacmanMap.generateurGraphique(pacmanMap.getLabyrinthe());
+                joueur1.setPy(joueur1.getPy()+1);
+                //test Haut
+                StdDraw.picture(joueur1.getPx(),joueur1.getPy(), "pacman2.png",0.9,0.9,90);
+                StdDraw.show(50);
             }
             if (StdDraw.isKeyPressed(KeyEvent.VK_LEFT) ) {
-                direction = 4;
+                StdDraw.clear(StdDraw.BLACK);
+                pacmanMap.generateurGraphique(pacmanMap.getLabyrinthe());
+                joueur1.setPx(joueur1.getPx()-1);
+                //test Gauche
+                StdDraw.picture(joueur1.getPx(),joueur1.getPy(), "pacman2.png",0.9,0.9,180);
+                StdDraw.show(50);
             }
             if (StdDraw.isKeyPressed(KeyEvent.VK_RIGHT)) {
-                direction = 6;
+                StdDraw.clear(StdDraw.BLACK);
+                pacmanMap.generateurGraphique(pacmanMap.getLabyrinthe());
+                joueur1.setPx(joueur1.getPx()+1);
+                // test Droite
+                StdDraw.picture(joueur1.getPx(),joueur1.getPy(), "pacman2.png",0.9,0.9,0);
+                StdDraw.show(50);
             }
-            StdDraw.clear(StdDraw.BLACK);
-            pacmanMap.generateurGraphique(pacmanMap.getLabyrinthe());
-            joueur1.mouvement(direction);
-            StdDraw.picture(joueur1.getX(),joueur1.getY(), "pacman2.png",0.9,0.9,0);
-            StdDraw.show(50);
 
-            System.out.println();
             if (StdDraw.isKeyPressed(KeyEvent.VK_ENTER)){
                 break;
             }
