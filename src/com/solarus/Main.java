@@ -29,25 +29,29 @@ public class Main {
         //j'applique a pacmanMap les méthodes présents dans la classe map
         StdDraw.setPenColor(Color.yellow);
 
-        int direction = 6;
+        int direction = 0, degre = 0;
         while(true){
 
             if (StdDraw.isKeyPressed(KeyEvent.VK_DOWN) ) {
                 direction = 2;
+                degre = 270;
             }
             if (StdDraw.isKeyPressed(KeyEvent.VK_UP)  ) {
                 direction = 8;
+                degre = 90;
             }
             if (StdDraw.isKeyPressed(KeyEvent.VK_LEFT) ) {
                 direction = 4;
+                degre = 180;
             }
             if (StdDraw.isKeyPressed(KeyEvent.VK_RIGHT)) {
                 direction = 6;
+                degre = 0;
             }
             StdDraw.clear(StdDraw.BLACK);
             pacmanMap.generateurGraphique(pacmanMap.getLabyrinthe());
             joueur1.mouvement(direction);
-            StdDraw.picture(joueur1.getX(),joueur1.getY(), "pacman2.png",0.9,0.9,0);
+            StdDraw.picture(joueur1.getX(),joueur1.getY(), "pacman2.png",0.9,0.9,degre);
             StdDraw.show(50);
 
             System.out.println();
