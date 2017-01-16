@@ -115,60 +115,6 @@ public class Map {
 
         return tableau;
     }
-
-    public static boolean testMurHaut(int ordonneeEntity  , int abcisseEntity){
-        Map pacmanMap = new Map();
-        int [][] temp = pacmanMap.getLabyrinthe();
-        boolean [] tableau= new boolean[4];
-        if(temp[(ordonneeEntity+=1)][abcisseEntity]==0){
-            //test Haut
-            return true;
-        }
-        else{
-            return false;
-        }
-    }
-
-    public static boolean testMurDroite(int ordonneeEntity  , int abcisseEntity){
-        Map pacmanMap = new Map();
-        int [][] temp = pacmanMap.getLabyrinthe();
-        boolean [] tableau= new boolean[4];
-        if(temp[ordonneeEntity][(abcisseEntity+=1)]==0){
-            //test Droite
-            return true;
-        }
-        else{
-            return false;
-        }
-    }
-
-    public static boolean testMurBas(int ordonneeEntity  , int abcisseEntity){
-        Map pacmanMap = new Map();
-        int [][] temp = pacmanMap.getLabyrinthe();
-        boolean [] tableau= new boolean[4];
-        if(temp[ordonneeEntity-=1][(abcisseEntity)]==0){
-            //test Bas
-            return true;
-        }
-        else{
-            return false;
-        }
-    }
-
-    public static boolean testMurGauche(int ordonneeEntity  , int abcisseEntity){
-        Map pacmanMap = new Map();
-        int [][] temp = pacmanMap.getLabyrinthe();
-        boolean [] tableau= new boolean[4];
-        if(temp[ordonneeEntity][(abcisseEntity-=1)]==0){
-            //test Haut
-            return true;
-        }
-        else{
-            return false;
-        }
-    }
-
-
 }
 
 

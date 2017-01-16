@@ -50,47 +50,4 @@ public class Entity {
 
         return collision;
     }
-    public boolean collisionsPossiblesNord (){
-        Map pacmanMap = new Map();
-        int [][] temp = pacmanMap.getLabyrinthe();
-        if(temp[this.py+1][this.px]==0){
-            return true;
-        }
-        else{
-            return false;
-        }
-    }
-
-    public boolean collisionsPossiblesDroite (){
-        Map pacmanMap = new Map();
-        int [][] temp = pacmanMap.getLabyrinthe();
-        if(temp[this.py][this.px+1]==0){
-            return true;
-        }
-        else{
-            return false;
-        }
-    }
-
-    public boolean collisionsPossiblesSud (){
-        Map pacmanMap = new Map();
-        int [][] temp = pacmanMap.getLabyrinthe();
-        if(temp[this.py-1][this.px]==0){
-            return true;
-        }
-        else{
-            return false;
-        }
-    }
-
-    public boolean collisionsPossiblesGauche (){
-        Map pacmanMap = new Map();
-        int [][] temp = pacmanMap.getLabyrinthe();
-        if(temp[this.py][this.px-1]==0){
-            return true;
-        }
-        else{
-            return false;
-        }
-    }
 }
