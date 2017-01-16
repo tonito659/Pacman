@@ -3,6 +3,7 @@ package com.solarus;
 import edu.princeton.cs.introcs.StdDraw;
 
 import java.awt.*;
+import java.awt.event.KeyEvent;
 
 public class Main {
 
@@ -18,15 +19,44 @@ public class Main {
 
 
 
-        pacmanMap.initalisationEcran();
+        pacmanMap.initialisationEcran();
         pacmanMap.generateurGraphique(pacmanMap.getLabyrinthe());
-        StdDraw.picture(joueur1.getPx(), joueur1.getPy(), "pacman2.png",0.9,0.9,180);
-        System.out.print("X ="+joueur1.getPx()+" Y ="+joueur1.getPy());
+
+
+        StdDraw.picture(joueur1.getX(), joueur1.getY(), "pacman2.png",0.9,0.9,180);
+        System.out.print("X ="+joueur1.getX()+" Y ="+joueur1.getX());
         StdDraw.enableDoubleBuffering();
         //j'applique a pacmanMap les méthodes présents dans la classe map
         //StdDraw.filledCircle(0,0,3);
         StdDraw.setPenColor(Color.yellow);
-        joueur1.movePacman();
+        //joueur1.movePacman();
+
+        int direction = 6;
+        while(true){
+
+            if (StdDraw.isKeyPressed(KeyEvent.VK_DOWN) ) {
+                direction = 2;
+            }
+            if (StdDraw.isKeyPressed(KeyEvent.VK_UP)  ) {
+                direction = 8;
+            }
+            if (StdDraw.isKeyPressed(KeyEvent.VK_LEFT) ) {
+                direction = 4;
+            }
+            if (StdDraw.isKeyPressed(KeyEvent.VK_RIGHT)) {
+                direction = 6;
+            }
+            StdDraw.clear(StdDraw.BLACK);
+            pacmanMap.generateurGraphique(pacmanMap.getLabyrinthe());
+            joueur1.mouvement(direction);
+            StdDraw.picture(joueur1.getX(),joueur1.getY(), "pacman2.png",0.9,0.9,0);
+            StdDraw.show(50);
+
+            System.out.println();
+            if (StdDraw.isKeyPressed(KeyEvent.VK_ENTER)){
+                break;
+            }
+        }
 
     }
 

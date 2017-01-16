@@ -45,12 +45,12 @@ public class Map {
                     // 0= Mur , 1=case vide , 2=petites graines , 3=grosse graines
             };
 
-    public  int[][] getLabyrinthe() {
+    public int[][] getLabyrinthe() {
         return labyrinthe;
     }
 
 
-    public static void generateurGraphique(int[][] arrayMap){
+    public void generateurGraphique(int[][] arrayMap){
         for (int ordonnee=30; ordonnee>=0; --ordonnee){
             for(int abcisse=27; abcisse>=0; --abcisse)  {
                 if (arrayMap[ordonnee][abcisse] == 0) {
@@ -78,7 +78,7 @@ public class Map {
 
     }
 
-    public  void initalisationEcran(){
+    public void initialisationEcran(){
         StdDraw.setCanvasSize(600,600);
         StdDraw.setXscale(-WIDTH, X_MAX + WIDTH);
         StdDraw.setYscale(-WIDTH, Y_MAX + WIDTH);
@@ -87,7 +87,7 @@ public class Map {
 
     }
 
-    public  boolean [] testMur(int [][] map,int ordonneeEntity  , int abcisseEntity){
+   /* public  boolean [] testMur(int [][] map,int ordonneeEntity  , int abcisseEntity){
         // mur= true, pas de mur=false
         //Dans le tableau de boolean position 0=haut 1=droite 2=bas 3=gauche par rapport a la position de l'Entity
         boolean [] tableau= new boolean[4];
@@ -115,6 +115,7 @@ public class Map {
 
         return tableau;
     }
+    */
 }
 
 
