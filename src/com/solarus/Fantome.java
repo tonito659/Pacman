@@ -11,6 +11,7 @@ public class Fantome extends Entity{
     double seed = Math.random()*4;
 
     public Fantome(Color couleur, int abcisse, int ordonnee) {
+        super(abcisse,ordonnee);
         //init fantome, on peut les placer sur des endroits random dans la map
         this.couleur = couleur;
         this.px = abcisse;

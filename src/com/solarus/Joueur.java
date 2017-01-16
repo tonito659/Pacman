@@ -17,10 +17,11 @@ public class Joueur extends Entity{
 
     // Concerne les attributs du pacman
 
-    protected int px =15, py =7;
+    private int px =15, py =7;
     // oubliger de les metre en protected pour l'héritage
 
     public Joueur(int nbVie, int score, String pseudo, int px, int py) {
+        super(px, py);
         this.nbVie = nbVie;
         this.score = score;
         this.pseudo = pseudo;

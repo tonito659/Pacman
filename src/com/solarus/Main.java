@@ -27,9 +27,7 @@ public class Main {
         System.out.print("X ="+joueur1.getX()+" Y ="+joueur1.getX());
         StdDraw.enableDoubleBuffering();
         //j'applique a pacmanMap les méthodes présents dans la classe map
-        //StdDraw.filledCircle(0,0,3);
         StdDraw.setPenColor(Color.yellow);
-        //joueur1.movePacman();
 
         int direction = 6;
         while(true){

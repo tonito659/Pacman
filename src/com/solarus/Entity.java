@@ -3,7 +3,7 @@ package com.solarus;
 
 public class Entity {
 
-    private int px, py;
+    private int px=15, py=15;
 
     public int getX() {
         return px;
@@ -21,6 +21,11 @@ public class Entity {
         this.py = y;
     }
 
+
+    public Entity(int px, int py){
+        this.px = px;
+        this.py = py;
+    }
 
     //public void deplacement(){}
     public void transfertBord(){
