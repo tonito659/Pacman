@@ -45,8 +45,24 @@ public class Map {
                     // 0= Mur , 1=case vide , 2=petites graines , 3=grosse graines
             };
 
+
+
+
     public int[][] getLabyrinthe() {
         return labyrinthe;
+    }
+
+
+    public int[][] getLabyrintheReverse(){
+        int [][] reverseMap = this.getLabyrinthe();
+        for(int i = 0; i < reverseMap.length / 2; i++)
+        {
+            int [] temp = reverseMap[i];
+            reverseMap[i] = reverseMap[reverseMap.length - i - 1];
+            reverseMap[reverseMap.length - i - 1] = temp;
+        }
+
+        return reverseMap;
     }
 
 
@@ -73,8 +89,13 @@ public class Map {
 
                 }
                 //System.out.println("X = " + abcisse + " Y: " + ordonnee);
+
+                //System.out.print(arrayMap[ordonnee][abcisse]);
             }
+            //System.out.println("");
+
         }
+        //System.out.println("Tableau généré");
 
     }
 
