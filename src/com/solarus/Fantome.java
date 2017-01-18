@@ -19,7 +19,7 @@ public class Fantome extends Entity{
     }
 
 
-    public void deplacementfantome(){
+    public void deplacement(){
         //
         seed = Math.random()*4;
 
