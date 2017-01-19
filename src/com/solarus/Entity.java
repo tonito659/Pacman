@@ -3,7 +3,7 @@ package com.solarus;
 
 public class Entity {
 
-    private int px=15, py=15;
+    protected int px, py;
 
     public int getX() {
         return px;

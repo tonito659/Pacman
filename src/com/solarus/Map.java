@@ -5,8 +5,8 @@ import edu.princeton.cs.introcs.StdDraw;
 import java.awt.*;
 
 public class Map {
-    public static final  int X_MAX= 27;
-    public static final  int Y_MAX= 30;
+    public static final  int X_MAX= 28;
+    public static final  int Y_MAX= 29;
     public static final  float WIDTH= 1;
 
     private int [][] labyrinthe =
@@ -29,7 +29,7 @@ public class Map {
                     {0,0,0,0,0,0,2,0,0,1,0,1,1,1,1,1,1,0,1,0,0,2,0,0,0,0,0,0},
                     {1,1,1,1,1,1,2,1,1,1,0,1,1,1,1,1,1,0,1,1,1,2,1,1,1,1,1,1},//millieu
                     {0,0,0,0,0,0,2,0,0,1,0,1,1,1,1,1,1,0,1,0,0,2,0,0,0,0,0,0},
-                    {1,1,1,1,1,0,2,0,0,1,0,0,0,0,0,0,0,0,1,0,0,2,0,1,1,1,1,1},
+                    {1,1,1,1,1,0,2,0,0,1,0,0,4,4,4,4,0,0,1,0,0,2,0,1,1,1,1,1},
                     {1,1,1,1,1,0,2,0,0,1,1,1,1,1,1,1,1,1,1,0,0,2,0,1,1,1,1,1},
                     {1,1,1,1,1,0,2,0,0,0,0,0,1,0,0,1,0,0,0,0,0,2,0,1,1,1,1,1},
                     {0,0,0,0,0,0,2,0,0,0,0,0,1,0,0,1,0,0,0,0,0,2,0,0,0,0,0,0},
@@ -42,7 +42,7 @@ public class Map {
                     {0,2,0,0,0,0,2,0,0,0,0,0,2,0,0,2,0,0,0,0,0,2,0,0,0,0,2,0},
                     {0,2,2,2,2,2,2,2,2,2,2,2,2,0,0,2,2,2,2,2,2,2,2,2,2,2,2,0},
                     {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-                    // 0= Mur , 1=case vide , 2=petites graines , 3=grosse graines
+                    // 0= Mur , 1=case vide , 2=petites graines , 3=grosse graines, 4=mur fantome
             };
 
 
@@ -73,20 +73,17 @@ public class Map {
                     StdDraw.setPenColor(StdDraw.BLUE);
                     StdDraw.filledRectangle(abcisse, ordonnee, 0.51, 0.51);
                 }
-
                 else if(arrayMap[ordonnee][abcisse] == 2) {
                     StdDraw.setPenColor(StdDraw.ORANGE);
-
                     StdDraw.filledCircle(abcisse,ordonnee,0.1);
-                }else if(arrayMap[ordonnee][abcisse] == 3) {
+                }
+                else if(arrayMap[ordonnee][abcisse] == 3) {
                     StdDraw.setPenColor(StdDraw.ORANGE);
                     StdDraw.filledCircle(abcisse, ordonnee, 0.3);
-
-                    StdDraw.filledCircle(abcisse,ordonnee,0.1);
-                }else if(arrayMap[ordonnee][abcisse] == 3) {
-                    StdDraw.setPenColor(StdDraw.ORANGE);
-                    StdDraw.filledCircle(abcisse, ordonnee, 0.3);
-
+                }
+                else if(arrayMap[ordonnee][abcisse]==4){
+                    StdDraw.setPenColor(StdDraw.WHITE);
+                    StdDraw.line(11,18,15.5,18);
                 }
                 //System.out.println("X = " + abcisse + " Y: " + ordonnee);
 
@@ -100,43 +97,14 @@ public class Map {
     }
 
     public void initialisationEcran(){
-        StdDraw.setCanvasSize(600,600);
-        StdDraw.setXscale(-WIDTH, X_MAX + WIDTH);
-        StdDraw.setYscale(-WIDTH, Y_MAX + WIDTH);
+        StdDraw.setCanvasSize(650,650);
+        StdDraw.setXscale(-1, 28 );
+        StdDraw.setYscale(-6, 31 );
         StdDraw.clear(StdDraw.BLACK);
 
 
     }
 
-   /* public  boolean [] testMur(int [][] map,int ordonneeEntity  , int abcisseEntity){
-        // mur= true, pas de mur=false
-        //Dans le tableau de boolean position 0=haut 1=droite 2=bas 3=gauche par rapport a la position de l'Entity
-        boolean [] tableau= new boolean[4];
-
-        if(map[(ordonneeEntity+1)][abcisseEntity]==0){
-            //test Haut
-            tableau[0]=true;
-        }
-        if(map[ordonneeEntity][(abcisseEntity+1)]==0){
-            //test Droite
-            tableau[1]=true;
-        }
-        if(map[(ordonneeEntity-1)][abcisseEntity]==0){
-            //test Bas
-            tableau[2]=true;
-        }
-        if(map[ordonneeEntity][(abcisseEntity-1)]==0){
-            //test Gauche
-            tableau[3]=true;
-        }
-
-        for(int i =0 ;i<4;i++){
-            System.out.println(tableau[i]) ;
-        }
-
-        return tableau;
-    }
-    */
 }
 
 

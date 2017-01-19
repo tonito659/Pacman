@@ -10,7 +10,7 @@ public class Main {
     public static void main(String[] args) {
         //
         Map pacmanMap = new Map();
-        Joueur joueur1 = new Joueur(2, 0, "Bogoss", 14, 7);
+        Joueur joueur1 = new Joueur(2, 0, "Bogoss", 15,7);
         Fantome FantomeRouge = new Fantome(StdDraw.RED, 14, 16);
         Fantome FantomeRose = new Fantome(StdDraw.PINK, 15, 16);
         Fantome FantomeBleu = new Fantome(StdDraw.BLUE, 14, 15);
@@ -25,12 +25,10 @@ public class Main {
         StdDraw.picture(joueur1.getX(), joueur1.getY(), "pacman2.png", 0.9, 0.9, 180);
         System.out.print("X =" + joueur1.getX() + " Y =" + joueur1.getX());
         StdDraw.enableDoubleBuffering();
-        //j'applique a pacmanMap les méthodes présents dans la classe map
         StdDraw.setPenColor(Color.yellow);
 
         int direction = 0, degre = 0;
         while (true) {
-
             if (StdDraw.isKeyPressed(KeyEvent.VK_DOWN)) {
                 direction = 2;
                 degre = 270;
@@ -48,11 +46,12 @@ public class Main {
                 degre = 0;
             }
             StdDraw.clear(StdDraw.BLACK);
-            pacmanMap.generateurGraphique(pacmanMap.getLabyrinthe());
             System.out.println("PC x= " + joueur1.getX() + " Y = " + joueur1.getY());
+            pacmanMap.generateurGraphique(pacmanMap.getLabyrinthe());
             joueur1.mouvement(direction);
             StdDraw.picture(joueur1.getX(), joueur1.getY(), "pacman2.png", 0.9, 0.9, degre);
-            StdDraw.show(100);
+            StdDraw.show(200);
+
 
 
             if (StdDraw.isKeyPressed(KeyEvent.VK_ENTER)) {
