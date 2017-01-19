@@ -1,6 +1,8 @@
 package com.solarus;
 
-import com.sun.org.apache.xpath.internal.SourceTree;
+import edu.princeton.cs.introcs.StdDraw;
+
+import java.awt.event.KeyEvent;
 
 
 public class Joueur extends Entity{
@@ -15,8 +17,15 @@ public class Joueur extends Entity{
 
     // Concerne les attributs du pacman
 
-    private int px, py;
+    private int px =15, py =7;
+    // oubliger de les metre en protected pour l'héritage
 
-
-
+    public Joueur(int nbVie, int score, String pseudo, int px, int py) {
+        super(px, py);
+        this.nbVie = nbVie;
+        this.score = score;
+        this.pseudo = pseudo;
+        this.px = px;
+        this.py = py;
+    }
 }

@@ -11,6 +11,7 @@ public class Fantome extends Entity{
     double seed = Math.random()*4;
 
     public Fantome(Color couleur, int abcisse, int ordonnee) {
+        super(abcisse,ordonnee);
         //init fantome, on peut les placer sur des endroits random dans la map
         this.couleur = couleur;
         this.px = abcisse;
@@ -18,7 +19,7 @@ public class Fantome extends Entity{
     }
 
 
-    public void deplacementfantome(){
+    public void deplacement(){
         //
         seed = Math.random()*4;
 
@@ -38,7 +39,8 @@ public class Fantome extends Entity{
     public boolean posIsIntersection(){
         // On teste si l'emplacement actuel du fantome est une intersection
         boolean intersect= false;
-        int [][] intersectMap = Map.getLabyrinthe();
+        Map pacmanMap = new Map();
+        int [][] intersectMap = pacmanMap.getLabyrinthe();
 
         if(seed == 3 ||seed == 9){
 
