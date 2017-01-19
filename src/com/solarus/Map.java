@@ -52,6 +52,9 @@ public class Map {
         return labyrinthe;
     }
 
+    public void setLabyrinthe(int[][] labyrinthe) {
+        this.labyrinthe = labyrinthe;
+    }
 
     public int[][] getLabyrintheReverse(){
         int [][] reverseMap = this.getLabyrinthe();
@@ -66,7 +69,7 @@ public class Map {
     }
 
 
-    public void generateurGraphique(int[][] arrayMap){
+    public void ecranDeJeu(int[][] arrayMap){
         for (int ordonnee=30; ordonnee>=0; --ordonnee){
             for(int abcisse=27; abcisse>=0; --abcisse)  {
                 if (arrayMap[ordonnee][abcisse] == 0) {
@@ -101,10 +104,11 @@ public class Map {
         StdDraw.setXscale(-1, 28 );
         StdDraw.setYscale(-6, 31 );
         StdDraw.clear(StdDraw.BLACK);
-
-
     }
 
+    public void ecranDeDemarrage(){
+        //ajouter image
+    }
 }
 
 
