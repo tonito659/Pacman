@@ -52,7 +52,8 @@ public class Main {
             System.out.println("PC x= " + joueur1.getX() + " Y = " + joueur1.getY());
             joueur1.mouvement(direction);
             StdDraw.picture(joueur1.getX(), joueur1.getY(), "pacman2.png", 0.9, 0.9, degre);
-            StdDraw.show(100);
+            StdDraw.show();
+            StdDraw.pause(100);
 
 
             if (StdDraw.isKeyPressed(KeyEvent.VK_ENTER)) {
