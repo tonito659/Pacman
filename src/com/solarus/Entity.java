@@ -3,7 +3,7 @@ package com.solarus;
 
 public class Entity {
 
-    private int px=15, py=15;
+    protected int px, py;
 
     public int getX() {
         return px;
@@ -35,7 +35,7 @@ public class Entity {
         if(this.px == 0 && this.py == 16){
             px=26;
         } else if (this.px == 26 && this.py == 16){
-            px=0;
+            px=1;
         }
     }
 
@@ -46,18 +46,18 @@ public class Entity {
         int [][] temp = pacmanMap.getLabyrinthe();
         if(temp[this.py+1][this.px]==0){ //nord
             collision[0] = true;
-        } else if(temp[this.py][this.px+1]==0){ //est
+        }
+        if(temp[this.py][this.px+1]==0){ //est
             collision[1] = true;
-        } else if(temp[this.py-1][this.px]==0){ //sud
+        }
+        if(temp[this.py-1][this.px]==0){ //sud
             collision[2] = true;
-        } else if(temp[this.py][this.px-1]==0){ //ouest
+        }
+        if(temp[this.py][this.px-1]==0){ //ouest
             collision[3] = true;
         }
         //System.out.println(collision[0]+"\t"+collision[1]+"\t"+collision[2]+"\t"+collision[3]);
-        System.out.println("X = "+ this.px+ "\t Y = "+ this.py);
-        System.out.println("\t"+temp[this.py+1][this.px]);
-        System.out.println(temp[this.py][this.px-1]+"\t"+temp[this.py][this.px]+"\t"+temp[this.py][this.px+1]);
-        System.out.println("\t"+ temp[this.py-1][this.px]);
+        //System.out.println("X = "+ this.px+ "\t Y = "+ this.py);
         return collision;
     }
     public boolean mouvement(int direction){
@@ -95,8 +95,11 @@ public class Entity {
                     hasMoved = true;
                 }
                 break;
-
         }
+        /*System.out.println("\t"+collisions[0]);
+        System.out.println(collisions[3]+"\t"+collisions[1]);
+        System.out.printf("\t"+collisions[2]);
+        */
         return hasMoved;
     }
 }

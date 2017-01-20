@@ -30,7 +30,7 @@ public class Debug {
 
 
         mapJeu.initialisationEcran();
-        mapJeu.generateurGraphique(mapJeu.getLabyrinthe());
+        mapJeu.ecranDeJeu(mapJeu.getLabyrinthe());
         // Réalisation des init GUI
         StdDraw.picture(joueur1.getX(), joueur1.getY(), "pacman2.png", 0.9, 0.9, 180);
         //System.out.print("X =" + joueur1.getX() + " Y =" + joueur1.getX());
@@ -59,12 +59,12 @@ public class Debug {
                 degre = 0;
             }
             StdDraw.clear(StdDraw.BLACK);
-            mapJeu.generateurGraphique(mapJeu.getLabyrinthe());
+            mapJeu.ecranDeJeu(mapJeu.getLabyrinthe());
             System.out.println("PC x= " + joueur1.getX() + " Y = " + joueur1.getY());
             joueur1.mouvement(direction);
             StdDraw.picture(joueur1.getX(), joueur1.getY(), "pacman2.png", 0.9, 0.9, degre);
             StdDraw.show();
-            StdDraw.pause(10000);
+            StdDraw.pause(1000);
 
 
 
