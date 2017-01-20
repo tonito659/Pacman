@@ -1,7 +1,7 @@
 package com.solarus;
 
 import edu.princeton.cs.introcs.StdDraw;
-
+import java.awt.event.KeyEvent;
 import java.awt.*;
 
 public class Map {
@@ -108,6 +108,17 @@ public class Map {
 
     public void ecranDeDemarrage(){
         //ajouter image
+       /* StdDraw.picture(17, 20, "PAC-MAN.jpg", 12, 10);
+        Font font = new Font("Arial", Font.BOLD, 60);
+        StdDraw.setFont(font);
+        StdDraw.text(-5, 5, "Hello, World");
+        boolean sortieBoucleInfinie =true;
+       while(true){
+            if(StdDraw.isKeyPressed(KeyEvent.VK_ENTER)){
+            sortieBoucleInfinie=false;
+            }
+        }*/
+
     }
 }
 

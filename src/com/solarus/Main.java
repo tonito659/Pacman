@@ -19,8 +19,7 @@ public class Main {
 
 
         pacmanMap.initialisationEcran();
-        pacmanMap.ecranDeJeu(pacmanMap.getLabyrinthe());
-
+        pacmanMap.ecranDeDemarrage();
 
         StdDraw.picture(joueur1.getX(), joueur1.getY(), "pacman2.jpg", 0.9, 0.9, 180);
         StdDraw.picture(FantomeBleu.getX(), FantomeBleu.getY(), "pinkie.jpg", 0.9, 0.9, 180);
