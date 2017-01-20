@@ -34,8 +34,8 @@ public class Entity {
         // INSTANT TP OMGHAXX
         if(this.px == 0 && this.py == 16){
             px=26;
-        } else if (this.px == 27 && this.py == 16){
-            px=0;
+        } else if (this.px == 26 && this.py == 16){
+            px=1;
         }
     }
 

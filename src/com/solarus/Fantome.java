@@ -73,7 +73,8 @@ public class Fantome extends Entity{
         if(temp[this.getY()][this.getX()-1]==0){ //ouest
             directions[3] = false;
         }
-        System.out.println(directions[0]+" "+directions[1]+" "+directions[2]+" "+directions[3]+" ");
+        // DEBUG
+        // System.out.println(directions[0]+" "+directions[1]+" "+directions[2]+" "+directions[3]+" ");
         return directions;
     }
 
