@@ -9,6 +9,11 @@ public class Main {
 
     public static void main(String[] args) {
         //TODO : Créer une classe Ecran qui comporte les diférents écrans qui ne sont pas le plateau de jeu, ie les menus, pause et le reste
+        //TODO : Finir le menu démarrage , finir l'ecran de jeu en affichant les vies et les faire disparaitre quand on en perd
+        //TODO : Régler le problème pour êmpéche que pacman et fantome rentre au millieu
+        //TODO : Faire ecran de défaite + condition de défaite
+        //TODO : Faire que les fantomes bouge dans le sens de déplacement
+        //TODO : Lorsque le pacman est invincible faire revenir les fantomes au point de dépard
 
         Map pacmanMap = new Map();
         Joueur joueur1 = new Joueur(2, 0, "Bogoss", 14, 7);
@@ -70,7 +75,13 @@ public class Main {
             FantomeRouge.transfertBord();
 
             joueur1.mangeGraine(pacmanMap, FantomeRouge,FantomeRose,FantomeBleu,FantomeOrange);
+
             StdDraw.picture(3, -3.1, "Ender_SCORE.jpg", 5,5 );
+            StdDraw.setPenColor(Color.WHITE);
+            Font font = new Font("Arial", Font.BOLD, 30);
+            StdDraw.setFont(font);
+            StdDraw.text(7,-3.5, ":" +joueur1.getScore());
+
 
             StdDraw.picture(joueur1.getX(), joueur1.getY(), "pacman2.jpg", 0.9, 0.9, degre);
             StdDraw.picture(FantomeBleu.getX(), FantomeBleu.getY(), "bleue.png", 0.9, 0.9, FantomeBleu.getDegre());
