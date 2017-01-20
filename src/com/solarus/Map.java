@@ -53,18 +53,6 @@ public class Map {
         this.labyrinthe[Y][X] = valeur;
     }
 
-    public int[][] getLabyrintheReverse(){
-        int [][] reverseMap = this.getLabyrinthe();
-        for(int i = 0; i < reverseMap.length / 2; i++)
-        {
-            int [] temp = reverseMap[i];
-            reverseMap[i] = reverseMap[reverseMap.length - i - 1];
-            reverseMap[reverseMap.length - i - 1] = temp;
-        }
-
-        return reverseMap;
-    }
-
 
     public void ecranDeJeu(int[][] arrayMap){
         for (int ordonnee=30; ordonnee>=0; --ordonnee){

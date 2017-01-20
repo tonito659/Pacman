@@ -39,7 +39,7 @@ public class Debug {
 
         //j'applique a mapJeu les méthodes présents dans la classe map
         StdDraw.setPenColor(Color.yellow);
-        int [][] reversemap = mapJeu.getLabyrintheReverse();
+        int [][] reversemap = mapJeu.getLabyrinthe();
         while (true) {
 
             if (StdDraw.isKeyPressed(KeyEvent.VK_DOWN)) {
