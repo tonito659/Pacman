@@ -51,6 +51,8 @@ public class Main {
             StdDraw.clear(StdDraw.BLACK);
             pacmanMap.ecranDeJeu(pacmanMap.getLabyrinthe());
             System.out.println("PC x= " + joueur1.getX() + " Y = " + joueur1.getY());
+
+            //déplacement du joueur
             joueur1.mouvement(direction);
             joueur1.transfertBord();
             FantomeBleu.deplacement();
@@ -59,6 +61,8 @@ public class Main {
 
             StdDraw.show();
             StdDraw.pause(100);
+
+
 
 
             if (StdDraw.isKeyPressed(KeyEvent.VK_ENTER)) {
