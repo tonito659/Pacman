@@ -8,7 +8,8 @@ import java.awt.event.KeyEvent;
 public class Main {
 
     public static void main(String[] args) {
-        //
+        //TODO : Créer une classe Ecran qui comporte les diférents écrans qui ne sont pas le plateau de jeu, ie les menus, pause et le reste
+
         Map pacmanMap = new Map();
         Joueur joueur1 = new Joueur(2, 0, "Bogoss", 14, 7);
         Fantome FantomeRouge = new Fantome(StdDraw.RED, 14, 16);
@@ -68,7 +69,7 @@ public class Main {
             FantomeRouge.deplacement();
             FantomeRouge.transfertBord();
 
-            joueur1.mangeGraine(pacmanMap);
+            joueur1.mangeGraine(pacmanMap, FantomeRouge,FantomeRose,FantomeBleu,FantomeOrange);
 
             StdDraw.picture(joueur1.getX(), joueur1.getY(), "pacman2.jpg", 0.9, 0.9, degre);
             StdDraw.picture(FantomeBleu.getX(), FantomeBleu.getY(), "bleue.png", 0.9, 0.9, FantomeBleu.getDegre());
