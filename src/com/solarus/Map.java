@@ -49,8 +49,8 @@ public class Map {
         return labyrinthe;
     }
 
-    public void setLabyrinthe(int[][] labyrinthe) {
-        this.labyrinthe = labyrinthe;
+    public void setValeurLabyrintheXY(int X, int Y, int valeur) {
+        this.labyrinthe[Y][X] = valeur;
     }
 
     public int[][] getLabyrintheReverse(){
@@ -114,6 +114,7 @@ public class Map {
        while(sortieBoucleInfinie){
             if(StdDraw.isKeyPressed(KeyEvent.VK_ENTER)){
             sortieBoucleInfinie=false;
+            StdDraw.pause(1000);
             }
         }
 

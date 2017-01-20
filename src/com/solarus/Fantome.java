@@ -82,7 +82,7 @@ public class Fantome extends Entity{
         boolean intersect = false;
         if((direction == 8 ||direction == 2) && (tableau[1] || tableau[3])){
             intersect = true;
-        }
+        } else
         if((direction == 4 ||direction == 6) && (tableau[0] || tableau[2])){
             intersect = true;
         }
