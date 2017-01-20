@@ -6,7 +6,6 @@ public class Fantome extends Entity{
 
     private boolean isInvicible = true;
     private Color couleur;
-    private int px, py;
     private int direction = 4; // 12 = Nord, 3 = Est, 6 = Sud, 9 = Ouest
     private int degre = 0;
 
@@ -15,18 +14,16 @@ public class Fantome extends Entity{
     }
 
     public Fantome(Color couleur, int abcisse, int ordonnee) {
-        super(abcisse,ordonnee);
+        super(abcisse, ordonnee);
         //init fantome, on peut les placer sur des endroits random dans la map
         this.couleur = couleur;
-        this.px = abcisse;
-        this.py = ordonnee;
     }
 
 
     public void deplacement(){
         //
         boolean[] directionpossibles = this.directionpossibles();
-        System.out.println("Fantome X = "+ this.px+ "\t Y = "+ this.py);
+        System.out.println("Fantome X = "+ this.getX()+ "\t Y = " + this.getY());
 
         if (this.emplacementEstUneIntersection(directionpossibles)) { //randomisation de la direction à une intersect
             System.out.println(this.emplacementEstUneIntersection(directionpossibles));
@@ -34,19 +31,19 @@ public class Fantome extends Entity{
             while (!mvt) {
             //TODO : ajouter une condition de non-retour
                 double random = Math.random() * 4;
-                if (random < 1 && directionpossibles[0]) {
+                if (random < 1 && directionpossibles[0] && direction != 2) {
                     direction = 8;//NORD
                     degre = 90;
                     mvt = true;
-                } else if (random >= 1 && random < 2 && directionpossibles[1]) {
+                } else if (random >= 1 && random < 2 && directionpossibles[1]&& direction != 4) {
                     direction = 6;//EST
                     degre = 0;
                     mvt = true;
-                } else if (random >= 2 && random < 3 && directionpossibles[2]) {
+                } else if (random >= 2 && random < 3 && directionpossibles[2]&& direction != 8) {
                     direction = 2;//SUD
                     degre = 270;
                     mvt = true;
-                } else if (random >= 3 && directionpossibles[3]) {
+                } else if (random >= 3 && directionpossibles[3]&& direction != 6) {
                     direction = 4;//OUEST
                     degre = 180;
                     mvt = true;
@@ -64,16 +61,16 @@ public class Fantome extends Entity{
         Map pacmanMap = new Map();
         boolean [] directions = {true, true, true, true};
         int [][] temp = pacmanMap.getLabyrinthe();
-        if(temp[this.py+1][this.px]==0){ //nord
+        if(temp[this.getY() +1][this.getX()]==0){ //nord
             directions[0] = false;
         }
-        if(temp[this.py][this.px+1]==0){ //est
+        if(temp[this.getY()][this.getX()+1]==0){ //est
             directions[1] = false;
         }
-        if(temp[this.py-1][this.px]==0){ //sud
+        if(temp[this.getY() -1][this.getX()]==0){ //sud
             directions[2] = false;
         }
-        if(temp[this.py][this.px-1]==0){ //ouest
+        if(temp[this.getY()][this.getX()-1]==0){ //ouest
             directions[3] = false;
         }
         System.out.println(directions[0]+" "+directions[1]+" "+directions[2]+" "+directions[3]+" ");
