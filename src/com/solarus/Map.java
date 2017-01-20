@@ -49,7 +49,7 @@ public class Map {
         return labyrinthe;
     }
 
-    public void setValeurLabyrintheXY(int X, int Y, int valeur) {
+    public void setValeurLabyrintheYX(int Y, int X, int valeur) {
         this.labyrinthe[Y][X] = valeur;
     }
 
@@ -110,11 +110,10 @@ public class Map {
         Font font = new Font("Arial", Font.BOLD, 15);
         StdDraw.setFont(font);
         StdDraw.text(6, 5, "Hello, World");
-        boolean sortieBoucleInfinie =true;
-       while(sortieBoucleInfinie){
+
+       while(true){
             if(StdDraw.isKeyPressed(KeyEvent.VK_ENTER)){
-            sortieBoucleInfinie=false;
-            StdDraw.pause(1000);
+            break;
             }
         }
 

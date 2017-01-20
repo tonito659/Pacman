@@ -6,7 +6,7 @@ public class Fantome extends Entity{
 
     private boolean isInvicible = true;
     private Color couleur;
-    private int px, py;
+    private int pxFantome, pyFantome;
     private int direction = 4; // 12 = Nord, 3 = Est, 6 = Sud, 9 = Ouest
     private int degre = 0;
 
@@ -18,8 +18,8 @@ public class Fantome extends Entity{
         super(abcisse,ordonnee);
         //init fantome, on peut les placer sur des endroits random dans la map
         this.couleur = couleur;
-        this.px = abcisse;
-        this.py = ordonnee;
+        this.pxFantome = abcisse;
+        this.pyFantome = ordonnee;
     }
 
 
@@ -60,16 +60,16 @@ public class Fantome extends Entity{
         Map pacmanMap = new Map();
         boolean [] directions = {true, true, true, true};
         int [][] temp = pacmanMap.getLabyrinthe();
-        if(temp[this.py+1][this.px]==0){ //nord
+        if(temp[this.pyFantome+1][this.pxFantome]==0){ //nord
             directions[0] = false;
         }
-        if(temp[this.py][this.px+1]==0){ //est
+        if(temp[this.pyFantome][this.pxFantome+1]==0){ //est
             directions[1] = false;
         }
-        if(temp[this.py-1][this.px]==0){ //sud
+        if(temp[this.pyFantome-1][this.pxFantome]==0){ //sud
             directions[2] = false;
         }
-        if(temp[this.py][this.px-1]==0){ //ouest
+        if(temp[this.pyFantome][this.pxFantome-1]==0){ //ouest
             directions[3] = false;
         }
 

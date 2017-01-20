@@ -16,7 +16,7 @@ public class Joueur extends Entity{
 
     // Concerne les attributs du pacman
 
-    private int px , py ;
+    private int pxJoueur , pyJoueur ;
     // oubliger de les metre en protected pour l'héritage
 
     public Joueur(int nbVie, int score, String pseudo, int px, int py) {
@@ -24,8 +24,8 @@ public class Joueur extends Entity{
         this.nbVie = nbVie;
         this.score = score;
         this.pseudo = pseudo;
-        this.px = px;
-        this.py = py;
+        this.pxJoueur = px;
+        this.pyJoueur = py;
     }
 
     public int getNbVie() {
@@ -44,31 +44,31 @@ public class Joueur extends Entity{
         return pseudo;
     }
 
-    public int getPx() {
-        return px;
+    public int getpxJoueur() {
+        return pxJoueur;
     }
 
-    public int getPy() {
-        return py;
+    public int getpyJoueur() {
+        return pyJoueur;
     }
 
-    public void setPx(int px) {
-        this.px = px;
+    public void setPx(int pxJoueur) {
+        this.pxJoueur = pxJoueur;
     }
 
-    public void setPy(int py) {
-        this.py = py;
+    public void setPy(int pyJoueur) {
+        this.py = pyJoueur;
     }
 
     public void testGraine(Joueur joueur1 ,Map mapTestGraine ){
-        boolean testGraine =false;
         int [][] test =mapTestGraine.getLabyrinthe();
-        if(test[joueur1.getPy()][joueur1.getPx()]==2){
-           test[joueur1.getPy()][joueur1.getPx()]=1;
-            mapTestGraine.ecranDeJeu(test);
+        if(test[joueur1.getpyJoueur()][joueur1.getpxJoueur()]==2){
+            System.out.println("Y joueur :"+joueur1.getpyJoueur()+" X joueur :"+joueur1.getpxJoueur());
+            mapTestGraine.setValeurLabyrintheYX(joueur1.getpyJoueur(),joueur1.getpxJoueur(),1);
+            System.out.println("au coordonne joueur1.getpyJoueur() et joueur1.getpxJoueur() il y a un :"+test[joueur1.getpyJoueur()][joueur1.getpxJoueur()]);
 
             joueur1.setScore(joueur1.getScore()+10);
-            System.out.print("Score"+ joueur1.getScore());
+            System.out.println("Score"+ joueur1.getScore());
         }
     }
 }
