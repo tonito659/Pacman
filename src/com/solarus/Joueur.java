@@ -40,7 +40,7 @@ public class Joueur extends Entity{
         return pseudo;
     }
 
-    public void mangeGraine(Map mapTestGraine ){
+    public void mangeGraine(Map mapTestGraine,Fantome FantomeRouge,Fantome FantomeRose,Fantome FantomeBleu, Fantome FantomeOrange ){
         int [][] test = mapTestGraine.getLabyrinthe();
         if(test[this.getY()][this.getX()]==2){
             mapTestGraine.setValeurLabyrintheYX(this.getY(),this.getX(),1);
@@ -49,6 +49,10 @@ public class Joueur extends Entity{
         if(test[this.getY()][this.getX()]==3){
             mapTestGraine.setValeurLabyrintheYX(this.getY(),this.getX(),1);
             this.setScore(this.getScore()+100);
+            FantomeBleu.setInvicible(false);
+            FantomeOrange.setInvicible(false);
+            FantomeRose.setInvicible(false);
+            FantomeRouge.setInvicible(false);
         }
         System.out.print("Score"+ this.getScore());
     }

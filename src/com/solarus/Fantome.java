@@ -5,6 +5,15 @@ import java.awt.*;
 public class Fantome extends Entity{
 
     private boolean isInvicible = true;
+        //TODO : creer une methode qui va changer la photo du fantome entre celle normale et celle invincible
+    public boolean isInvicible() {
+        return isInvicible;
+    }
+
+    public void setInvicible(boolean invicible) {
+        isInvicible = invicible;
+    }
+
     private Color couleur;
     private int direction = 4; // 12 = Nord, 3 = Est, 6 = Sud, 9 = Ouest
     private int degre = 0;
