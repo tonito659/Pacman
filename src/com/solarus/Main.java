@@ -70,6 +70,7 @@ public class Main {
             FantomeRouge.transfertBord();
 
             joueur1.mangeGraine(pacmanMap, FantomeRouge,FantomeRose,FantomeBleu,FantomeOrange);
+            StdDraw.picture(3, -3.1, "Ender_SCORE.jpg", 5,5 );
 
             StdDraw.picture(joueur1.getX(), joueur1.getY(), "pacman2.jpg", 0.9, 0.9, degre);
             StdDraw.picture(FantomeBleu.getX(), FantomeBleu.getY(), "bleue.png", 0.9, 0.9, FantomeBleu.getDegre());
