@@ -24,8 +24,11 @@ public class Main {
         StdDraw.picture(joueur1.getX(), joueur1.getY(), "pacman2.jpg", 0.9, 0.9, 180);
         StdDraw.picture(FantomeBleu.getX(), FantomeBleu.getY(), "bleue.png", 0.9, 0.9, 180);
         StdDraw.picture(FantomeRose.getX(), FantomeRose.getY(), "pinkie.jpg", 0.9, 0.9, 180);
+        StdDraw.picture(FantomeOrange.getX(), FantomeOrange.getY(), "yellowie.png", 0.9, 0.9, 180);
+        StdDraw.picture(FantomeRouge.getX(), FantomeRouge.getY(), "ready.png", 0.9, 0.9, 180);
 
-        System.out.print("X =" + joueur1.getX() + " Y =" + joueur1.getX());
+
+        //System.out.print("X =" + joueur1.getX() + " Y =" + joueur1.getX());
         StdDraw.enableDoubleBuffering();
         //j'applique a pacmanMap les méthodes présents dans la classe map
         StdDraw.setPenColor(Color.yellow);
@@ -51,15 +54,26 @@ public class Main {
             }
             StdDraw.clear(StdDraw.BLACK);
             pacmanMap.ecranDeJeu(pacmanMap.getLabyrinthe());
-            System.out.println("PC x= " + joueur1.getX() + " Y = " + joueur1.getY());
 
-            //déplacement du joueur
+            //déplacement du joueur et des fantomes, check des TP
             joueur1.mouvement(direction);
             joueur1.transfertBord();
             FantomeBleu.deplacement();
             FantomeBleu.transfertBord();
+            FantomeRose.deplacement();
+            FantomeRose.transfertBord();
+            FantomeOrange.deplacement();
+            FantomeOrange.transfertBord();
+            FantomeRouge.deplacement();
+            FantomeRouge.transfertBord();
+
+
             StdDraw.picture(joueur1.getX(), joueur1.getY(), "pacman2.jpg", 0.9, 0.9, degre);
-            StdDraw.picture(FantomeBleu.getX(), FantomeBleu.getY(), "pinkie.jpg", 0.9, 0.9, FantomeBleu.getDegre());
+            StdDraw.picture(FantomeBleu.getX(), FantomeBleu.getY(), "bleue.png", 0.9, 0.9, FantomeBleu.getDegre());
+            StdDraw.picture(FantomeRose.getX(), FantomeRose.getY(), "pinkie.jpg", 0.9, 0.9, FantomeRose.getDegre());
+            StdDraw.picture(FantomeOrange.getX(), FantomeOrange.getY(), "yellowie.png", 0.9, 0.9, FantomeOrange.getDegre());
+            StdDraw.picture(FantomeRouge.getX(), FantomeRouge.getY(), "ready.png", 0.9, 0.9, FantomeRouge.getDegre());
+
 
             StdDraw.show();
             StdDraw.pause(100);
