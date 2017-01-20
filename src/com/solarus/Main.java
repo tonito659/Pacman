@@ -21,11 +21,11 @@ public class Main {
         pacmanMap.initialisationEcran();
         pacmanMap.ecranDeDemarrage();
 
-        StdDraw.picture(joueur1.getpxJoueur(), joueur1.getpyJoueur(), "pacman2.jpg", 0.9, 0.9, 180);
-        StdDraw.picture(FantomeBleu.getX(), FantomeBleu.getY(), "pinkie.jpg", 0.9, 0.9, 180);
+        StdDraw.picture(joueur1.getX(), joueur1.getY(), "pacman2.jpg", 0.9, 0.9, 180);
+        StdDraw.picture(FantomeBleu.getX(), FantomeBleu.getY(), "bleue.png", 0.9, 0.9, 180);
+        StdDraw.picture(FantomeRose.getX(), FantomeRose.getY(), "pinkie.jpg", 0.9, 0.9, 180);
 
-        System.out.println("X =" + joueur1.getpxJoueur() + " Y =" + joueur1.getpyJoueur());
-
+        System.out.print("X =" + joueur1.getX() + " Y =" + joueur1.getX());
         StdDraw.enableDoubleBuffering();
         //j'applique a pacmanMap les méthodes présents dans la classe map
         StdDraw.setPenColor(Color.yellow);
@@ -51,16 +51,20 @@ public class Main {
             }
             StdDraw.clear(StdDraw.BLACK);
             pacmanMap.ecranDeJeu(pacmanMap.getLabyrinthe());
-            joueur1.testGraine(joueur1,pacmanMap);
             System.out.println("PC x= " + joueur1.getX() + " Y = " + joueur1.getY());
+
+            //déplacement du joueur
             joueur1.mouvement(direction);
             joueur1.transfertBord();
             FantomeBleu.deplacement();
+            FantomeBleu.transfertBord();
             StdDraw.picture(joueur1.getX(), joueur1.getY(), "pacman2.jpg", 0.9, 0.9, degre);
             StdDraw.picture(FantomeBleu.getX(), FantomeBleu.getY(), "pinkie.jpg", 0.9, 0.9, FantomeBleu.getDegre());
 
             StdDraw.show();
             StdDraw.pause(100);
+
+
 
 
             if (StdDraw.isKeyPressed(KeyEvent.VK_ENTER)) {

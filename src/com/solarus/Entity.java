@@ -21,6 +21,7 @@ public class Entity {
         this.py = y;
     }
 
+    //TODO : implementer les deplacements au niveau de la classe entité
 
     public Entity(int px, int py){
         this.px = px;
