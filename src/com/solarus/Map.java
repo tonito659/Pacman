@@ -5,9 +5,6 @@ import java.awt.event.KeyEvent;
 import java.awt.*;
 
 public class Map {
-    public static final  int X_MAX= 28;
-    public static final  int Y_MAX= 29;
-    public static final  float WIDTH= 1;
 
     private int [][] labyrinthe =
             {
@@ -108,16 +105,17 @@ public class Map {
 
     public void ecranDeDemarrage(){
         //ajouter image
-       /* StdDraw.picture(17, 20, "PAC-MAN.jpg", 12, 10);
-        Font font = new Font("Arial", Font.BOLD, 60);
+        StdDraw.picture(13.5, 23, "PAC-MAN.jpg", 19,8 );
+        StdDraw.setPenColor(Color.WHITE);
+        Font font = new Font("Arial", Font.BOLD, 15);
         StdDraw.setFont(font);
-        StdDraw.text(-5, 5, "Hello, World");
+        StdDraw.text(6, 5, "Hello, World");
         boolean sortieBoucleInfinie =true;
-       while(true){
+       while(sortieBoucleInfinie){
             if(StdDraw.isKeyPressed(KeyEvent.VK_ENTER)){
             sortieBoucleInfinie=false;
             }
-        }*/
+        }
 
     }
 }
