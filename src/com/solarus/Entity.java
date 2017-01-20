@@ -34,8 +34,8 @@ public class Entity {
         // INSTANT TP OMGHAXX
         if(this.px == 0 && this.py == 16){
             px=26;
-        } else if (this.px == 26 && this.py == 16){
-            px=1;
+        } else if (this.px == 27 && this.py == 16){
+            px=0;
         }
     }
 
@@ -44,7 +44,7 @@ public class Entity {
         Map pacmanMap = new Map();
         boolean [] collision = new boolean[4];
         int [][] temp = pacmanMap.getLabyrinthe();
-        if(temp[this.py+1][this.px]==0){ //nord
+        if(temp[ (this.py+1)][ this.px]==0){ //nord
             collision[0] = true;
         }
         if(temp[this.py][this.px+1]==0){ //est
