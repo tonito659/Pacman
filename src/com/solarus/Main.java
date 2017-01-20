@@ -58,6 +58,7 @@ public class Main {
             //déplacement du joueur et des fantomes, check des TP
             joueur1.mouvement(direction);
             joueur1.transfertBord();
+
             FantomeBleu.deplacement();
             FantomeBleu.transfertBord();
             FantomeRose.deplacement();

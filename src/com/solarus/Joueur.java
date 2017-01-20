@@ -43,8 +43,12 @@ public class Joueur extends Entity{
     public void mangeGraine(Map mapTestGraine ){
         int [][] test = mapTestGraine.getLabyrinthe();
         if(test[this.getY()][this.getX()]==2){
-            mapTestGraine.setValeurLabyrintheXY(this.getX(),this.getY(),1);
+            mapTestGraine.setValeurLabyrintheYX(this.getY(),this.getX(),1);
             this.setScore(this.getScore()+10);
+        }
+        if(test[this.getY()][this.getX()]==3){
+            mapTestGraine.setValeurLabyrintheYX(this.getY(),this.getX(),1);
+            this.setScore(this.getScore()+100);
         }
         System.out.print("Score"+ this.getScore());
     }
