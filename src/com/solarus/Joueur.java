@@ -16,16 +16,12 @@ public class Joueur extends Entity{
 
     // Concerne les attributs du pacman
 
-    private int px , py ;
-    // oubliger de les metre en protected pour l'héritage
 
     public Joueur(int nbVie, int score, String pseudo, int px, int py) {
         super(px, py);
         this.nbVie = nbVie;
         this.score = score;
         this.pseudo = pseudo;
-        this.px = px;
-        this.py = py;
     }
 
     public int getNbVie() {
@@ -44,32 +40,13 @@ public class Joueur extends Entity{
         return pseudo;
     }
 
-    public int getPx() {
-        return px;
-    }
-
-    public int getPy() {
-        return py;
-    }
-
-    public void setPx(int px) {
-        this.px = px;
-    }
-
-    public void setPy(int py) {
-        this.py = py;
-    }
-
-    public void testGraine(Joueur joueur1 ,Map mapTestGraine ){
-        boolean testGraine =false;
-        int [][] test =mapTestGraine.getLabyrinthe();
-        if(test[joueur1.getPy()][joueur1.getPx()]==2){
-           test[joueur1.getPy()][joueur1.getPx()]=1;
-            mapTestGraine.ecranDeJeu(test);
-
-            joueur1.setScore(joueur1.getScore()+10);
-            System.out.print("Score"+ joueur1.getScore());
+    public void mangeGraine(Map mapTestGraine ){
+        int [][] test = mapTestGraine.getLabyrinthe();
+        if(test[this.getY()][this.getX()]==2){
+            mapTestGraine.setValeurLabyrintheXY(this.getX(),this.getY(),1);
+            this.setScore(this.getScore()+10);
         }
+        System.out.print("Score"+ this.getScore());
     }
 }
 
