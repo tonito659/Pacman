@@ -99,6 +99,8 @@ public class Main {
             boolean isDead = Regles.pacmanMort(joueur1,FantomeBleu,FantomeOrange,FantomeRose,FantomeRouge);
             if (isDead){
                 joueur1.setNbVie(joueur1.getNbVie()-1);
+                joueur1.setX(14);
+                joueur1.setY(7);
                 if (joueur1.getNbVie()<=0)break;
             }
 

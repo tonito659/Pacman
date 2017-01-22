@@ -19,8 +19,6 @@ public class Regles {
             py = f.getY();
             if (px_joueur == px && py == py_joueur && f.isInvicible()) {
                 mort = true;
-                joueur.setX(14);
-                joueur.setY(7);
             }
         }
         return mort;
