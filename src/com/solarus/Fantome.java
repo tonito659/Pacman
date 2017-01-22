@@ -41,7 +41,7 @@ public class Fantome extends Entity{
                 double random = Math.random() * 4;
                 if (random < 1 && directionpossibles[0] && direction != 2) {
                     direction = 8;//NORD
-                    degre = 90;
+                    degre = 0;
                     mvt = true;
                 } else if (random >= 1 && random < 2 && directionpossibles[1]&& direction != 4) {
                     direction = 6;//EST
@@ -49,11 +49,11 @@ public class Fantome extends Entity{
                     mvt = true;
                 } else if (random >= 2 && random < 3 && directionpossibles[2]&& direction != 8) {
                     direction = 2;//SUD
-                    degre = 270;
+                    degre = 0;
                     mvt = true;
                 } else if (random >= 3 && directionpossibles[3]&& direction != 6) {
                     direction = 4;//OUEST
-                    degre = 180;
+                    degre = 0;
                     mvt = true;
                 }
             }

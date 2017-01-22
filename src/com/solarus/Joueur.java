@@ -24,6 +24,10 @@ public class Joueur extends Entity{
         this.pseudo = pseudo;
     }
 
+    public void setNbVie(int nbVie) {
+        this.nbVie = nbVie;
+    }
+
     public int getNbVie() {
         return nbVie;
     }

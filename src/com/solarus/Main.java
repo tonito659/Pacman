@@ -74,13 +74,13 @@ public class Main {
             FantomeRouge.deplacement();
             FantomeRouge.transfertBord();
 
-            joueur1.mangeGraine(pacmanMap, FantomeRouge,FantomeRose,FantomeBleu,FantomeOrange);
+            joueur1.mangeGraine(pacmanMap, FantomeRouge, FantomeBleu, FantomeOrange, FantomeRose);
 
             StdDraw.picture(3, -3.1, "Ender_SCORE.jpg", 5,5 );
             StdDraw.setPenColor(Color.WHITE);
             Font font = new Font("Arial", Font.BOLD, 30);
             StdDraw.setFont(font);
-            StdDraw.text(7,-3.5, ": " +joueur1.getScore());
+            StdDraw.text(7,-3.5, " :\t" +joueur1.getScore());
             //affichage Score , problème lors de l'augmentation du score
 
 
@@ -96,7 +96,11 @@ public class Main {
 
             StdDraw.show();
             StdDraw.pause(100);
-
+            boolean isDead = Regles.pacmanMort(joueur1,FantomeBleu,FantomeOrange,FantomeRose,FantomeRouge);
+            if (isDead){
+                joueur1.setNbVie(joueur1.getNbVie()-1);
+                if (joueur1.getNbVie()<=0)break;
+            }
 
 
 
@@ -104,6 +108,8 @@ public class Main {
                 break;
             }
         }
+        StdDraw.clear(StdDraw.BLACK);
+        pacmanMap.ecranDeDemarrage();
 
     }
 
