@@ -16,7 +16,7 @@ public class Main {
         //TODO : Lorsque le pacman est invincible faire revenir les fantomes au point de dépard
 
         Map pacmanMap = new Map();
-        Joueur joueur1 = new Joueur(2, 0, "Bogoss", 14, 7);
+        Joueur joueur1 = new Joueur(3, 0, "Bogoss", 14, 7);
         Fantome FantomeRouge = new Fantome(StdDraw.RED, 14, 16);
         Fantome FantomeRose = new Fantome(StdDraw.PINK, 15, 16);
         Fantome FantomeBleu = new Fantome(StdDraw.BLUE, 14, 15);
@@ -80,7 +80,11 @@ public class Main {
             StdDraw.setPenColor(Color.WHITE);
             Font font = new Font("Arial", Font.BOLD, 30);
             StdDraw.setFont(font);
-            StdDraw.text(7,-3.5, ":" +joueur1.getScore());
+            StdDraw.text(7,-3.5, ": " +joueur1.getScore());
+            //affichage Score , problème lors de l'augmentation du score
+
+
+
 
 
             StdDraw.picture(joueur1.getX(), joueur1.getY(), "pacman2.jpg", 0.9, 0.9, degre);

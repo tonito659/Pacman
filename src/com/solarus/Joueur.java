@@ -56,6 +56,9 @@ public class Joueur extends Entity{
         }
         System.out.print("Score"+ this.getScore());
     }
+
+
+
 }
 
 

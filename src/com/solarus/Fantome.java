@@ -28,7 +28,6 @@ public class Fantome extends Entity{
         this.couleur = couleur;
     }
 
-
     public void deplacement(){
         //
         boolean[] directionpossibles = this.directionpossibles();
@@ -62,8 +61,6 @@ public class Fantome extends Entity{
         this.mouvement(direction);
 
     }
-
-
 
     private boolean[] directionpossibles() {
         //retourne dans un tableau NESU si des directions sont dispo
@@ -99,7 +96,5 @@ public class Fantome extends Entity{
         }
         return intersect;
     }
-
-
 
 }

@@ -92,10 +92,11 @@ public class Map {
     }
 
     public void ecranDeDemarrage(){
-        //ajouter image
         StdDraw.picture(13.5, 23, "PAC-MAN.jpg", 19,8 );
+        //StdDraw.picture(6.5, 5, "test.gif");
         StdDraw.setPenColor(Color.WHITE);
-        Font font = new Font("Arial", Font.BOLD, 15);
+        ;
+        Font font = new Font("PLAIN", Font.BOLD, 15);
         StdDraw.setFont(font);
         StdDraw.text(6, 5, "Hello, World");
 
