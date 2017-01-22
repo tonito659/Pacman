@@ -59,6 +59,9 @@ public class Main {
                 direction = 6;
                 degre = 0;
             }
+            if (StdDraw.isKeyPressed(KeyEvent.VK_ENTER)) {
+                break;
+            }
             StdDraw.clear(StdDraw.BLACK);
             pacmanMap.ecranDeJeu(pacmanMap.getLabyrinthe());
 
@@ -75,7 +78,7 @@ public class Main {
             joueur1.mangeGraine(pacmanMap);
 
             //CHECK POUR VOIR SI TON PACMAN IL CREVE UN PEU COMME UNE SOUS MERDE
-
+            Regles.contact(joueur1, tablfantomes);
 
 
             //DEPLACEMENT FANTOMES
@@ -85,35 +88,23 @@ public class Main {
             }
 
 
-
-
             StdDraw.picture(3, -3.1, "Ender_SCORE.jpg", 5,5 );
             StdDraw.setPenColor(Color.WHITE);
             Font font = new Font("Arial", Font.BOLD, 30);
             StdDraw.setFont(font);
             StdDraw.text(7,-3.5, " :\t" +joueur1.getScore());
             StdDraw.text(17,-3.5, "Lives : " +joueur1.getNbVie());
-            //affichage Score , problème lors de l'augmentation du score
+            //affichage Score
 
-
-
-
-
+            //DESSINAGE DES ENTITES
             StdDraw.picture(joueur1.getX(), joueur1.getY(), "pacman2.jpg", 0.9, 0.9, degre);
             for(Fantome f : tablfantomes ){
                 StdDraw.picture(f.getX(), f.getY(), f.getImage(), 0.9, 0.9, f.getDegre());
             }
+            Regles.endDuGame(joueur1, tablfantomes);
 
             StdDraw.show();
             StdDraw.pause(100);
-
-            //System.out.println(joueur1.getNbVie());
-
-
-
-            if (StdDraw.isKeyPressed(KeyEvent.VK_ENTER)) {
-                break;
-            }
         }
         StdDraw.clear(StdDraw.BLACK);
         pacmanMap.ecranDeDemarrage();

@@ -73,6 +73,7 @@ public class Map {
                     StdDraw.setPenColor(StdDraw.WHITE);
                     StdDraw.line(11,18,15.5,18);
                 }
+
                 //System.out.println("X = " + abcisse + " Y: " + ordonnee);
 
                 //System.out.print(arrayMap[ordonnee][abcisse]);

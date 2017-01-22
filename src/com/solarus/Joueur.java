@@ -1,11 +1,5 @@
 package com.solarus;
 
-import edu.princeton.cs.introcs.StdDraw;
-
-import java.awt.*;
-import java.awt.event.KeyEvent;
-
-
 public class Joueur extends Entity{
     // Concerne les données sur le joueur
 
@@ -14,6 +8,7 @@ public class Joueur extends Entity{
     private String pseudo = "";
     private boolean isInvicible = false;
     private long invincibleBegin;
+    private int compteur=0;
 
     // Concerne les attributs du pacman
 
@@ -22,8 +17,8 @@ public class Joueur extends Entity{
         return isInvicible;
     }
 
-    public void setInvicible(boolean invicible) {
-        isInvicible = invicible;
+    public void setInvicible(boolean invincible) {
+        isInvicible = invincible;
     }
 
     public long getInvincibleBegin() {
@@ -60,6 +55,10 @@ public class Joueur extends Entity{
 
     public String getPseudo() {
         return pseudo;
+    }
+
+    public int getCompteur() {
+        return compteur;
     }
 
     public void mangeGraine(Map mapTestGraine){

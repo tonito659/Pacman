@@ -110,7 +110,7 @@ public class Entity {
     }
 
     public void tpDepart(){
-        this.setY(this.getPx_orig());
-        this.setX(this.getPy_orig());
+        this.setY(this.getPy_orig());
+        this.setX(this.getPx_orig());
     }
 }
