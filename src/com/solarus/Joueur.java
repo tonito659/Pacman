@@ -2,17 +2,18 @@ package com.solarus;
 
 import edu.princeton.cs.introcs.StdDraw;
 
+import java.awt.*;
 import java.awt.event.KeyEvent;
 
 
 public class Joueur extends Entity{
     // Concerne les données sur le joueur
 
-    private boolean hasMegaGraine =false;
     private int nbVie ;
     private int score = 0;
     private String pseudo = "";
     private boolean isInvicible = false;
+    private long invincibleBegin;
 
     // Concerne les attributs du pacman
 
@@ -25,16 +26,19 @@ public class Joueur extends Entity{
         isInvicible = invicible;
     }
 
+    public long getInvincibleBegin() {
+        return invincibleBegin;
+    }
+
     public Joueur(int nbVie, int score, String pseudo, int px, int py) {
         super(px, py);
         this.nbVie = nbVie;
         this.score = score;
-
         this.pseudo = pseudo;
     }
 
-    public void setNbVie(int nbVie) {
-        this.nbVie = nbVie;
+    public void subNbVie() {
+        this.nbVie = this.nbVie -1;
     }
 
     public int getNbVie() {
@@ -44,6 +48,11 @@ public class Joueur extends Entity{
     public void setScore(int score) {
         this.score = score;
     }
+
+    public void addScore(int score) {
+        this.score = this.score + score;
+    }
+
 
     public int getScore() {
         return score;
@@ -63,8 +72,9 @@ public class Joueur extends Entity{
             mapTestGraine.setValeurLabyrintheYX(this.getY(),this.getX(),1);
             this.setScore(this.getScore()+100);
             this.isInvicible = true;
+            this.invincibleBegin = System.currentTimeMillis();
         }
-        System.out.print("Score"+ this.getScore());
+        System.out.println("Score "+ this.getScore());
     }
 
 

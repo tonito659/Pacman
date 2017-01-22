@@ -17,10 +17,10 @@ public class Main {
 
         Map pacmanMap = new Map();
         Joueur joueur1 = new Joueur(3, 0, "Bogoss", 14, 7);
-        Fantome FantomeRouge = new Fantome(StdDraw.RED, 14, 16, "ready.png");
-        Fantome FantomeRose = new Fantome(StdDraw.PINK, 15, 16, "pinkie.jpg");
-        Fantome FantomeBleu = new Fantome(StdDraw.BLUE, 14, 15,"bleue.png");
-        Fantome FantomeOrange = new Fantome(StdDraw.ORANGE, 15, 15,"yellowie.png");
+        Fantome FantomeRouge = new Fantome("RED", 14, 16, "ready.png");
+        Fantome FantomeRose = new Fantome("PINK", 15, 16, "pinkie.jpg");
+        Fantome FantomeBleu = new Fantome("BLUE", 14, 15,"bleue.png");
+        Fantome FantomeOrange = new Fantome("ORANGE", 15, 15,"yellowie.png");
         Fantome [] tablfantomes = {FantomeBleu,FantomeRouge,FantomeRose,FantomeOrange};
         //instanciation
 
@@ -62,23 +62,37 @@ public class Main {
             StdDraw.clear(StdDraw.BLACK);
             pacmanMap.ecranDeJeu(pacmanMap.getLabyrinthe());
 
+            // REGLES
+            Regles.checkInvicibilite(joueur1);
+            Regles.modifImageFantome(joueur1, tablfantomes);
+
+
+
+
             //déplacement du joueur et des fantomes, check des TP
             joueur1.mouvement(direction);
             joueur1.transfertBord();
+            joueur1.mangeGraine(pacmanMap);
 
+            //CHECK POUR VOIR SI TON PACMAN IL CREVE UN PEU COMME UNE SOUS MERDE
+
+
+
+            //DEPLACEMENT FANTOMES
             for (Fantome f : tablfantomes){
                 f.deplacement();
                 f.transfertBord();
             }
 
 
-            joueur1.mangeGraine(pacmanMap);
+
 
             StdDraw.picture(3, -3.1, "Ender_SCORE.jpg", 5,5 );
             StdDraw.setPenColor(Color.WHITE);
             Font font = new Font("Arial", Font.BOLD, 30);
             StdDraw.setFont(font);
             StdDraw.text(7,-3.5, " :\t" +joueur1.getScore());
+            StdDraw.text(17,-3.5, "Lives : " +joueur1.getNbVie());
             //affichage Score , problème lors de l'augmentation du score
 
 
@@ -92,13 +106,8 @@ public class Main {
 
             StdDraw.show();
             StdDraw.pause(100);
-            boolean isDead = Regles.pacmanMort(joueur1,tablfantomes);
-            if (isDead){
-                joueur1.setNbVie(joueur1.getNbVie()-1);
-                joueur1.setX(14);
-                joueur1.setY(7);
-                if (joueur1.getNbVie()<=0)break;
-            }
+
+            //System.out.println(joueur1.getNbVie());
 
 
 

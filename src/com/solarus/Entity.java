@@ -3,7 +3,7 @@ package com.solarus;
 
 public class Entity {
 
-    private int px, py;
+    private int px, py, px_orig, py_orig;
 
     public int getX() {
         return px;
@@ -21,11 +21,17 @@ public class Entity {
         this.py = y;
     }
 
+    public int getPx_orig() {return px_orig;}
+
+    public int getPy_orig() {return py_orig;}
+
     //TODO : implementer les deplacements au niveau de la classe entité
 
     public Entity(int px, int py){
         this.px = px;
         this.py = py;
+        this.px_orig = px;
+        this.py_orig = py;
     }
 
     //public void deplacement(){}
@@ -101,5 +107,10 @@ public class Entity {
         System.out.printf("\t"+collisions[2]);
         */
         return hasMoved;
+    }
+
+    public void tpDepart(){
+        this.setY(this.getPx_orig());
+        this.setX(this.getPy_orig());
     }
 }
