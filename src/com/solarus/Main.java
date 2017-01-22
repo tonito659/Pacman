@@ -17,10 +17,11 @@ public class Main {
 
         Map pacmanMap = new Map();
         Joueur joueur1 = new Joueur(3, 0, "Bogoss", 14, 7);
-        Fantome FantomeRouge = new Fantome(StdDraw.RED, 13, 18);
-        Fantome FantomeRose = new Fantome(StdDraw.PINK, 14, 18);
-        Fantome FantomeBleu = new Fantome(StdDraw.BLUE, 15, 18);
-        Fantome FantomeOrange = new Fantome(StdDraw.ORANGE, 16, 18);
+        Fantome FantomeRouge = new Fantome("RED", 14, 16, "ready.png");
+        Fantome FantomeRose = new Fantome("PINK", 15, 16, "pinkie.jpg");
+        Fantome FantomeBleu = new Fantome("BLUE", 14, 15,"bleue.png");
+        Fantome FantomeOrange = new Fantome("ORANGE", 15, 15,"yellowie.png");
+        Fantome [] tablfantomes = {FantomeBleu,FantomeRouge,FantomeRose,FantomeOrange};
         //instanciation
 
 
@@ -58,46 +59,52 @@ public class Main {
                 direction = 6;
                 degre = 0;
             }
+            if (StdDraw.isKeyPressed(KeyEvent.VK_ENTER)) {
+                break;
+            }
             StdDraw.clear(StdDraw.BLACK);
             pacmanMap.ecranDeJeu(pacmanMap.getLabyrinthe());
+
+            // REGLES
+            Regles.checkInvicibilite(joueur1);
+            Regles.modifImageFantome(joueur1, tablfantomes);
+
+
+
 
             //déplacement du joueur et des fantomes, check des TP
             joueur1.mouvement(direction);
             joueur1.transfertBord();
+            joueur1.mangeGraine(pacmanMap);
 
-            FantomeBleu.deplacement();
-            FantomeBleu.transfertBord();
-            FantomeRose.deplacement();
-            FantomeRose.transfertBord();
-            FantomeOrange.deplacement();
-            FantomeOrange.transfertBord();
-            FantomeRouge.deplacement();
-            FantomeRouge.transfertBord();
+            //CHECK POUR VOIR SI TON PACMAN IL CREVE UN PEU COMME UNE SOUS MERDE
+            Regles.contact(joueur1, tablfantomes);
 
-            joueur1.mangeGraine(pacmanMap, FantomeRouge, FantomeBleu, FantomeOrange, FantomeRose);
 
-            pacmanMap.afficheScore(joueur1);
+            //DEPLACEMENT FANTOMES
+            for (Fantome f : tablfantomes){
+                f.deplacement();
+                f.transfertBord();
+            }
 
+
+            StdDraw.picture(3, -3.1, "Ender_SCORE.jpg", 5,5 );
+            StdDraw.setPenColor(Color.WHITE);
+            Font font = new Font("Arial", Font.BOLD, 30);
+            StdDraw.setFont(font);
+            StdDraw.text(7,-3.5, " :\t" +joueur1.getScore());
+            StdDraw.text(17,-3.5, "Lives : " +joueur1.getNbVie());
+            //affichage Score
+
+            //DESSINAGE DES ENTITES
             StdDraw.picture(joueur1.getX(), joueur1.getY(), "pacman2.jpg", 0.9, 0.9, degre);
-            StdDraw.picture(FantomeBleu.getX(), FantomeBleu.getY(), "bleue.png", 0.9, 0.9, FantomeBleu.getDegre());
-            StdDraw.picture(FantomeRose.getX(), FantomeRose.getY(), "pinkie.jpg", 0.9, 0.9, FantomeRose.getDegre());
-            StdDraw.picture(FantomeOrange.getX(), FantomeOrange.getY(), "yellowie.png", 0.9, 0.9, FantomeOrange.getDegre());
-            StdDraw.picture(FantomeRouge.getX(), FantomeRouge.getY(), "ready.png", 0.9, 0.9, FantomeRouge.getDegre());
-
+            for(Fantome f : tablfantomes ){
+                StdDraw.picture(f.getX(), f.getY(), f.getImage(), 0.9, 0.9, f.getDegre());
+            }
+            Regles.endDuGame(joueur1, tablfantomes);
 
             StdDraw.show();
             StdDraw.pause(100);
-            boolean isDead = Regles.pacmanMort(joueur1,FantomeBleu,FantomeOrange,FantomeRose,FantomeRouge);
-            if (isDead){
-                joueur1.setNbVie(joueur1.getNbVie()-1);
-                if (joueur1.getNbVie()<=0)break;
-            }
-
-            System.out.println("le joueur à :"+joueur1.getNbVie());
-
-            if (StdDraw.isKeyPressed(KeyEvent.VK_ENTER)) {
-                break;
-            }
         }
         StdDraw.clear(StdDraw.BLACK);
         pacmanMap.ecranDeDemarrage();

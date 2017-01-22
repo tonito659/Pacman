@@ -23,7 +23,7 @@ public class Debug {
         int direction = 0, degre = 0;
         Map mapJeu = new Map();
         Joueur joueur1 = new Joueur(2, 0, "Bogoss", 1, 1);
-        Fantome FantomeRouge = new Fantome(StdDraw.RED, 14, 16);
+        Fantome FantomeRouge = new Fantome("RED", 14, 16, "ready.png");
         //instanciation
         System.out.println("Instanciation done");
 

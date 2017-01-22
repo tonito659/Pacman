@@ -7,7 +7,7 @@ public class Fantome extends Entity{
 
         //TODO : creer une methode qui va changer la photo du fantome entre celle normale et celle invincible
 
-    private Color couleur;
+    private String couleur;
     private int direction = 4; // 12 = Nord, 3 = Est, 6 = Sud, 9 = Ouest
     private int degre = 0;
     private String image;
@@ -22,7 +22,11 @@ public class Fantome extends Entity{
         this.image = image;
     }
 
-    public Fantome(Color couleur, int abcisse, int ordonnee, String image) {
+    public String getCouleur() {
+        return couleur;
+    }
+
+    public Fantome(String couleur, int abcisse, int ordonnee, String image) {
         super(abcisse, ordonnee);
         //init fantome, on peut les placer sur des endroits random dans la map
         this.couleur = couleur;
@@ -32,10 +36,9 @@ public class Fantome extends Entity{
     public void deplacement(){
         //
         boolean[] directionpossibles = this.directionpossibles();
-        System.out.println("Fantome X = "+ this.getX()+ "\t Y = " + this.getY());
+        //System.out.println("Fantome X = "+ this.getX()+ "\t Y = " + this.getY());
 
         if (this.emplacementEstUneIntersection(directionpossibles)) { //randomisation de la direction à une intersect
-            System.out.println(this.emplacementEstUneIntersection(directionpossibles));
             boolean mvt = false;
             while (!mvt) {
             //TODO : ajouter une condition de non-retour
@@ -97,5 +100,4 @@ public class Fantome extends Entity{
         }
         return intersect;
     }
-
 }
