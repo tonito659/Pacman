@@ -17,10 +17,10 @@ public class Main {
 
         Map pacmanMap = new Map();
         Joueur joueur1 = new Joueur(3, 0, "Bogoss", 14, 7);
-        Fantome FantomeRouge = new Fantome(StdDraw.RED, 14, 16);
-        Fantome FantomeRose = new Fantome(StdDraw.PINK, 15, 16);
-        Fantome FantomeBleu = new Fantome(StdDraw.BLUE, 14, 15);
-        Fantome FantomeOrange = new Fantome(StdDraw.ORANGE, 15, 15);
+        Fantome FantomeRouge = new Fantome(StdDraw.RED, 13, 18);
+        Fantome FantomeRose = new Fantome(StdDraw.PINK, 14, 18);
+        Fantome FantomeBleu = new Fantome(StdDraw.BLUE, 15, 18);
+        Fantome FantomeOrange = new Fantome(StdDraw.ORANGE, 16, 18);
         //instanciation
 
 
@@ -76,16 +76,7 @@ public class Main {
 
             joueur1.mangeGraine(pacmanMap, FantomeRouge, FantomeBleu, FantomeOrange, FantomeRose);
 
-            StdDraw.picture(3, -3.1, "Ender_SCORE.jpg", 5,5 );
-            StdDraw.setPenColor(Color.WHITE);
-            Font font = new Font("Arial", Font.BOLD, 30);
-            StdDraw.setFont(font);
-            StdDraw.text(7,-3.5, " :\t" +joueur1.getScore());
-            //affichage Score , problème lors de l'augmentation du score
-
-
-
-
+            pacmanMap.afficheScore(joueur1);
 
             StdDraw.picture(joueur1.getX(), joueur1.getY(), "pacman2.jpg", 0.9, 0.9, degre);
             StdDraw.picture(FantomeBleu.getX(), FantomeBleu.getY(), "bleue.png", 0.9, 0.9, FantomeBleu.getDegre());
@@ -102,7 +93,7 @@ public class Main {
                 if (joueur1.getNbVie()<=0)break;
             }
 
-
+            System.out.println("le joueur à :"+joueur1.getNbVie());
 
             if (StdDraw.isKeyPressed(KeyEvent.VK_ENTER)) {
                 break;

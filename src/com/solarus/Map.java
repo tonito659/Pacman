@@ -25,7 +25,7 @@ public class Map {
                     {1,1,1,1,1,0,2,0,0,1,0,0,0,0,0,0,0,0,1,0,0,2,0,1,1,1,1,1},
                     {0,0,0,0,0,0,2,0,0,1,0,1,1,1,1,1,1,0,1,0,0,2,0,0,0,0,0,0},
                     {1,1,1,1,1,1,2,1,1,1,0,1,1,1,1,1,1,0,1,1,1,2,1,1,1,1,1,1},//millieu
-                    {0,0,0,0,0,0,2,0,0,1,0,1,1,1,1,1,1,0,1,0,0,2,0,0,0,0,0,0},
+                    {0,0,0,0,0,0,2,0,0,1,0,5,5,5,5,5,5,0,1,0,0,2,0,0,0,0,0,0},
                     {1,1,1,1,1,0,2,0,0,1,0,0,4,4,4,4,0,0,1,0,0,2,0,1,1,1,1,1},
                     {1,1,1,1,1,0,2,0,0,1,1,1,1,1,1,1,1,1,1,0,0,2,0,1,1,1,1,1},
                     {1,1,1,1,1,0,2,0,0,0,0,0,1,0,0,1,0,0,0,0,0,2,0,1,1,1,1,1},
@@ -39,7 +39,7 @@ public class Map {
                     {0,2,0,0,0,0,2,0,0,0,0,0,2,0,0,2,0,0,0,0,0,2,0,0,0,0,2,0},
                     {0,2,2,2,2,2,2,2,2,2,2,2,2,0,0,2,2,2,2,2,2,2,2,2,2,2,2,0},
                     {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-                    // 0= Mur , 1=case vide , 2=petites graines , 3=grosse graines, 4=mur fantome
+                    // 0= Mur , 1=case vide , 2=petites graines , 3=grosse graines, 4=mur fantome , 5 mur invisible fantome
             };
 
 
@@ -93,18 +93,32 @@ public class Map {
 
     public void ecranDeDemarrage(){
         StdDraw.picture(13.5, 23, "PAC-MAN.jpg", 19,8 );
-        //StdDraw.picture(6.5, 5, "test.gif");
+        StdDraw.picture(13.5,8 , "gif1.gif");
         StdDraw.setPenColor(Color.WHITE);
-        ;
-        Font font = new Font("PLAIN", Font.BOLD, 15);
+        /*Font font = new Font("PLAIN", Font.BOLD, 15);
         StdDraw.setFont(font);
-        StdDraw.text(6, 5, "Hello, World");
+        StdDraw.text(6, 5, "Hello, World");*/
 
        while(true){
+
             if(StdDraw.isKeyPressed(KeyEvent.VK_ENTER)){
             break;
             }
         }
+
+    }
+    public void afficheVieEnleve(Joueur joueur){
+
+
+    }
+
+    public void afficheScore(Joueur joueur){
+        StdDraw.picture(3, -3.1, "Ender_SCORE.jpg", 5,5 );
+        StdDraw.setPenColor(Color.WHITE);
+        Font font = new Font("Arial", Font.BOLD, 30);
+        StdDraw.setFont(font);
+        StdDraw.text(7,-3.5, " :\t" +joueur.getScore());
+        //affichage Score , problème lors de l'augmentation du score
 
     }
 }

@@ -44,16 +44,16 @@ public class Entity {
         Map pacmanMap = new Map();
         boolean [] collision = new boolean[4];
         int [][] temp = pacmanMap.getLabyrinthe();
-        if(temp[ (this.py+1)][ this.px]==0){ //nord
+        if(temp[ (this.py+1)][ this.px]==0||temp[ (this.py+1)][ this.px]==4 ||temp[ (this.py+1)][ this.px]==5){ //nord
             collision[0] = true;
         }
-        if(temp[this.py][this.px+1]==0){ //est
+        if(temp[this.py][this.px+1]==0 || temp[this.py][this.px+1]==4 ||temp[this.py][this.px+1]==5 ){ //est
             collision[1] = true;
         }
-        if(temp[this.py-1][this.px]==0){ //sud
+        if(temp[this.py-1][this.px]==0 ||temp[this.py-1][this.px]==4 || temp[this.py-1][this.px]==5){ //sud
             collision[2] = true;
         }
-        if(temp[this.py][this.px-1]==0){ //ouest
+        if(temp[this.py][this.px-1]==0 ||temp[this.py][this.px-1]==4 || temp[this.py][this.px-1]==5){ //ouest
             collision[3] = true;
         }
         //System.out.println(collision[0]+"\t"+collision[1]+"\t"+collision[2]+"\t"+collision[3]);
