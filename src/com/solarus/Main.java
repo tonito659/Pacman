@@ -17,10 +17,11 @@ public class Main {
 
         Map pacmanMap = new Map();
         Joueur joueur1 = new Joueur(3, 0, "Bogoss", 14, 7);
-        Fantome FantomeRouge = new Fantome(StdDraw.RED, 14, 16);
-        Fantome FantomeRose = new Fantome(StdDraw.PINK, 15, 16);
-        Fantome FantomeBleu = new Fantome(StdDraw.BLUE, 14, 15);
-        Fantome FantomeOrange = new Fantome(StdDraw.ORANGE, 15, 15);
+        Fantome FantomeRouge = new Fantome(StdDraw.RED, 14, 16, "ready.png");
+        Fantome FantomeRose = new Fantome(StdDraw.PINK, 15, 16, "pinkie.jpg");
+        Fantome FantomeBleu = new Fantome(StdDraw.BLUE, 14, 15,"bleue.png");
+        Fantome FantomeOrange = new Fantome(StdDraw.ORANGE, 15, 15,"yellowie.png");
+        Fantome [] tablfantomes = {FantomeBleu,FantomeRouge,FantomeRose,FantomeOrange};
         //instanciation
 
 
@@ -65,16 +66,13 @@ public class Main {
             joueur1.mouvement(direction);
             joueur1.transfertBord();
 
-            FantomeBleu.deplacement();
-            FantomeBleu.transfertBord();
-            FantomeRose.deplacement();
-            FantomeRose.transfertBord();
-            FantomeOrange.deplacement();
-            FantomeOrange.transfertBord();
-            FantomeRouge.deplacement();
-            FantomeRouge.transfertBord();
+            for (Fantome f : tablfantomes){
+                f.deplacement();
+                f.transfertBord();
+            }
 
-            joueur1.mangeGraine(pacmanMap, FantomeRouge, FantomeBleu, FantomeOrange, FantomeRose);
+
+            joueur1.mangeGraine(pacmanMap);
 
             StdDraw.picture(3, -3.1, "Ender_SCORE.jpg", 5,5 );
             StdDraw.setPenColor(Color.WHITE);
@@ -88,15 +86,13 @@ public class Main {
 
 
             StdDraw.picture(joueur1.getX(), joueur1.getY(), "pacman2.jpg", 0.9, 0.9, degre);
-            StdDraw.picture(FantomeBleu.getX(), FantomeBleu.getY(), "bleue.png", 0.9, 0.9, FantomeBleu.getDegre());
-            StdDraw.picture(FantomeRose.getX(), FantomeRose.getY(), "pinkie.jpg", 0.9, 0.9, FantomeRose.getDegre());
-            StdDraw.picture(FantomeOrange.getX(), FantomeOrange.getY(), "yellowie.png", 0.9, 0.9, FantomeOrange.getDegre());
-            StdDraw.picture(FantomeRouge.getX(), FantomeRouge.getY(), "ready.png", 0.9, 0.9, FantomeRouge.getDegre());
-
+            for(Fantome f : tablfantomes ){
+                StdDraw.picture(f.getX(), f.getY(), f.getImage(), 0.9, 0.9, f.getDegre());
+            }
 
             StdDraw.show();
             StdDraw.pause(100);
-            boolean isDead = Regles.pacmanMort(joueur1,FantomeBleu,FantomeOrange,FantomeRose,FantomeRouge);
+            boolean isDead = Regles.pacmanMort(joueur1,tablfantomes);
             if (isDead){
                 joueur1.setNbVie(joueur1.getNbVie()-1);
                 joueur1.setX(14);
