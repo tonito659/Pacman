@@ -4,28 +4,29 @@ import java.awt.*;
 
 public class Fantome extends Entity{
 
-    private boolean isInvicible = true;
-        //TODO : creer une methode qui va changer la photo du fantome entre celle normale et celle invincible
-    public boolean isInvicible() {
-        return isInvicible;
-    }
 
-    public void setInvicible(boolean invicible) {
-        isInvicible = invicible;
-    }
+        //TODO : creer une methode qui va changer la photo du fantome entre celle normale et celle invincible
 
     private Color couleur;
     private int direction = 4; // 12 = Nord, 3 = Est, 6 = Sud, 9 = Ouest
     private int degre = 0;
+    private String image;
 
     public int getDegre(){
         return degre;
     }
 
-    public Fantome(Color couleur, int abcisse, int ordonnee) {
+    public String getImage() {return image;}
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public Fantome(Color couleur, int abcisse, int ordonnee, String image) {
         super(abcisse, ordonnee);
         //init fantome, on peut les placer sur des endroits random dans la map
         this.couleur = couleur;
+        this.image = image;
     }
 
     public void deplacement(){
