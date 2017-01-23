@@ -11,7 +11,7 @@ import edu.princeton.cs.introcs.StdDraw;
 public class Regles {
 
 
-    public static boolean pacmanMort(Joueur joueur, Fantome [] tabl) {
+    public   boolean pacmanMort(Joueur joueur, Fantome [] tabl) {
         // Methode retournant un bool si pacman rentre en contact avec les fantomes
 
         boolean mort = false;
@@ -27,7 +27,7 @@ public class Regles {
         return mort;
     }
 
-    public static void modifImageFantome(Joueur j,Fantome [] tablef){
+    public  void modifImageFantome(Joueur j,Fantome [] tablef){
         if (j.isInvicible()){
             for (Fantome f : tablef){
                 f.setImage("fantome_PLS.jpg");
@@ -53,7 +53,7 @@ public class Regles {
         }
     }
 
-    public static void checkInvicibilite(Joueur j){
+    public  void checkInvicibilite(Joueur j){
         //methode qui permet de remettre les pendules à zero
         //éwé les fantomes veulent leur vengeance
 
@@ -63,7 +63,7 @@ public class Regles {
         }
     }
 
-    public static void contact(Joueur j, Fantome [] tablef){
+    public  void contact(Joueur j, Fantome [] tablef){
         /* méthode qui constituera toute la partie collision fantome-pacman
            capable de TP le pacman ou les fantomes
            timer, invincibilité toussa toussa
@@ -92,7 +92,7 @@ public class Regles {
             }
         }
     }
-    public static int endDuGame(Joueur j, Fantome [] f){
+    public  int endDuGame(Joueur j, Fantome [] f){
         /*
         0 si non
         1 si fin par mort du pacman, aka plus de vie

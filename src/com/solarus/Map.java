@@ -42,9 +42,6 @@ public class Map {
                     // 0= Mur , 1=case vide , 2=petites graines , 3=grosse graines, 4=mur fantome , 5 mur invisible fantome
             };
 
-
-
-
     public int[][] getLabyrinthe() {
         return labyrinthe;
     }
@@ -53,6 +50,25 @@ public class Map {
         this.labyrinthe[Y][X] = valeur;
     }
 
+    public void initialisationEcran(){
+        StdDraw.setCanvasSize(650,650);
+        StdDraw.setXscale(-1, 28 );
+        StdDraw.setYscale(-6, 31 );
+        StdDraw.clear(StdDraw.BLACK);
+    }
+
+    public void ecranDeDemarrage(){
+        //ajouter annimation presse start
+        StdDraw.picture(13.5, 24, "PAC-MAN.jpg", 24,8 );
+        StdDraw.picture(13.5, 13, "pacmanDemarrage.jpg", 15,8 );
+        StdDraw.picture(13.5, 5, "Press-Start.jpg", 8,2 );
+
+       while(true){
+            if(StdDraw.isKeyPressed(KeyEvent.VK_ENTER)){
+            break;
+            }
+        }
+    }
 
     public void ecranDeJeu(int[][] arrayMap){
         for (int ordonnee=30; ordonnee>=0; --ordonnee){
@@ -85,32 +101,12 @@ public class Map {
 
     }
 
-    public void initialisationEcran(){
-        StdDraw.setCanvasSize(650,650);
-        StdDraw.setXscale(-1, 28 );
-        StdDraw.setYscale(-6, 31 );
-        StdDraw.clear(StdDraw.BLACK);
-    }
-
-    public void ecranDeDemarrage(){
-        StdDraw.picture(13.5, 23, "PAC-MAN.jpg", 19,8 );
-        StdDraw.picture(13.5,8 , "gif1.gif");
-        StdDraw.setPenColor(Color.WHITE);
-        /*Font font = new Font("PLAIN", Font.BOLD, 15);
-        StdDraw.setFont(font);
-        StdDraw.text(6, 5, "Hello, World");*/
-
-       while(true){
-
-            if(StdDraw.isKeyPressed(KeyEvent.VK_ENTER)){
-            break;
-            }
+    public void afficheVie(Joueur joueur){
+        int compteurPositionVie=2;
+        for(int i=0;i<joueur.getNbVie();i++){
+            System.out.print("i = "+i);
+            StdDraw.picture( 22 + i*compteurPositionVie,-3.1,"pacman-lives.png",2,2);
         }
-
-    }
-    public void afficheVieEnleve(Joueur joueur){
-
-
     }
 
     public void afficheScore(Joueur joueur){
@@ -119,8 +115,6 @@ public class Map {
         Font font = new Font("Arial", Font.BOLD, 30);
         StdDraw.setFont(font);
         StdDraw.text(7,-3.5, " :\t" +joueur.getScore());
-        //affichage Score , problème lors de l'augmentation du score
-
     }
 }
 
