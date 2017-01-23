@@ -138,7 +138,23 @@ public class Map {
         StdDraw.setPenColor(Color.WHITE);
         Font font = new Font("Arial", Font.BOLD, 30);
         StdDraw.setFont(font);
-        StdDraw.text(7,-3.5, " :\t" +joueur.getScore());
+        StdDraw.text(7,-3.5, " :" +joueur.getScore());
+    }
+
+    public void affiche2joueurs(Joueur [] tabljoueurs){
+        int compteurPositionVie=2;
+        for(int i=0;i<tabljoueurs[0].getNbVie();i++){
+            StdDraw.picture( 22 + i*compteurPositionVie,-3.1,"pacman-lives.png",1,1);
+        }
+        for(int i=0;i<tabljoueurs[1].getNbVie();i++){
+            StdDraw.picture( 22 + i*compteurPositionVie,-4.5,"pacman-lives.png",1,1);
+        }
+        StdDraw.setPenColor(Color.WHITE);
+        Font font = new Font("Arial", Font.BOLD, 30);
+        StdDraw.setFont(font);
+        StdDraw.text(7,-3.5, "Score J1 :\t" +tabljoueurs[0].getScore());
+        StdDraw.text(7,-5, "Score J2 :\t" +tabljoueurs[1].getScore());
+
     }
 }
 
