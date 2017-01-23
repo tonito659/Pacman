@@ -84,6 +84,9 @@ public class Main {
                 f.transfertBord();
             }
 
+            //CHECK POUR VOIR SI TON PACMAN IL CREVE UN PEU COMME UNE SOUS MERDE
+            reglesDuJeu.contact(joueur1, tablfantomes);
+
             pacmanMap.afficheVie(joueur1);
             pacmanMap.afficheScore(joueur1);
 
