@@ -12,6 +12,7 @@ public class Main {
         //TODO : Finir le menu démarrage
         //TODO : Faire ecran de défaite
         Regles reglesDuJeu = new Regles();
+        IG pacmanGraphique = new IG();
         Map pacmanMap = new Map();
         Joueur joueur1 = new Joueur(3, 0, "Bogoss", 14, 7);
         Fantome FantomeRouge = new Fantome("RED", 13, 18, "ready.png");
@@ -22,20 +23,18 @@ public class Main {
         //instanciation
 
 
-        pacmanMap.initialisationEcran();
-        pacmanMap.ecranDeDemarrage();
-        StdDraw.clear(StdDraw.BLACK);
-        pacmanMap.ecranDeJeu(pacmanMap.getLabyrinthe());
-        StdDraw.show();
+        pacmanGraphique.initialisationEcran();
+        pacmanGraphique.ecranDeDemarrage();
+        pacmanGraphique.ecranDeJeu(pacmanMap.getLabyrinthe());
 
         //System.out.print("X =" + joueur1.getX() + " Y =" + joueur1.getX());
+
         StdDraw.enableDoubleBuffering();
-        //j'applique a pacmanMap les méthodes présents dans la classe map
         StdDraw.setPenColor(Color.yellow);
 
         int direction = 0, degre = 0;
         while (true) {
-            if(reglesDuJeu.endDuGame(joueur1, tablfantomes)==1){
+            if(reglesDuJeu.endDuGame(joueur1)==1){
                 break;
             }
 
@@ -59,7 +58,7 @@ public class Main {
                 break;
             }
             StdDraw.clear(StdDraw.BLACK);
-            pacmanMap.ecranDeJeu(pacmanMap.getLabyrinthe());
+            pacmanGraphique.ecranDeJeu(pacmanMap.getLabyrinthe());
 
 
             // REGLES
@@ -87,8 +86,8 @@ public class Main {
             //CHECK POUR VOIR SI TON PACMAN IL CREVE UN PEU COMME UNE SOUS MERDE
             reglesDuJeu.contact(joueur1, tablfantomes);
 
-            pacmanMap.afficheVie(joueur1);
-            pacmanMap.afficheScore(joueur1);
+            pacmanGraphique.afficheVie(joueur1);
+            pacmanGraphique.afficheScore(joueur1);
 
 
             //DESSINAGE DES ENTITES
@@ -103,7 +102,7 @@ public class Main {
             StdDraw.pause(100);
         }
         StdDraw.clear(StdDraw.BLACK);
-        pacmanMap.ecranDeDemarrage();
+        pacmanGraphique.ecranDeDemarrage();
 
     }
 

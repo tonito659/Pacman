@@ -15,9 +15,7 @@ public class Fantome extends Entity{
 
     public String getImage() {return image;}
 
-    public void setImage(String image) {
-        this.image = image;
-    }
+    public void setImage(String image) {this.image = image;}
 
     public String getCouleur() {
         return couleur;
