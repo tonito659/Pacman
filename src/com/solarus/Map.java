@@ -55,18 +55,42 @@ public class Map {
         StdDraw.setXscale(-1, 28 );
         StdDraw.setYscale(-6, 31 );
         StdDraw.clear(StdDraw.BLACK);
+
     }
 
     public void ecranDeDemarrage(){
-        //ajouter annimation presse start
-        StdDraw.picture(13.5, 24, "PAC-MAN.jpg", 24,8 );
-        StdDraw.picture(13.5, 13, "pacmanDemarrage.jpg", 15,8 );
-        StdDraw.picture(13.5, 5, "Press-Start.jpg", 8,2 );
+          //ajouter annimation presse start
+        Font font = new Font("DialogInput", Font.CENTER_BASELINE , 30);
+
 
        while(true){
-            if(StdDraw.isKeyPressed(KeyEvent.VK_ENTER)){
-            break;
-            }
+           StdDraw.picture(13.5, 24, "PAC-MAN.jpg", 24,8 );
+           StdDraw.picture(13.5, 13, "pacmanDemarrage.jpg", 15,6 );
+           StdDraw.setPenColor(Color.WHITE);
+           StdDraw.setFont(font);
+           StdDraw.text(13.5, 3, "Press START");
+           StdDraw.pause(500);
+           if(StdDraw.isKeyPressed(KeyEvent.VK_ENTER)){
+                /*StdDraw.text(13.5, 3, "Press START");
+                if(StdDraw.mousePressed()==true){
+                    break;
+                }*/
+               break;
+           }
+
+           StdDraw.clear(StdDraw.BLACK);
+           StdDraw.picture(13.5, 24, "PAC-MAN.jpg", 24,8 );
+           StdDraw.picture(13.5, 13, "pacmanDemarrage.jpg", 15,6 );
+           StdDraw.setPenColor(Color.RED);
+           StdDraw.text(13.5, 3, "Press START");
+           StdDraw.pause(500);
+           if(StdDraw.isKeyPressed(KeyEvent.VK_ENTER)){
+                /*StdDraw.text(13.5, 3, "Press START");
+                if(StdDraw.mousePressed()==true){
+                    break;
+                }*/
+               break;
+           }
         }
     }
 

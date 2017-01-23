@@ -24,7 +24,10 @@ public class Main {
 
         pacmanMap.initialisationEcran();
         pacmanMap.ecranDeDemarrage();
-        
+        StdDraw.clear(StdDraw.BLACK);
+        pacmanMap.ecranDeJeu(pacmanMap.getLabyrinthe());
+        StdDraw.show();
+
         //System.out.print("X =" + joueur1.getX() + " Y =" + joueur1.getX());
         StdDraw.enableDoubleBuffering();
         //j'applique a pacmanMap les méthodes présents dans la classe map
@@ -57,6 +60,7 @@ public class Main {
             }
             StdDraw.clear(StdDraw.BLACK);
             pacmanMap.ecranDeJeu(pacmanMap.getLabyrinthe());
+
 
             // REGLES
             reglesDuJeu.checkInvicibilite(joueur1);
