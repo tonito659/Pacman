@@ -26,12 +26,13 @@ public class Main {
         pacmanGraphique.initialisationEcran();
         pacmanGraphique.ecranDeDemarrage();
         pacmanGraphique.ecranDeJeu(pacmanMap.getLabyrinthe());
-        int [] [] temp = pacmanMap.getLabyrinthe();
+        int [][] temp = pacmanMap.getLabyrinthe();
          //System.out.print("X =" + joueur1.getX() + " Y =" + joueur1.getX());
 
         StdDraw.enableDoubleBuffering();
         StdDraw.setPenColor(Color.yellow);
-
+        ///////////////////////////////////////////////////////////////////////
+        // ICI A METTRE DANS LA CLASSE JOUEUR1
         int direction = 0, degre = 0;
         while (true) {
             if(reglesDuJeu.endDuGame(joueur1)==1){

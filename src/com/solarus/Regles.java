@@ -2,31 +2,22 @@ package com.solarus;
 
 import edu.princeton.cs.introcs.StdDraw;
 
+/**
+ * Created by Antoine on 20/01/2017.
+ * CLasse qui comporte les caractéristiques du jeu
+ * ie, tout le
+ *
+ */
 public class Regles {
 
-    public  boolean pacmanMort(Joueur joueur, Fantome [] tabFantomes) {
-        // Methode retournant un bool si pacman rentre en contact avec les fantomes
 
-        boolean mort = false;
-        int px_joueur = joueur.getX(), py_joueur = joueur.getY();
-        int px, py;
-        for (Fantome f : tabFantomes) {
-            px = f.getX();
-            py = f.getY();
-            if (px_joueur == px && py == py_joueur && joueur.isInvicible()) {
-                mort = true;
-            }
-        }
-        return mort;
-    }
-
-    public  void modifImageFantome(Joueur joueur,Fantome [] tabFantomes){
-        if (joueur.isInvicible()){
-            for (Fantome f : tabFantomes){
+    public  void modifImageFantome(Joueur j,Fantome [] tablef){
+        if (j.isInvicible()){
+            for (Fantome f : tablef){
                 f.setImage("fantome_PLS.jpg");
             }
         } else{
-            for(Fantome f : tabFantomes){
+            for(Fantome f : tablef){
                 switch (f.getCouleur()){
                     case "RED":
                         f.setImage("ready.png");
@@ -81,6 +72,9 @@ public class Regles {
                 //là par contre c'est la merde pour toi
                 joueur.subNbVie();
                 joueur.tpDepart();
+                for (Fantome f2 : tabFantomes) {
+                    f2.tpDepart();
+                }
             }
         }
     }
