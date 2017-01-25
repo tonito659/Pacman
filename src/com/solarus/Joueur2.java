@@ -41,7 +41,7 @@ public class Joueur2 {
             int direction = 0, degre = 0;
             int direction2 = 0, degre2 = 0;
             while (true) {
-                if(reglesDuJeu.endDuGame(joueur1, tablfantomes)==1){
+                if(reglesDuJeu.endDuGame(joueur1)==1){
                     break;
                 }
 

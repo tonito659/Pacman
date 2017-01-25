@@ -26,8 +26,8 @@ public class Main {
         pacmanGraphique.initialisationEcran();
         pacmanGraphique.ecranDeDemarrage();
         pacmanGraphique.ecranDeJeu(pacmanMap.getLabyrinthe());
-
-        //System.out.print("X =" + joueur1.getX() + " Y =" + joueur1.getX());
+        int [] [] temp = pacmanMap.getLabyrinthe();
+         //System.out.print("X =" + joueur1.getX() + " Y =" + joueur1.getX());
 
         StdDraw.enableDoubleBuffering();
         StdDraw.setPenColor(Color.yellow);
@@ -38,19 +38,19 @@ public class Main {
                 break;
             }
 
-            if (StdDraw.isKeyPressed(KeyEvent.VK_DOWN)) {
+            if (StdDraw.isKeyPressed(KeyEvent.VK_DOWN) && temp[ (joueur1.getY()-1)][ joueur1.getX()]!=0) {
                 direction = 2;
                 degre = 270;
             }
-            if (StdDraw.isKeyPressed(KeyEvent.VK_UP)) {
+            if (StdDraw.isKeyPressed(KeyEvent.VK_UP) && temp[ (joueur1.getY()+1)][ joueur1.getX()]!=0) {
                 direction = 8;
                 degre = 90;
             }
-            if (StdDraw.isKeyPressed(KeyEvent.VK_LEFT)) {
+            if (StdDraw.isKeyPressed(KeyEvent.VK_LEFT) && temp[ joueur1.getY()][ joueur1.getX()-1]!=0) {
                 direction = 4;
                 degre = 180;
             }
-            if (StdDraw.isKeyPressed(KeyEvent.VK_RIGHT)) {
+            if (StdDraw.isKeyPressed(KeyEvent.VK_RIGHT) && temp[ joueur1.getY()][ joueur1.getX()+1]!=0) {
                 direction = 6;
                 degre = 0;
             }
