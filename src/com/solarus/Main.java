@@ -3,7 +3,6 @@ package com.solarus;
 import edu.princeton.cs.introcs.StdDraw;
 
 import java.awt.*;
-import java.awt.event.KeyEvent;
 
 public class Main {
 
