@@ -8,7 +8,6 @@ public class Main {
 
     public static void main(String[] args) {
         while(true){
-            Sound musicPacman = new Sound();
             IG pacmanGraphique = new IG();
 
             pacmanGraphique.initialisationEcran();
