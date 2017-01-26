@@ -58,17 +58,21 @@ public class Pacman extends Entity{
         return compteur;
     }
 
-
+    public void setCompteur(int compteur) {
+        this.compteur = compteur;
+    }
 
     public void mangeGraine(Map mapTestGraine){
         int [][] test = mapTestGraine.getLabyrinthe();
         if(test[this.getY()][this.getX()]==2){
             mapTestGraine.setValeurLabyrintheYX(this.getY(),this.getX(),1);
             this.setScore(this.getScore()+10);
+            this.setCompteur(this.compteur+1);
         }
         if(test[this.getY()][this.getX()]==3){
             mapTestGraine.setValeurLabyrintheYX(this.getY(),this.getX(),1);
             this.setScore(this.getScore()+100);
+            this.setCompteur(this.compteur+1);
             this.isInvicible = true;
             this.invincibleBegin = System.currentTimeMillis();
         }

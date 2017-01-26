@@ -9,7 +9,7 @@ import java.awt.event.KeyEvent;
  */
 public class Joueur1 {
 
-    public void jeu(){
+    public static void jeu1Joueur(){
         Regles reglesDuJeu = new Regles();
         IG pacmanGraphique = new IG();
 

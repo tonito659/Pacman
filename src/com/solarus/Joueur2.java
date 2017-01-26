@@ -10,10 +10,7 @@ import java.awt.event.KeyEvent;
  */
 public class Joueur2 {
 
-    public static void jeu() {
-            //TODO : Créer une classe Ecran qui comporte les diférents écrans qui ne sont pas le plateau de jeu, ie les menus, pause et le reste
-            //TODO : Finir le menu démarrage
-            //TODO : Faire ecran de défaite
+    public  static void jeu2Joueur() {
             Regles reglesDuJeu = new Regles();
             IG pacmanGraphique = new IG();
             Map pacmanMap = new Map();
