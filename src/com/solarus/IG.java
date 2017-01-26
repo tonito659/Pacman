@@ -83,28 +83,61 @@ public class IG {
 
     public void ecranDeFin(){
         Font font = new Font("DialogInput", Font.CENTER_BASELINE , 30);
-        StdDraw.setFont(font);
+        Font font2 = new Font("DialogInput", Font.CENTER_BASELINE , 40);
         StdDraw.enableDoubleBuffering();
 
         while (true){
+            if(StdDraw.mouseX()>7 && StdDraw.mouseX()<18&&StdDraw.mouseY()>=1.5&&StdDraw.mouseY()<=4.5){
+                StdDraw.picture(13.5, 20, "James-Gosling.jpg", 20,20 );
+                StdDraw.setPenColor(Color.RED);
+                StdDraw.setFont(font);
+                StdDraw.text(13.5, 6, "TU EST PAS TRÈS FORT");
+                StdDraw.setFont(font2);
+                StdDraw.text(13.5, 3, "VASI RECOMMENCE GROS");
+                StdDraw.show();
+                StdDraw.pause(50);
+                if(StdDraw.mousePressed()==true){
+                    break;
+                }
+                StdDraw.clear(StdDraw.BLACK);
+                StdDraw.picture(13.5, 20, "James-Gosling.jpg", 20,20 );
+                StdDraw.setPenColor(Color.RED);
+                StdDraw.setFont(font);
+                StdDraw.text(13.5, 6, "TU EST PAS TRÈS FORT");
+                StdDraw.setFont(font2);
+                StdDraw.setPenColor(Color.white);
+                StdDraw.text(13.5, 3, "VASI RECOMMENCE GROS");
+                StdDraw.show();
+                StdDraw.pause(50);
+                if(StdDraw.mousePressed()==true){
+                    break;
+                }
+            }
 
-            StdDraw.picture(13.5, 20, "James-Gosling.jpg", 20,20 );
-            StdDraw.setPenColor(Color.RED);
-            StdDraw.text(13.5, 6, "TU EST PAS TRÈS FORT");
-            StdDraw.text(13.5, 3, "VASI RECOMMENCE GROS");
-            StdDraw.show();
-            StdDraw.pause(100);
+            else{
 
-            StdDraw.clear(StdDraw.BLACK);
-            StdDraw.picture(13.5, 20, "James-Gosling.jpg", 20,20 );
-            StdDraw.text(13.5, 6, "TU EST PAS TRÈS FORT");
-            StdDraw.setPenColor(Color.white);
-            StdDraw.text(13.5, 3, "VASI RECOMMENCE GROS");
-            StdDraw.show();
-            StdDraw.pause(100);
+                StdDraw.picture(13.5, 20, "James-Gosling.jpg", 20,20 );
+                StdDraw.setFont(font);
+                StdDraw.setPenColor(Color.RED);
+                StdDraw.text(13.5, 6, "TU EST PAS TRÈS FORT");
+                StdDraw.text(13.5, 3, "VASI RECOMMENCE GROS");
+                StdDraw.show();
+                StdDraw.pause(50);
+
+                StdDraw.clear(StdDraw.BLACK);
+                StdDraw.setFont(font);
+                StdDraw.picture(13.5, 20, "James-Gosling.jpg", 20,20 );
+                StdDraw.text(13.5, 6, "TU EST PAS TRÈS FORT");
+                StdDraw.setPenColor(Color.white);
+                StdDraw.text(13.5, 3, "VASI RECOMMENCE GROS");
+                StdDraw.show();
+                StdDraw.pause(50);
+                StdDraw.clear(StdDraw.BLACK);
+            }
         }
 
     }
+
 
     public void ecranDeWin(){
 
