@@ -60,7 +60,7 @@ public class Regles {
     public  void checkInvicibilite(Pacman pacman){
         //methode qui permet de remettre les pendules à zero
         long currentTime = System.currentTimeMillis();
-        if (pacman.getInvincibleBegin()+10000<=currentTime ){ // Ici les 10000 indiquent le teps en invincibilité
+        if (pacman.getInvincibleBegin()+5000<=currentTime ){ // Ici les 10000 indiquent le teps en invincibilité
             pacman.setInvicible(false);
         }
     }
