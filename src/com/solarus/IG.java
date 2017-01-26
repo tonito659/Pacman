@@ -1,6 +1,5 @@
 package com.solarus;
 
-import com.solarus.Joueur;
 import edu.princeton.cs.introcs.StdDraw;
 import java.awt.*;
 import java.awt.event.KeyEvent;
@@ -143,23 +142,23 @@ public class IG {
 
     }
 
-    public void afficheVie(Joueur joueur){
+    public void afficheVie(Pacman pacman){
         int compteurPositionVie=2;
-        for(int i=0;i<joueur.getNbVie();i++){
+        for(int i = 0; i< pacman.getNbVie(); i++){
             System.out.print("i = "+i);
             StdDraw.picture( 22 + i*compteurPositionVie,-3.1,"pacman-lives.png",2,2);
         }
     }
 
-    public void afficheScore(Joueur joueur){
+    public void afficheScore(Pacman pacman){
         StdDraw.picture(3, -3.1, "Ender_SCORE.jpg", 5,5 );
         StdDraw.setPenColor(Color.WHITE);
         Font font = new Font("Arial", Font.BOLD, 30);
         StdDraw.setFont(font);
-        StdDraw.text(7,-3.5, " :\t" +joueur.getScore());
+        StdDraw.text(7,-3.5, " :\t" + pacman.getScore());
     }
 
-    public void affiche2joueurs(Joueur [] tabljoueurs){
+    public void affiche2joueurs(Pacman[] tabljoueurs){
         int compteurPositionVie=2;
         for(int i=0;i<tabljoueurs[0].getNbVie();i++){
             StdDraw.picture( 22 + i*compteurPositionVie,-3.1,"pacman-lives.png",1,1);

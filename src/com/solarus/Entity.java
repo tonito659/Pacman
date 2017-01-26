@@ -87,6 +87,7 @@ public class Entity {
                     setX(this.px+1);
                     hasMoved = true;
                 }
+
                 break;
 
             case 2:

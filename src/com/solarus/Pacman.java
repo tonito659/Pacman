@@ -1,6 +1,6 @@
 package com.solarus;
 
-public class Joueur extends Entity{
+public class Pacman extends Entity{
     // Concerne les données sur le joueur
     private int nbVie ;
     private int score = 0;
@@ -22,7 +22,7 @@ public class Joueur extends Entity{
         return invincibleBegin;
     }
 
-    public Joueur(int nbVie, int score, String pseudo, int px, int py) {
+    public Pacman(int nbVie, int score, String pseudo, int px, int py) {
         super(px, py);
         this.nbVie = nbVie;
         this.score = score;
@@ -57,6 +57,8 @@ public class Joueur extends Entity{
     public int getCompteur() {
         return compteur;
     }
+
+
 
     public void mangeGraine(Map mapTestGraine){
         int [][] test = mapTestGraine.getLabyrinthe();

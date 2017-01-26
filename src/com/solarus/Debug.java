@@ -23,7 +23,7 @@ public class Debug {
         int direction = 0, degre = 0;
         Map mapJeu = new Map();
         IG mapGraphique = new IG();
-        Joueur joueur1 = new Joueur(2, 0, "Bogoss", 1, 1);
+        Pacman pacman1 = new Pacman(2, 0, "Bogoss", 1, 1);
         Fantome FantomeRouge = new Fantome("RED", 14, 16, "ready.png");
         //instanciation
         System.out.println("Instanciation done");
@@ -33,8 +33,8 @@ public class Debug {
         mapGraphique.initialisationEcran();
         mapGraphique.ecranDeJeu(mapJeu.getLabyrinthe());
         // Réalisation des init GUI
-        StdDraw.picture(joueur1.getX(), joueur1.getY(), "pacman2.png", 0.9, 0.9, 180);
-        //System.out.print("X =" + joueur1.getX() + " Y =" + joueur1.getX());
+        StdDraw.picture(pacman1.getX(), pacman1.getY(), "pacman2.png", 0.9, 0.9, 180);
+        //System.out.print("X =" + pacman1.getX() + " Y =" + pacman1.getX());
         StdDraw.enableDoubleBuffering();
 
 
@@ -61,9 +61,9 @@ public class Debug {
             }
             StdDraw.clear(StdDraw.BLACK);
             mapGraphique.ecranDeJeu(mapJeu.getLabyrinthe());
-            System.out.println("PC x= " + joueur1.getX() + " Y = " + joueur1.getY());
-            joueur1.mouvement(direction);
-            StdDraw.picture(joueur1.getX(), joueur1.getY(), "pacman2.png", 0.9, 0.9, degre);
+            System.out.println("PC x= " + pacman1.getX() + " Y = " + pacman1.getY());
+            pacman1.mouvement(direction);
+            StdDraw.picture(pacman1.getX(), pacman1.getY(), "pacman2.png", 0.9, 0.9, degre);
             StdDraw.show();
             StdDraw.pause(1000);
 
