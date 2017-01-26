@@ -34,10 +34,10 @@ public class Joueur2 {
             int direction2 = 0, degre2 = 0;
             while (true) {
                 if(reglesDuJeu.endDuGame(pacman1)==1 && reglesDuJeu.endDuGame(pacman2)==1){
-                    pacmanGraphique.ecranDeFin();
+                    pacmanGraphique.ecranDeFin2Joueur(pacman1,pacman2);
                 }
                 if(reglesDuJeu.endDuGame(pacman1)==9000 && reglesDuJeu.endDuGame(pacman2)==9000){
-                    pacmanGraphique.ecranDeWin();
+                    pacmanGraphique.ecranDeWin2Joueur(pacman1,pacman2);
                 }
 
 

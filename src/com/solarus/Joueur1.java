@@ -23,13 +23,13 @@ public class Joueur1 {
         int[][] temp = pacmanMap.getLabyrinthe();
         boolean again = false;
         int direction = 0, degre = 0;
-
+        StdDraw.enableDoubleBuffering();
         while (true) {
             if (reglesDuJeu.endDuGame(pacman1) == 1) {
-                again = pacmanGraphique.ecranDeFin();
+                again = pacmanGraphique.ecranDeFin(pacman1);
             }
             if (reglesDuJeu.endDuGame(pacman1) == 9000) {
-                again = pacmanGraphique.ecranDeWin();
+                again = pacmanGraphique.ecranDeWin(pacman1);
             }
             if (StdDraw.isKeyPressed(KeyEvent.VK_DOWN) && temp[(pacman1.getPositionY() - 1)][pacman1.getPositionX()] != 0) {
                 direction = 2;
@@ -82,15 +82,11 @@ public class Joueur1 {
             for (Fantome f : tablfantomes) {
                 StdDraw.picture(f.getPositionX(), f.getPositionY(), f.getImage(), 0.9, 0.9, f.getDegre());
             }
-            //DESSINAGE DES ENTITES
-            StdDraw.picture(pacman1.getPositionX(), pacman1.getPositionY(), "pacman2.jpg", 0.9, 0.9, degre);
-            for (Fantome f : tablfantomes) {
-                StdDraw.picture(f.getPositionX(), f.getPositionY(), f.getImage(), 0.9, 0.9, f.getDegre());
-            }
 
             StdDraw.show();
             StdDraw.pause(100);
-            if (again) break;
+            if (again)break;
+
         }
     }
 }

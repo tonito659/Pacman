@@ -60,10 +60,8 @@ public class IG {
                 StdDraw.setFont(font);
                 StdDraw.text(13.5, 0, "CONTROLS");
                 StdDraw.text(13.5, 6, "PLAYER 1");
-                StdDraw.setPenColor(Color.WHITE);
                 StdDraw.setFont(font2);
                 StdDraw.text(13.5, 3, "PLAYER 2");
-
                 StdDraw.show();
                 StdDraw.pause(80);
                 if(StdDraw.mousePressed()==true){
@@ -73,10 +71,10 @@ public class IG {
                 StdDraw.clear(StdDraw.BLACK);
                 StdDraw.picture(13.5, 24, "PAC-MAN.jpg", 24,8 );
                 StdDraw.picture(13.5, 13, "pacmanDemarrage.jpg", 17,7 );
-                StdDraw.setPenColor(Color.RED);
                 StdDraw.setFont(font);
-                StdDraw.text(13.5, 6, "PLAYER 1");
                 StdDraw.text(13.5, 0, "CONTROLS");
+                StdDraw.setPenColor(Color.white);
+                StdDraw.text(13.5, 6, "PLAYER 1");
                 StdDraw.setFont(font2);
                 StdDraw.text(13.5, 3, "PLAYER 2");
                 StdDraw.show();
@@ -178,7 +176,7 @@ public class IG {
     StdDraw.show();
     }
 
-    public boolean ecranDeFin(){
+    public boolean ecranDeFin(Pacman joueur){
         Font font = new Font("DialogInput", Font.CENTER_BASELINE , 30);
         Font font2 = new Font("DialogInput", Font.CENTER_BASELINE , 40);
         StdDraw.enableDoubleBuffering();
@@ -190,22 +188,25 @@ public class IG {
                 StdDraw.setPenColor(Color.RED);
                 StdDraw.setFont(font);
                 StdDraw.text(13.5, 6, "YOU LOOSE");
+                StdDraw.setPenColor(Color.white);
+                StdDraw.text(4,-5,"SCORE: "+joueur.getScore());
+                StdDraw.setPenColor(Color.RED);
                 StdDraw.setFont(font2);
                 StdDraw.text(13.5, 3, "REPLAY ?");
-                //StdDraw.text(3,-3,"SCORE :"+joueur.getScore());
                 StdDraw.show();
                 StdDraw.pause(80);
                 if(StdDraw.mousePressed()==true){
                     again = true;
                 }
+
                 StdDraw.clear(StdDraw.BLACK);
                 StdDraw.picture(13.5, 20, "ecran_loose.jpg", 20,20 );
                 StdDraw.setPenColor(Color.RED);
                 StdDraw.setFont(font);
                 StdDraw.text(13.5, 6, "YOU LOOSE");
-               // StdDraw.text(3,-3,"SCORE :"+joueur.getScore());
-                StdDraw.setFont(font2);
                 StdDraw.setPenColor(Color.white);
+                StdDraw.text(4,-5,"SCORE: "+joueur.getScore());
+                StdDraw.setFont(font2);
                 StdDraw.text(13.5, 3, "REPLAY ?");
                 StdDraw.show();
                 StdDraw.pause(80);
@@ -218,10 +219,11 @@ public class IG {
                 StdDraw.clear(StdDraw.BLACK);
                 StdDraw.picture(13.5, 20, "ecran_loose.jpg", 20,20 );
                 StdDraw.setFont(font);
+                StdDraw.setPenColor(Color.white);
+                StdDraw.text(4,-5,"SCORE: "+joueur.getScore());
                 StdDraw.setPenColor(Color.RED);
                 StdDraw.text(13.5, 6, "YOU LOOSE");
                 StdDraw.text(13.5, 3, "REPLAY ?");
-               // StdDraw.text(3,-3,"SCORE :"+joueur.getScore());
                 StdDraw.show();
                 StdDraw.pause(80);
 
@@ -229,8 +231,75 @@ public class IG {
                 StdDraw.picture(13.5, 20, "ecran_loose.jpg", 20,20 );
                 StdDraw.setFont(font);
                 StdDraw.text(13.5, 6, "YOU LOOSE");
-              //  StdDraw.text(3,-3,"SCORE :"+joueur.getScore());
                 StdDraw.setPenColor(Color.white);
+                StdDraw.text(13.5, 3, "REPLAY ?");
+                StdDraw.text(4,-5,"SCORE: "+joueur.getScore());
+                StdDraw.show();
+                StdDraw.pause(80);
+                StdDraw.clear(StdDraw.BLACK);
+            }
+            if(again) break;
+        }
+        System.out.println("coucou");
+        return again;
+    }
+
+    public boolean ecranDeFin2Joueur(Pacman joueur1,Pacman joueur2 ){
+        Font font = new Font("DialogInput", Font.CENTER_BASELINE , 30);
+        Font font2 = new Font("DialogInput", Font.CENTER_BASELINE , 40);
+        StdDraw.enableDoubleBuffering();
+        boolean again = false;
+        while (true){
+            if(StdDraw.mouseX()>10 && StdDraw.mouseX()<17&&StdDraw.mouseY()>=2&&StdDraw.mouseY()<=3.5){
+                StdDraw.clear(StdDraw.BLACK);
+                StdDraw.picture(13.5, 20, "ecran_loose.jpg", 20,20 );
+
+                StdDraw.setFont(font);
+                StdDraw.setPenColor(Color.white);
+                StdDraw.text(12,-3,"SCORE J1: "+joueur1.getScore() +"  "+ "SCORE J2: "+joueur2.getScore());
+                StdDraw.setPenColor(Color.RED);
+                StdDraw.text(13.5, 6, "YOU LOOSE");
+                StdDraw.setFont(font2);
+                StdDraw.text(13.5, 3, "REPLAY ?");
+                StdDraw.show();
+                StdDraw.pause(80);
+                if(StdDraw.mousePressed()==true){
+                    again = true;
+                }
+                StdDraw.clear(StdDraw.BLACK);
+                StdDraw.picture(13.5, 20, "ecran_loose.jpg", 20,20 );
+                StdDraw.setFont(font);
+                StdDraw.setPenColor(Color.RED);
+                StdDraw.text(13.5, 6, "YOU LOOSE");
+                StdDraw.setPenColor(Color.white);
+                StdDraw.text(12,-3,"SCORE J1: "+joueur1.getScore() + "  "+"SCORE J2: "+joueur2.getScore());
+                StdDraw.setFont(font2);
+                StdDraw.text(13.5, 3, "REPLAY ?");
+                StdDraw.show();
+                StdDraw.pause(80);
+                if(StdDraw.mousePressed()==true){
+                    again= true;
+                }
+            }
+
+            else{
+                StdDraw.clear(StdDraw.BLACK);
+                StdDraw.picture(13.5, 20, "ecran_loose.jpg", 20,20 );
+                StdDraw.setFont(font);
+                StdDraw.setPenColor(Color.WHITE);
+                StdDraw.text(12,-3,"SCORE J1: "+joueur1.getScore() + "  "+"SCORE J2: "+joueur2.getScore());
+                StdDraw.setPenColor(Color.RED);
+                StdDraw.text(13.5, 6, "YOU LOOSE");
+                StdDraw.text(13.5, 3, "REPLAY ?");
+                StdDraw.show();
+                StdDraw.pause(80);
+
+                StdDraw.clear(StdDraw.BLACK);
+                StdDraw.picture(13.5, 20, "ecran_loose.jpg", 20,20 );
+                StdDraw.setFont(font);
+                StdDraw.text(13.5, 6, "YOU LOOSE");
+                StdDraw.setPenColor(Color.white);
+                StdDraw.text(12,-3,"SCORE J1: "+joueur1.getScore() + "  "+"SCORE J2: "+joueur2.getScore());
                 StdDraw.text(13.5, 3, "REPLAY ?");
                 StdDraw.show();
                 StdDraw.pause(80);
@@ -242,7 +311,7 @@ public class IG {
         return again;
     }
 
-    public boolean ecranDeWin(){
+    public boolean ecranDeWin(Pacman joueur){
         Font font = new Font("DialogInput", Font.CENTER_BASELINE , 30);
         Font font2 = new Font("DialogInput", Font.CENTER_BASELINE , 40);
         boolean again = false;
@@ -250,8 +319,10 @@ public class IG {
             if(StdDraw.mouseX()>7 && StdDraw.mouseX()<17&&StdDraw.mouseY()>=2&&StdDraw.mouseY()<=3.5){
                 StdDraw.clear(StdDraw.BLACK);
                 StdDraw.picture(13.5, 20, "ecran_win.jpg", 20,20 );
-                StdDraw.setPenColor(Color.RED);
                 StdDraw.setFont(font);
+                StdDraw.setPenColor(Color.white);
+                StdDraw.text(4,-5,"SCORE: "+joueur.getScore());
+                StdDraw.setPenColor(Color.RED);
                 StdDraw.text(13.5, 6, "YOU WIN");
                 StdDraw.setFont(font2);
                 StdDraw.text(13.5, 3, "REPLAY ?");
@@ -265,6 +336,78 @@ public class IG {
                 StdDraw.picture(13.5, 20, "ecran_win.jpg", 20,20 );
                 StdDraw.setPenColor(Color.RED);
                 StdDraw.setFont(font);
+                StdDraw.text(13.5, 6, "YOU WIN");
+                StdDraw.setPenColor(Color.white);
+                StdDraw.text(4,-5,"SCORE: "+joueur.getScore());
+                StdDraw.setFont(font2);
+                StdDraw.text(13.5, 3, "REPLAY ?");
+                StdDraw.show();
+                StdDraw.pause(80);
+                if(StdDraw.mousePressed()==true){
+                    again = true;
+
+                }
+            }
+
+            else{
+                StdDraw.clear(StdDraw.BLACK);
+                StdDraw.picture(13.5, 20, "ecran_win.jpg", 20,20 );
+                StdDraw.setFont(font);
+                StdDraw.setPenColor(Color.white);
+                StdDraw.text(4,-5,"SCORE: "+joueur.getScore());
+                StdDraw.setPenColor(Color.RED);
+                StdDraw.text(13.5, 6, "YOU WIN");
+                StdDraw.text(13.5, 3, "REPLAY ?");
+
+                StdDraw.show();
+                StdDraw.pause(80);
+
+                StdDraw.clear(StdDraw.BLACK);
+                StdDraw.picture(13.5, 20, "ecran_win.jpg", 20,20 );
+                StdDraw.setFont(font);
+                StdDraw.text(13.5, 6, "YOU WIN");
+                StdDraw.setPenColor(Color.white);
+                StdDraw.text(13.5, 3, "REPLAY ?");
+                StdDraw.text(4,-5,"SCORE: "+joueur.getScore());
+                StdDraw.show();
+                StdDraw.pause(80);
+                StdDraw.clear(StdDraw.BLACK);
+
+            }
+            if(again) break;
+        }
+        System.out.println("coucou");
+        return again;
+
+    }
+
+    public boolean ecranDeWin2Joueur(Pacman joueur1,Pacman joueur2){
+        Font font = new Font("DialogInput", Font.CENTER_BASELINE , 30);
+        Font font2 = new Font("DialogInput", Font.CENTER_BASELINE , 40);
+        boolean again = false;
+        while(true){
+            if(StdDraw.mouseX()>7 && StdDraw.mouseX()<17&&StdDraw.mouseY()>=2&&StdDraw.mouseY()<=3.5){
+                StdDraw.clear(StdDraw.BLACK);
+                StdDraw.picture(13.5, 20, "ecran_win.jpg", 20,20 );
+                StdDraw.setFont(font);
+                StdDraw.setPenColor(Color.white);
+                StdDraw.text(12,-3,"SCORE J1: "+joueur1.getScore() + "  "+"SCORE J2: "+joueur2.getScore());
+                StdDraw.setPenColor(Color.RED);
+                StdDraw.text(13.5, 6, "YOU WIN");
+                StdDraw.setFont(font2);
+                StdDraw.text(13.5, 3, "REPLAY ?");
+                StdDraw.show();
+                StdDraw.pause(80);
+                if(StdDraw.mousePressed()==true){
+                    again = true;
+
+                }
+                StdDraw.clear(StdDraw.BLACK);
+                StdDraw.picture(13.5, 20, "ecran_win.jpg", 20,20 );
+                StdDraw.setFont(font);
+                StdDraw.setPenColor(Color.white);
+                StdDraw.text(12,-3,"SCORE J1: "+joueur1.getScore() +"  "+ "SCORE J2: "+joueur2.getScore());
+                StdDraw.setPenColor(Color.RED);
                 StdDraw.text(13.5, 6, "YOU WIN");
                 StdDraw.setFont(font2);
                 StdDraw.setPenColor(Color.white);
@@ -281,6 +424,8 @@ public class IG {
                 StdDraw.clear(StdDraw.BLACK);
                 StdDraw.picture(13.5, 20, "ecran_win.jpg", 20,20 );
                 StdDraw.setFont(font);
+                StdDraw.setPenColor(Color.white);
+                StdDraw.text(12,-3,"SCORE J1: "+joueur1.getScore() + "  "+"SCORE J2: "+joueur2.getScore());
                 StdDraw.setPenColor(Color.RED);
                 StdDraw.text(13.5, 6, "YOU WIN");
                 StdDraw.text(13.5, 3, "REPLAY ?");
@@ -292,6 +437,7 @@ public class IG {
                 StdDraw.setFont(font);
                 StdDraw.text(13.5, 6, "YOU WIN");
                 StdDraw.setPenColor(Color.white);
+                StdDraw.text(12,-3,"SCORE J1: "+joueur1.getScore() +"  "+ "SCORE J2: "+joueur2.getScore());
                 StdDraw.text(13.5, 3, "REPLAY ?");
                 StdDraw.show();
                 StdDraw.pause(80);

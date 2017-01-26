@@ -33,7 +33,6 @@ public class Fantome extends Entity{
         if (this.emplacementEstUneIntersection(directionpossibles)) { //randomisation de la direction à une intersect
             boolean mvt = false;
             while (!mvt) {
-            //TODO : ajouter une condition de non-retour
                 double random = Math.random() * 4;
                 if (random < 1 && directionpossibles[0] && direction != 2) {
                     direction = 8;//NORD

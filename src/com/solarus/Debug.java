@@ -23,7 +23,7 @@ public class Debug {
         int direction = 0, degre = 0;
         Map mapJeu = new Map();
         IG mapGraphique = new IG();
-        Pacman pacman1 = new Pacman(2, 0, 1, 1);
+        Pacman pacman1 = new Pacman(2, 1, 1);
         Fantome FantomeRouge = new Fantome("RED", 14, 16, "ready.png");
         //instanciation
         System.out.println("Instanciation done");
