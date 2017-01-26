@@ -25,8 +25,6 @@ public class Entity {
 
     public int getPy_orig() {return py_orig;}
 
-    //TODO : implementer les deplacements au niveau de la classe entité
-
     public Entity(int px, int py){
         this.px = px;
         this.py = py;
@@ -34,7 +32,6 @@ public class Entity {
         this.py_orig = py;
     }
 
-    //public void deplacement(){}
     public void transfertBord(){
         // DO YOU EVEN TP BRO ?
         // INSTANT TP OMGHAXX
@@ -66,6 +63,7 @@ public class Entity {
         //System.out.println("X = "+ this.px+ "\t Y = "+ this.py);
         return collision;
     }
+
     public boolean mouvement(int direction){
         // prend en paramètre 8,6,2,4 comme sur un pavé numérique,
         // 8 = Nord
@@ -87,6 +85,7 @@ public class Entity {
                     setX(this.px+1);
                     hasMoved = true;
                 }
+
                 break;
 
             case 2:

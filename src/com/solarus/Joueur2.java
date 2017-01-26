@@ -10,30 +10,22 @@ import java.awt.event.KeyEvent;
  */
 public class Joueur2 {
 
-    public static void jeu() {
-            //TODO : Créer une classe Ecran qui comporte les diférents écrans qui ne sont pas le plateau de jeu, ie les menus, pause et le reste
-            //TODO : Finir le menu démarrage
-            //TODO : Faire ecran de défaite
+    public  static void jeu2Joueur() {
             Regles reglesDuJeu = new Regles();
+            IG pacmanGraphique = new IG();
             Map pacmanMap = new Map();
-            Joueur joueur1 = new Joueur(3, 0, "Bogoss", 14, 7);
-            Joueur joueur2 = new Joueur(3, 0, "BelleFille", 15, 7);
-            Joueur [] tabljoueurs = {joueur1, joueur2};
+            Pacman pacman1 = new Pacman(3, 0, "Bogoss", 14, 7);
+            Pacman pacman2 = new Pacman(3, 0, "BelleFille", 15, 7);
+            Pacman[] tabljoueurs = {pacman1, pacman2};
 
             Fantome FantomeRouge = new Fantome("RED", 13, 18, "ready.png");
             Fantome FantomeRose = new Fantome("PINK", 14, 18, "pinkie.jpg");
             Fantome FantomeBleu = new Fantome("BLUE", 15, 18,"bleue.png");
             Fantome FantomeOrange = new Fantome("ORANGE", 16, 18,"yellowie.png");
             Fantome [] tablfantomes = {FantomeBleu,FantomeRouge,FantomeRose,FantomeOrange};
-
             //instanciation
 
-
-            StdDraw.clear(StdDraw.BLACK);
-            pacmanMap.ecranDeJeu(pacmanMap.getLabyrinthe());
-            StdDraw.show();
-
-            //System.out.print("X =" + joueur1.getX() + " Y =" + joueur1.getX());
+            //System.out.print("X =" + pacman1.getX() + " Y =" + pacman1.getX());
             StdDraw.enableDoubleBuffering();
             //j'applique a pacmanMap les méthodes présents dans la classe map
             StdDraw.setPenColor(Color.yellow);
@@ -41,9 +33,17 @@ public class Joueur2 {
             int direction = 0, degre = 0;
             int direction2 = 0, degre2 = 0;
             while (true) {
-                if(reglesDuJeu.endDuGame(joueur1)==1){
-                    break;
+                if(reglesDuJeu.endDuGame(pacman1)==1 && reglesDuJeu.endDuGame(pacman2)==1){
+                    pacmanGraphique.ecranDeFin();
                 }
+                if(reglesDuJeu.endDuGame(pacman1)==9000 && reglesDuJeu.endDuGame(pacman2)==9000){
+                    pacmanGraphique.ecranDeWin();
+                }
+
+
+                //////////////////////////////////////////////
+                //INPUTS J1
+                //////////////////////////////////////////////
 
                 if (StdDraw.isKeyPressed(KeyEvent.VK_DOWN)) {
                     direction = 2;
@@ -91,19 +91,18 @@ public class Joueur2 {
 
 
                 StdDraw.clear(StdDraw.BLACK);
-                pacmanMap.ecranDeJeu(pacmanMap.getLabyrinthe());
+                pacmanGraphique.ecranDeJeu(pacmanMap.getLabyrinthe());
 
 
                 // REGLES
-
-                for( Joueur j: tabljoueurs) {
+                for( Pacman j: tabljoueurs) {
                     reglesDuJeu.checkInvicibilite(j);
                     reglesDuJeu.modifImageFantome(j, tablfantomes);
                     //déplacement du joueur et des fantomes, check des TP
                 }
-                joueur1.mouvement(direction);
-                joueur2.mouvement(direction2);
-                for (Joueur j: tabljoueurs) {
+                pacman1.mouvement(direction);
+                pacman2.mouvement(direction2);
+                for (Pacman j: tabljoueurs) {
                     j.transfertBord();
                     j.mangeGraine(pacmanMap);
                     //CHECK POUR VOIR SI TON PACMAN IL CREVE UN PEU COMME UNE SOUS MERDE
@@ -117,17 +116,17 @@ public class Joueur2 {
                 }
 
 
-                for( Joueur j: tabljoueurs) {
-                    //CHECK POUR VOIR SI TON PACMAN IL CREVE UN PEU COMME UNE SOUS MERDE
-                    reglesDuJeu.contact(joueur1, tablfantomes);
+                for( Pacman j: tabljoueurs) {
+                    //CHECK si le pacman est mort
+                    reglesDuJeu.contact(pacman1, tablfantomes);
                 }
 
-                pacmanMap.affiche2joueurs(tabljoueurs);
+                pacmanGraphique.affiche2joueurs(tabljoueurs);
 
 
                 //DESSINAGE DES ENTITES
-                StdDraw.picture(joueur1.getX(), joueur1.getY(), "pacman2.jpg", 0.9, 0.9, degre);
-                StdDraw.picture(joueur2.getX(), joueur2.getY(), "pacman2.jpg", 0.9, 0.9, degre2);
+                StdDraw.picture(pacman1.getX(), pacman1.getY(), "pacman2.jpg", 0.9, 0.9, degre);
+                StdDraw.picture(pacman2.getX(), pacman2.getY(), "pacman2.jpg", 0.9, 0.9, degre2);
 
                 for(Fantome f : tablfantomes ){
                     StdDraw.picture(f.getX(), f.getY(), f.getImage(), 0.9, 0.9, f.getDegre());
@@ -139,7 +138,7 @@ public class Joueur2 {
                 StdDraw.pause(100);
             }
             StdDraw.clear(StdDraw.BLACK);
-            pacmanMap.ecranDeDemarrage();
+            pacmanGraphique.ecranDeDemarrage();
         }
 
 }

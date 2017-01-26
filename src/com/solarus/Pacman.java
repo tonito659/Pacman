@@ -1,16 +1,13 @@
 package com.solarus;
 
-public class Joueur extends Entity{
+public class Pacman extends Entity{
     // Concerne les données sur le joueur
-
     private int nbVie ;
     private int score = 0;
     private String pseudo = "";
     private boolean isInvicible = false;
     private long invincibleBegin;
     private int compteur=0;
-
-    // Concerne les attributs du pacman
 
 
     public boolean isInvicible() {
@@ -25,7 +22,7 @@ public class Joueur extends Entity{
         return invincibleBegin;
     }
 
-    public Joueur(int nbVie, int score, String pseudo, int px, int py) {
+    public Pacman(int nbVie, int score, String pseudo, int px, int py) {
         super(px, py);
         this.nbVie = nbVie;
         this.score = score;
@@ -53,30 +50,30 @@ public class Joueur extends Entity{
         return score;
     }
 
-    public String getPseudo() {
-        return pseudo;
-    }
-
     public int getCompteur() {
         return compteur;
+    }
+
+    public void setCompteur(int compteur) {
+        this.compteur = compteur;
     }
 
     public void mangeGraine(Map mapTestGraine){
         int [][] test = mapTestGraine.getLabyrinthe();
         if(test[this.getY()][this.getX()]==2){
             mapTestGraine.setValeurLabyrintheYX(this.getY(),this.getX(),1);
-            this.setScore(this.getScore()+10);
+            this.setScore(this.score+10);
+            this.setCompteur(this.compteur+1);
         }
         if(test[this.getY()][this.getX()]==3){
             mapTestGraine.setValeurLabyrintheYX(this.getY(),this.getX(),1);
-            this.setScore(this.getScore()+100);
+            this.setScore(this.score+100);
+            this.setCompteur(this.compteur+1);
             this.isInvicible = true;
             this.invincibleBegin = System.currentTimeMillis();
         }
         System.out.println("Score "+ this.getScore());
     }
-
-
 
 }
 

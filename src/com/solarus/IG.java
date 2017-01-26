@@ -1,6 +1,5 @@
 package com.solarus;
 
-import com.solarus.Joueur;
 import edu.princeton.cs.introcs.StdDraw;
 import java.awt.*;
 import java.awt.event.KeyEvent;
@@ -16,55 +15,154 @@ public class IG {
 
     public void ecranDeDemarrage(){
         Font font = new Font("DialogInput", Font.CENTER_BASELINE , 30);
+        Font font2 = new Font("DialogInput", Font.CENTER_BASELINE , 40);
+        StdDraw.enableDoubleBuffering();
 
         while(true){
-            StdDraw.picture(13.5, 24, "PAC-MAN.jpg", 24,8 );
-            StdDraw.picture(13.5, 13, "pacmanDemarrage.jpg", 15,6 );
-            StdDraw.setPenColor(Color.WHITE);
-            StdDraw.setFont(font);
-            StdDraw.text(13.5, 3, "Press START");
-            StdDraw.pause(100);
-            if(StdDraw.isKeyPressed(KeyEvent.VK_ENTER)){
-                /*StdDraw.text(13.5, 3, "Press START");
+            if(StdDraw.mouseX()>=10&& StdDraw.mouseX()<=17&&StdDraw.mouseY()>5&&StdDraw.mouseY()<6.5){
+                StdDraw.clear(StdDraw.BLACK);
+                StdDraw.picture(13.5, 24, "PAC-MAN.jpg", 24,8 );
+                StdDraw.picture(13.5, 13, "pacmanDemarrage.jpg", 17,7 );
+                StdDraw.setPenColor(Color.RED);
+                StdDraw.setFont(font);
+                StdDraw.text(13.5, 0, "CONTROLS");
+                StdDraw.text(13.5, 3, "PLAYER 2");
+                StdDraw.setFont(font2);
+                StdDraw.text(13.5, 6, "PLAYER 1");
+                StdDraw.show();
+                StdDraw.pause(80);
                 if(StdDraw.mousePressed()==true){
-                    break;
-                }*/
-                break;
+                    Joueur1.jeu1Joueur();
+                }
+
+                StdDraw.clear(StdDraw.BLACK);
+                StdDraw.picture(13.5, 24, "PAC-MAN.jpg", 24,8 );
+                StdDraw.picture(13.5, 13, "pacmanDemarrage.jpg", 17,7 );
+                StdDraw.setPenColor(Color.RED);
+                StdDraw.setFont(font);
+                StdDraw.text(13.5, 0, "CONTROLS");
+                StdDraw.setPenColor(Color.white);
+                StdDraw.text(13.5, 3, "PLAYER 2");
+                StdDraw.setFont(font2);
+                StdDraw.text(13.5, 6, "PLAYER 1");
+                StdDraw.show();
+                StdDraw.pause(80);
+                if(StdDraw.mousePressed()==true){
+                    Joueur1.jeu1Joueur();
+                }
             }
 
-            StdDraw.clear(StdDraw.BLACK);
-            StdDraw.picture(13.5, 24, "PAC-MAN.jpg", 24,8 );
-            StdDraw.picture(13.5, 13, "pacmanDemarrage.jpg", 15,6 );
-            StdDraw.setPenColor(Color.RED);
-            StdDraw.text(13.5, 3, "Press START");
-            StdDraw.pause(100);
-            if(StdDraw.isKeyPressed(KeyEvent.VK_ENTER)){
-                /*StdDraw.text(13.5, 3, "Press START");
+            else if(StdDraw.mouseX()>=10&& StdDraw.mouseX()<=17&&StdDraw.mouseY()>2&&StdDraw.mouseY()<=3.5){
+                StdDraw.clear(StdDraw.BLACK);
+                StdDraw.picture(13.5, 24, "PAC-MAN.jpg", 24,8 );
+                StdDraw.picture(13.5, 13, "pacmanDemarrage.jpg", 17,7 );
+                StdDraw.setPenColor(Color.RED);
+                StdDraw.setFont(font);
+                StdDraw.text(13.5, 0, "CONTROLS");
+                StdDraw.text(13.5, 6, "PLAYER 1");
+                StdDraw.setPenColor(Color.WHITE);
+                StdDraw.setFont(font2);
+                StdDraw.text(13.5, 3, "PLAYER 2");
+
+                StdDraw.show();
+                StdDraw.pause(80);
                 if(StdDraw.mousePressed()==true){
-                    break;
-                }*/
-                break;
+                    Joueur2.jeu2Joueur();
+                }
+
+                StdDraw.clear(StdDraw.BLACK);
+                StdDraw.picture(13.5, 24, "PAC-MAN.jpg", 24,8 );
+                StdDraw.picture(13.5, 13, "pacmanDemarrage.jpg", 17,7 );
+                StdDraw.setPenColor(Color.RED);
+                StdDraw.setFont(font);
+                StdDraw.text(13.5, 6, "PLAYER 1");
+                StdDraw.text(13.5, 0, "CONTROLS");
+                StdDraw.setFont(font2);
+                StdDraw.text(13.5, 3, "PLAYER 2");
+                StdDraw.show();
+                StdDraw.pause(80);
+                if(StdDraw.mousePressed()==true){
+                    Joueur2.jeu2Joueur();
+                }
             }
+
+            else if(StdDraw.mouseX()>=10&& StdDraw.mouseX()<=17&&StdDraw.mouseY()>-1&&StdDraw.mouseY()<=0.70){
+                StdDraw.clear(StdDraw.BLACK);
+                StdDraw.picture(13.5, 24, "PAC-MAN.jpg", 24,8 );
+                StdDraw.picture(13.5, 13, "pacmanDemarrage.jpg", 17,7 );
+                StdDraw.setPenColor(Color.RED);
+                StdDraw.setFont(font);
+                StdDraw.text(13.5, 3, "PLAYER 2");
+                StdDraw.text(13.5, 6, "PLAYER 1");
+                StdDraw.setFont(font2);
+                StdDraw.text(13.5, 0, "CONTROLS");
+                StdDraw.show();
+                StdDraw.pause(80);
+                if(StdDraw.mousePressed()==true){
+                    Joueur2.jeu2Joueur();
+                }
+
+                StdDraw.clear(StdDraw.BLACK);
+                StdDraw.picture(13.5, 24, "PAC-MAN.jpg", 24,8 );
+                StdDraw.picture(13.5, 13, "pacmanDemarrage.jpg", 17,7 );
+                StdDraw.setPenColor(Color.white);
+                StdDraw.setFont(font);
+                StdDraw.text(13.5, 6, "PLAYER 1");
+                StdDraw.text(13.5, 3, "PLAYER 2");
+                StdDraw.setPenColor(Color.RED);
+                StdDraw.setFont(font2);
+                StdDraw.text(13.5, 0, "CONTROLS");
+                StdDraw.show();
+                StdDraw.pause(80);
+                if(StdDraw.mousePressed()==true){
+                    Joueur2.jeu2Joueur();
+                }
+            }
+
+            else{
+                StdDraw.clear(StdDraw.BLACK);
+                StdDraw.setFont(font);
+                StdDraw.picture(13.5, 24, "PAC-MAN.jpg", 24,8 );
+                StdDraw.picture(13.5, 13, "pacmanDemarrage.jpg", 17,7 );
+                StdDraw.setPenColor(Color.RED);
+                StdDraw.text(13.5, 0, "CONTROLS");
+                StdDraw.setPenColor(Color.WHITE);
+                StdDraw.text(13.5, 6, "PLAYER 1");
+                StdDraw.text(13.5, 3, "PLAYER 2");
+                StdDraw.show();
+                StdDraw.pause(80);
+
+                StdDraw.clear(StdDraw.BLACK);
+                StdDraw.setFont(font);
+                StdDraw.picture(13.5, 24, "PAC-MAN.jpg", 24,8 );
+                StdDraw.picture(13.5, 13, "pacmanDemarrage.jpg", 17,7 );
+                StdDraw.setPenColor(Color.RED);
+                StdDraw.text(13.5, 0, "CONTROLS");
+                StdDraw.text(13.5, 6, "PLAYER 1");
+                StdDraw.text(13.5, 3, "PLAYER 2");
+                StdDraw.show();
+                StdDraw.pause(80);
+            }
+
         }
-        StdDraw.clear(StdDraw.BLACK);
     }
 
-    public void ecranDeJeu(int[][] arrayMap){
+    public void ecranDeJeu(int[][] Map){
         for (int ordonnee=30; ordonnee>=0; --ordonnee){
             for(int abcisse=27; abcisse>=0; --abcisse)  {
-                if (arrayMap[ordonnee][abcisse] == 0) {
+                if (Map[ordonnee][abcisse] == 0) {
                     StdDraw.setPenColor(StdDraw.BLUE);
                     StdDraw.filledRectangle(abcisse, ordonnee, 0.51, 0.51);
                 }
-                else if(arrayMap[ordonnee][abcisse] == 2) {
+                else if(Map[ordonnee][abcisse] == 2) {
                     StdDraw.setPenColor(StdDraw.ORANGE);
                     StdDraw.filledCircle(abcisse,ordonnee,0.1);
                 }
-                else if(arrayMap[ordonnee][abcisse] == 3) {
+                else if(Map[ordonnee][abcisse] == 3) {
                     StdDraw.setPenColor(StdDraw.ORANGE);
                     StdDraw.filledCircle(abcisse, ordonnee, 0.3);
                 }
-                else if(arrayMap[ordonnee][abcisse]==4){
+                else if(Map[ordonnee][abcisse]==4){
                     StdDraw.setPenColor(StdDraw.WHITE);
                     StdDraw.line(11,18,15.5,18);
                 }
@@ -77,22 +175,156 @@ public class IG {
 
         }
         //System.out.println("Tableau généré");
+    StdDraw.show();
+    }
+
+    public void ecranDeFin(){
+        Font font = new Font("DialogInput", Font.CENTER_BASELINE , 30);
+        Font font2 = new Font("DialogInput", Font.CENTER_BASELINE , 40);
+        StdDraw.enableDoubleBuffering();
+
+        while (true){
+            if(StdDraw.mouseX()>10 && StdDraw.mouseX()<17&&StdDraw.mouseY()>=2&&StdDraw.mouseY()<=3.5){
+                StdDraw.clear(StdDraw.BLACK);
+                StdDraw.picture(13.5, 20, "ecran_loose.jpg", 20,20 );
+                StdDraw.setPenColor(Color.RED);
+                StdDraw.setFont(font);
+                StdDraw.text(13.5, 6, "YOU LOOSE");
+                StdDraw.setFont(font2);
+                StdDraw.text(13.5, 3, "REPLAY ?");
+                //StdDraw.text(3,-3,"SCORE :"+joueur.getScore());
+                StdDraw.show();
+                StdDraw.pause(80);
+                if(StdDraw.mousePressed()==true){
+                    break;
+                }
+                StdDraw.clear(StdDraw.BLACK);
+                StdDraw.picture(13.5, 20, "ecran_loose.jpg", 20,20 );
+                StdDraw.setPenColor(Color.RED);
+                StdDraw.setFont(font);
+                StdDraw.text(13.5, 6, "YOU LOOSE");
+               // StdDraw.text(3,-3,"SCORE :"+joueur.getScore());
+                StdDraw.setFont(font2);
+                StdDraw.setPenColor(Color.white);
+                StdDraw.text(13.5, 3, "REPLAY ?");
+                StdDraw.show();
+                StdDraw.pause(80);
+                if(StdDraw.mousePressed()==true){
+                    break;
+                }
+            }
+
+            else{
+                StdDraw.clear(StdDraw.BLACK);
+                StdDraw.picture(13.5, 20, "ecran_loose.jpg", 20,20 );
+                StdDraw.setFont(font);
+                StdDraw.setPenColor(Color.RED);
+                StdDraw.text(13.5, 6, "YOU LOOSE");
+                StdDraw.text(13.5, 3, "REPLAY ?");
+               // StdDraw.text(3,-3,"SCORE :"+joueur.getScore());
+                StdDraw.show();
+                StdDraw.pause(80);
+
+                StdDraw.clear(StdDraw.BLACK);
+                StdDraw.picture(13.5, 20, "ecran_loose.jpg", 20,20 );
+                StdDraw.setFont(font);
+                StdDraw.text(13.5, 6, "YOU LOOSE");
+              //  StdDraw.text(3,-3,"SCORE :"+joueur.getScore());
+                StdDraw.setPenColor(Color.white);
+                StdDraw.text(13.5, 3, "REPLAY ?");
+                StdDraw.show();
+                StdDraw.pause(80);
+                StdDraw.clear(StdDraw.BLACK);
+            }
+        }
 
     }
 
-    public void afficheVie(Joueur joueur){
+    public void ecranDeWin(){
+        Font font = new Font("DialogInput", Font.CENTER_BASELINE , 30);
+        Font font2 = new Font("DialogInput", Font.CENTER_BASELINE , 40);
+        while(true){
+            if(StdDraw.mouseX()>7 && StdDraw.mouseX()<17&&StdDraw.mouseY()>=2&&StdDraw.mouseY()<=3.5){
+                StdDraw.clear(StdDraw.BLACK);
+                StdDraw.picture(13.5, 20, "ecran_win.jpg", 20,20 );
+                StdDraw.setPenColor(Color.RED);
+                StdDraw.setFont(font);
+                StdDraw.text(13.5, 6, "YOU WIN");
+                StdDraw.setFont(font2);
+                StdDraw.text(13.5, 3, "REPLAY ?");
+                StdDraw.show();
+                StdDraw.pause(80);
+                if(StdDraw.mousePressed()==true){
+                    break;
+                }
+                StdDraw.clear(StdDraw.BLACK);
+                StdDraw.picture(13.5, 20, "ecran_win.jpg", 20,20 );
+                StdDraw.setPenColor(Color.RED);
+                StdDraw.setFont(font);
+                StdDraw.text(13.5, 6, "YOU WIN");
+                StdDraw.setFont(font2);
+                StdDraw.setPenColor(Color.white);
+                StdDraw.text(13.5, 3, "REPLAY ?");
+                StdDraw.show();
+                StdDraw.pause(80);
+                if(StdDraw.mousePressed()==true){
+                    break;
+                }
+            }
+
+            else{
+                StdDraw.clear(StdDraw.BLACK);
+                StdDraw.picture(13.5, 20, "ecran_win.jpg", 20,20 );
+                StdDraw.setFont(font);
+                StdDraw.setPenColor(Color.RED);
+                StdDraw.text(13.5, 6, "YOU WIN");
+                StdDraw.text(13.5, 3, "REPLAY ?");
+                StdDraw.show();
+                StdDraw.pause(80);
+
+                StdDraw.clear(StdDraw.BLACK);
+                StdDraw.picture(13.5, 20, "ecran_win.jpg", 20,20 );
+                StdDraw.setFont(font);
+                StdDraw.text(13.5, 6, "YOU WIN");
+                StdDraw.setPenColor(Color.white);
+                StdDraw.text(13.5, 3, "REPLAY ?");
+                StdDraw.show();
+                StdDraw.pause(80);
+                StdDraw.clear(StdDraw.BLACK);
+            }
+        }
+
+    }
+
+    public void afficheVie(Pacman pacman){
         int compteurPositionVie=2;
-        for(int i=0;i<joueur.getNbVie();i++){
+        for(int i = 0; i< pacman.getNbVie(); i++){
             System.out.print("i = "+i);
             StdDraw.picture( 22 + i*compteurPositionVie,-3.1,"pacman-lives.png",2,2);
         }
     }
 
-    public void afficheScore(Joueur joueur){
+    public void afficheScore(Pacman pacman){
         StdDraw.picture(3, -3.1, "Ender_SCORE.jpg", 5,5 );
         StdDraw.setPenColor(Color.WHITE);
         Font font = new Font("Arial", Font.BOLD, 30);
         StdDraw.setFont(font);
-        StdDraw.text(7,-3.5, " :\t" +joueur.getScore());
+        StdDraw.text(7,-3.5, " :\t" + pacman.getScore());
+    }
+
+    public void affiche2joueurs(Pacman[] tabljoueurs){
+        int compteurPositionVie=2;
+        for(int i=0;i<tabljoueurs[0].getNbVie();i++){
+            StdDraw.picture( 22 + i*compteurPositionVie,-3.1,"pacman-lives.png",1,1);
+        }
+        for(int i=0;i<tabljoueurs[1].getNbVie();i++){
+            StdDraw.picture( 22 + i*compteurPositionVie,-4.5,"pacman-lives.png",1,1);
+        }
+        StdDraw.setPenColor(Color.WHITE);
+        Font font = new Font("DialogInput", Font.CENTER_BASELINE , 30);
+        StdDraw.setFont(font);
+        StdDraw.text(7,-3.5, "Score J1 :\t" +tabljoueurs[0].getScore());
+        StdDraw.text(7,-5, "Score J2 :\t" +tabljoueurs[1].getScore());
+
     }
 }
