@@ -178,11 +178,11 @@ public class IG {
     StdDraw.show();
     }
 
-    public void ecranDeFin(){
+    public boolean ecranDeFin(){
         Font font = new Font("DialogInput", Font.CENTER_BASELINE , 30);
         Font font2 = new Font("DialogInput", Font.CENTER_BASELINE , 40);
         StdDraw.enableDoubleBuffering();
-
+        boolean again = false;
         while (true){
             if(StdDraw.mouseX()>10 && StdDraw.mouseX()<17&&StdDraw.mouseY()>=2&&StdDraw.mouseY()<=3.5){
                 StdDraw.clear(StdDraw.BLACK);
@@ -196,7 +196,7 @@ public class IG {
                 StdDraw.show();
                 StdDraw.pause(80);
                 if(StdDraw.mousePressed()==true){
-                    ecranDeDemarrage();
+                    again = true;
                 }
                 StdDraw.clear(StdDraw.BLACK);
                 StdDraw.picture(13.5, 20, "ecran_loose.jpg", 20,20 );
@@ -210,7 +210,7 @@ public class IG {
                 StdDraw.show();
                 StdDraw.pause(80);
                 if(StdDraw.mousePressed()==true){
-                    ecranDeDemarrage();
+                    again= true;
                 }
             }
 
@@ -236,13 +236,16 @@ public class IG {
                 StdDraw.pause(80);
                 StdDraw.clear(StdDraw.BLACK);
             }
+            if(again) break;
         }
-
+        System.out.println("coucou");
+        return again;
     }
 
-    public void ecranDeWin(){
+    public boolean ecranDeWin(){
         Font font = new Font("DialogInput", Font.CENTER_BASELINE , 30);
         Font font2 = new Font("DialogInput", Font.CENTER_BASELINE , 40);
+        boolean again = false;
         while(true){
             if(StdDraw.mouseX()>7 && StdDraw.mouseX()<17&&StdDraw.mouseY()>=2&&StdDraw.mouseY()<=3.5){
                 StdDraw.clear(StdDraw.BLACK);
@@ -255,7 +258,8 @@ public class IG {
                 StdDraw.show();
                 StdDraw.pause(80);
                 if(StdDraw.mousePressed()==true){
-                    ecranDeDemarrage();
+                    again = true;
+
                 }
                 StdDraw.clear(StdDraw.BLACK);
                 StdDraw.picture(13.5, 20, "ecran_win.jpg", 20,20 );
@@ -268,7 +272,8 @@ public class IG {
                 StdDraw.show();
                 StdDraw.pause(80);
                 if(StdDraw.mousePressed()==true){
-                    ecranDeDemarrage();
+                    again = true;
+
                 }
             }
 
@@ -291,8 +296,12 @@ public class IG {
                 StdDraw.show();
                 StdDraw.pause(80);
                 StdDraw.clear(StdDraw.BLACK);
+
             }
+            if(again) break;
         }
+        System.out.println("coucou");
+        return again;
 
     }
 

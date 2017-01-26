@@ -14,8 +14,8 @@ public class Joueur2 {
             Regles reglesDuJeu = new Regles();
             IG pacmanGraphique = new IG();
             Map pacmanMap = new Map();
-            Pacman pacman1 = new Pacman(3, 0, 14, 7);
-            Pacman pacman2 = new Pacman(3, 0, 15, 7);
+            Pacman pacman1 = new Pacman(3, 0, "Bogoss", 14, 7);
+            Pacman pacman2 = new Pacman(3, 0, "BelleFille", 15, 7);
             Pacman[] tabljoueurs = {pacman1, pacman2};
 
             Fantome FantomeRouge = new Fantome("RED", 13, 18, "ready.png");
@@ -25,9 +25,10 @@ public class Joueur2 {
             Fantome [] tablfantomes = {FantomeBleu,FantomeRouge,FantomeRose,FantomeOrange};
             //instanciation
 
-            //System.out.print("X =" + pacman1.getPositionX() + " Y =" + pacman1.getPositionX());
+            //System.out.print("X =" + pacman1.getX() + " Y =" + pacman1.getX());
+            StdDraw.enableDoubleBuffering();
+            //j'applique a pacmanMap les méthodes présents dans la classe map
             StdDraw.setPenColor(Color.yellow);
-        int [] [] temp = pacmanMap.getLabyrinthe();
 
             int direction = 0, degre = 0;
             int direction2 = 0, degre2 = 0;
@@ -96,9 +97,10 @@ public class Joueur2 {
                 // REGLES
                 for( Pacman j: tabljoueurs) {
                     reglesDuJeu.checkInvicibilite(j);
-                    reglesDuJeu.modifImageFantome(j, tablfantomes);
+
                     //déplacement du joueur et des fantomes, check des TP
                 }
+                reglesDuJeu.modifImageFantome(pacman1,pacman2, tablfantomes);
                 pacman1.mouvement(direction);
                 pacman2.mouvement(direction2);
                 for (Pacman j: tabljoueurs) {
@@ -124,11 +126,11 @@ public class Joueur2 {
 
 
                 //DESSINAGE DES ENTITES
-                StdDraw.picture(pacman1.getPositionX(), pacman1.getPositionY(), "pacman2.jpg", 0.9, 0.9, degre);
-                StdDraw.picture(pacman2.getPositionX(), pacman2.getPositionY(), "pacman2.jpg", 0.9, 0.9, degre2);
+                StdDraw.picture(pacman1.getX(), pacman1.getY(), "pacman2.jpg", 0.9, 0.9, degre);
+                StdDraw.picture(pacman2.getX(), pacman2.getY(), "pacman2.jpg", 0.9, 0.9, degre2);
 
                 for(Fantome f : tablfantomes ){
-                    StdDraw.picture(f.getPositionX(), f.getPositionY(), f.getImage(), 0.9, 0.9, f.getDegre());
+                    StdDraw.picture(f.getX(), f.getY(), f.getImage(), 0.9, 0.9, f.getDegre());
                 }
 
 
@@ -136,5 +138,8 @@ public class Joueur2 {
                 StdDraw.show();
                 StdDraw.pause(100);
             }
+            StdDraw.clear(StdDraw.BLACK);
+            //pacmanGraphique.ecranDeDemarrage();
         }
+
 }
