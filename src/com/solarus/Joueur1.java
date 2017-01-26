@@ -61,7 +61,7 @@ public class Joueur1 {
             pacman1.transfertBord();
             pacman1.mangeGraine(pacmanMap);
 
-            //CHECK POUR VOIR SI TON PACMAN NE SE SENT PAS TROP BIEN
+            //CHECK si pacman est mort
             reglesDuJeu.contact(pacman1, tablfantomes);
 
 
@@ -71,7 +71,7 @@ public class Joueur1 {
                 f.transfertBord();
             }
 
-            //CHECK POUR VOIR SI TON PACMAN ILEMOR-bis
+            //CHECK si pacman est mort
             reglesDuJeu.contact(pacman1, tablfantomes);
 
             pacmanGraphique.afficheVie(pacman1);

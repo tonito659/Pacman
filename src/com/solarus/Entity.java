@@ -25,8 +25,6 @@ public class Entity {
 
     public int getPy_orig() {return py_orig;}
 
-    //TODO : implementer les deplacements au niveau de la classe entité
-
     public Entity(int px, int py){
         this.px = px;
         this.py = py;

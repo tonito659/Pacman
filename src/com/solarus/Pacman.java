@@ -50,10 +50,6 @@ public class Pacman extends Entity{
         return score;
     }
 
-    public String getPseudo() {
-        return pseudo;
-    }
-
     public int getCompteur() {
         return compteur;
     }
@@ -66,20 +62,18 @@ public class Pacman extends Entity{
         int [][] test = mapTestGraine.getLabyrinthe();
         if(test[this.getY()][this.getX()]==2){
             mapTestGraine.setValeurLabyrintheYX(this.getY(),this.getX(),1);
-            this.setScore(this.getScore()+10);
+            this.setScore(this.score+10);
             this.setCompteur(this.compteur+1);
         }
         if(test[this.getY()][this.getX()]==3){
             mapTestGraine.setValeurLabyrintheYX(this.getY(),this.getX(),1);
-            this.setScore(this.getScore()+100);
+            this.setScore(this.score+100);
             this.setCompteur(this.compteur+1);
             this.isInvicible = true;
             this.invincibleBegin = System.currentTimeMillis();
         }
         System.out.println("Score "+ this.getScore());
     }
-
-
 
 }
 

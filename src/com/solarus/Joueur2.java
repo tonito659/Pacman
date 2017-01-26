@@ -23,13 +23,7 @@ public class Joueur2 {
             Fantome FantomeBleu = new Fantome("BLUE", 15, 18,"bleue.png");
             Fantome FantomeOrange = new Fantome("ORANGE", 16, 18,"yellowie.png");
             Fantome [] tablfantomes = {FantomeBleu,FantomeRouge,FantomeRose,FantomeOrange};
-
             //instanciation
-
-
-            StdDraw.clear(StdDraw.BLACK);
-            pacmanGraphique.ecranDeJeu(pacmanMap.getLabyrinthe());
-            StdDraw.show();
 
             //System.out.print("X =" + pacman1.getX() + " Y =" + pacman1.getX());
             StdDraw.enableDoubleBuffering();
@@ -39,9 +33,17 @@ public class Joueur2 {
             int direction = 0, degre = 0;
             int direction2 = 0, degre2 = 0;
             while (true) {
-                if(reglesDuJeu.endDuGame(pacman1)==1 ){
-                    break;
+                if(reglesDuJeu.endDuGame(pacman1)==1 && reglesDuJeu.endDuGame(pacman2)==1){
+                    pacmanGraphique.ecranDeFin();
                 }
+                if(reglesDuJeu.endDuGame(pacman1)==9000 && reglesDuJeu.endDuGame(pacman2)==9000){
+                    pacmanGraphique.ecranDeWin();
+                }
+
+
+                //////////////////////////////////////////////
+                //INPUTS J1
+                //////////////////////////////////////////////
 
                 if (StdDraw.isKeyPressed(KeyEvent.VK_DOWN)) {
                     direction = 2;
@@ -93,7 +95,6 @@ public class Joueur2 {
 
 
                 // REGLES
-
                 for( Pacman j: tabljoueurs) {
                     reglesDuJeu.checkInvicibilite(j);
                     reglesDuJeu.modifImageFantome(j, tablfantomes);
@@ -116,7 +117,7 @@ public class Joueur2 {
 
 
                 for( Pacman j: tabljoueurs) {
-                    //CHECK POUR VOIR SI TON PACMAN IL CREVE UN PEU COMME UNE SOUS MERDE
+                    //CHECK si le pacman est mort
                     reglesDuJeu.contact(pacman1, tablfantomes);
                 }
 
