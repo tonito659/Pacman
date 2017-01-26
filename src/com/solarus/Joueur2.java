@@ -14,8 +14,8 @@ public class Joueur2 {
             Regles reglesDuJeu = new Regles();
             IG pacmanGraphique = new IG();
             Map pacmanMap = new Map();
-            Pacman pacman1 = new Pacman(3, 0, 14, 7);
-            Pacman pacman2 = new Pacman(3, 0, 15, 7);
+            Pacman pacman1 = new Pacman(3, 14, 7);
+            Pacman pacman2 = new Pacman(3, 15, 7);
             Pacman[] tabljoueurs = {pacman1, pacman2};
 
             Fantome FantomeRouge = new Fantome("RED", 13, 18, "ready.png");

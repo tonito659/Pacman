@@ -14,7 +14,7 @@ public class Joueur1 {
         IG pacmanGraphique = new IG();
 
         Map pacmanMap = new Map();
-        Pacman pacman1 = new Pacman(3, 0, 14, 7);
+        Pacman pacman1 = new Pacman(3, 14, 7);
         Fantome FantomeRouge = new Fantome("RED", 13, 18, "ready.png");
         Fantome FantomeRose = new Fantome("PINK", 14, 18, "pinkie.jpg");
         Fantome FantomeBleu = new Fantome("BLUE", 15, 18, "bleue.png");

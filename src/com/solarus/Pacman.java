@@ -8,10 +8,9 @@ public class Pacman extends Entity{
     private long invincibleBegin;
     private int compteur=0;
 
-    public Pacman(int nbVie, int score, int positionXPacman, int positionYPacman) {
+    public Pacman(int nbVie, int positionXPacman, int positionYPacman) {
         super(positionXPacman, positionYPacman);
         this.nbVie = nbVie;
-        this.score = score;
     }
 
     public boolean getIsInvicible() {
