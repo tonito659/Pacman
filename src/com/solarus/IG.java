@@ -196,7 +196,7 @@ public class IG {
                 StdDraw.show();
                 StdDraw.pause(80);
                 if(StdDraw.mousePressed()==true){
-                    break;
+                    ecranDeDemarrage();
                 }
                 StdDraw.clear(StdDraw.BLACK);
                 StdDraw.picture(13.5, 20, "ecran_loose.jpg", 20,20 );
@@ -210,7 +210,7 @@ public class IG {
                 StdDraw.show();
                 StdDraw.pause(80);
                 if(StdDraw.mousePressed()==true){
-                    break;
+                    ecranDeDemarrage();
                 }
             }
 
@@ -255,7 +255,7 @@ public class IG {
                 StdDraw.show();
                 StdDraw.pause(80);
                 if(StdDraw.mousePressed()==true){
-                    break;
+                    ecranDeDemarrage();
                 }
                 StdDraw.clear(StdDraw.BLACK);
                 StdDraw.picture(13.5, 20, "ecran_win.jpg", 20,20 );
@@ -268,7 +268,7 @@ public class IG {
                 StdDraw.show();
                 StdDraw.pause(80);
                 if(StdDraw.mousePressed()==true){
-                    break;
+                    ecranDeDemarrage();
                 }
             }
 

@@ -1,13 +1,17 @@
 package com.solarus;
 
-import java.awt.*;
-
 public class Fantome extends Entity{
 
     private String couleur;
     private int direction = 4; // 12 = Nord, 3 = Est, 6 = Sud, 9 = Ouest
     private int degre = 0;
     private String image;
+
+    public Fantome(String couleur, int positionXFantome, int positionYFantome, String image) {
+        super(positionXFantome, positionYFantome);
+        this.couleur = couleur;
+        this.image = image;
+    }
 
     public int getDegre(){
         return degre;
@@ -21,17 +25,10 @@ public class Fantome extends Entity{
         return couleur;
     }
 
-    public Fantome(String couleur, int abcisse, int ordonnee, String image) {
-        super(abcisse, ordonnee);
-        //init fantome, on peut les placer sur des endroits random dans la map
-        this.couleur = couleur;
-        this.image = image;
-    }
-
     public void deplacement(){
         //
         boolean[] directionpossibles = this.directionpossibles();
-        //System.out.println("Fantome X = "+ this.getX()+ "\t Y = " + this.getY());
+        //System.out.println("Fantome X = "+ this.getPositionX()+ "\t Y = " + this.getPositionY());
 
         if (this.emplacementEstUneIntersection(directionpossibles)) { //randomisation de la direction à une intersect
             boolean mvt = false;
@@ -64,33 +61,31 @@ public class Fantome extends Entity{
     private boolean[] directionpossibles() {
         //retourne dans un tableau NESU si des directions sont dispo
         Map pacmanMap = new Map();
-        boolean [] directions = {true, true, true, true};
+        boolean [] tabDirections = {true, true, true, true};
         int [][] temp = pacmanMap.getLabyrinthe();
-        if(temp[this.getY() +1][this.getX()]==0){ //nord
-            directions[0] = false;
+        if(temp[this.getPositionY() +1][this.getPositionX()]==0){ //nord
+            tabDirections[0] = false;
         }
-        if(temp[this.getY()][this.getX()+1]==0){ //est
-            directions[1] = false;
+        if(temp[this.getPositionY()][this.getPositionX()+1]==0){ //est
+            tabDirections[1] = false;
         }
-        if(temp[this.getY() -1][this.getX()]==0){ //sud
-            directions[2] = false;
+        if(temp[this.getPositionY() -1][this.getPositionX()]==0){ //sud
+            tabDirections[2] = false;
         }
-        if(temp[this.getY()][this.getX()-1]==0){ //ouest
-            directions[3] = false;
+        if(temp[this.getPositionY()][this.getPositionX()-1]==0){ //ouest
+            tabDirections[3] = false;
         }
-        // DEBUG
-        // System.out.println(directions[0]+" "+directions[1]+" "+directions[2]+" "+directions[3]+" ");
-        return directions;
+        return tabDirections;
     }
 
-    private boolean emplacementEstUneIntersection(boolean [] tableau){
+    private boolean emplacementEstUneIntersection(boolean [] tabDirections){
         // On teste si emplacement est une intersection
         // retourne un tableau de booléens type NESU
         boolean intersect = false;
-        if((this.direction == 8 ||this.direction == 2) && (tableau[1] || tableau[3])){
+        if((this.direction == 8 ||this.direction == 2) && (tabDirections[1] || tabDirections[3])){
             intersect = true;
         } else
-        if((direction == 4 ||direction == 6) && (tableau[0] || tableau[2])){
+        if((direction == 4 ||direction == 6) && (tabDirections[0] || tabDirections[2])){
             intersect = true;
         }
         return intersect;

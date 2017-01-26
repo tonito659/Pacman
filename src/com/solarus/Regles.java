@@ -2,28 +2,15 @@ package com.solarus;
 
 public class Regles {
 
-    public  boolean pacmanMort(Pacman pacman, Fantome [] tabFantomes) {
-        // Methode retournant un bool si pacman rentre en contact avec les fantomes
-
-        boolean mort = false;
-        int px_joueur = pacman.getX(), py_joueur = pacman.getY();
-        int px, py;
-        for (Fantome f : tabFantomes) {
-            px = f.getX();
-            py = f.getY();
-            if (px_joueur == px && py == py_joueur && pacman.isInvicible()) {
-                mort = true;
-            }
-        }
-        return mort;
-    }
-
     public  void modifImageFantome(Pacman pacman, Fantome [] tabFantomes){
-        if (pacman.isInvicible()){
+        //Modifie l'image des fantomes quand pacman a mange une méga-graine
+        if (pacman.getIsInvicible()){
             for (Fantome f : tabFantomes){
                 f.setImage("fantome_PLS.jpg");
             }
-        } else{
+        }
+        else{
+            //sinon prend les images d'origine des fantomes, run pacman !!!
             for(Fantome f : tabFantomes){
                 switch (f.getCouleur()){
                     case "RED":
@@ -38,7 +25,6 @@ public class Regles {
                     case "ORANGE":
                         f.setImage("yellowie.png");
                         break;
-
                 }
             }
         }
@@ -46,7 +32,6 @@ public class Regles {
 
     public  void checkInvicibilite(Pacman pacman){
         //methode qui permet de remettre les pendules à zero
-        //éwé les fantomes veulent leur vengeance
         long currentTime = System.currentTimeMillis();
         if (pacman.getInvincibleBegin()+10000<=currentTime ){ // Ici les 10000 indiquent le teps en invincibilité
             pacman.setInvicible(false);
@@ -60,24 +45,24 @@ public class Regles {
         */
         boolean collision;
 
-        int px_joueur = pacman.getX(), py_joueur = pacman.getY();
+        int px_joueur = pacman.getPositionX(), py_joueur = pacman.getPositionY();
         int px,py;
 
         for (Fantome f : tabFantomes) {
             collision = false;
             //Prend la position d'un fantome du tableau tabFantomes
-            px = f.getX();
-            py = f.getY();
+            px = f.getPositionX();
+            py = f.getPositionY();
             if (px_joueur == px && py == py_joueur) {
                 collision = true;
             }
-            if (collision && pacman.isInvicible()){
+            if (collision && pacman.getIsInvicible()){
                 // là, le fantome est grillay
                 pacman.addScore(200);
                 f.tpDepart();
-            } else if( collision && !pacman.isInvicible()){
+            } else if( collision && !pacman.getIsInvicible()){
                 //là par contre c'est la merde pour toi
-                pacman.subNbVie();
+                pacman.supprimeVie();
                 pacman.tpDepart();
             }
         }

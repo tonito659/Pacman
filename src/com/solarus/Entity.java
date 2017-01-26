@@ -3,65 +3,65 @@ package com.solarus;
 
 public class Entity {
 
-    protected int px, py, px_orig, py_orig;
+    protected int positionX, positionY, positionXOrigine, positionYOrigine;
 
-    public int getX() {
-        return px;
+    public Entity(int positionX, int positionY){
+        this.positionX = positionX;
+        this.positionY = positionY;
+        this.positionXOrigine = positionX;
+        this.positionYOrigine = positionY;
     }
 
-    public void setX(int x) {
-        this.px = x;
+    public int getPositionX() {
+        return positionX;
     }
 
-    public int getY() {
-        return py;
+    public void setPositionX(int x) {
+        this.positionX = x;
     }
 
-    public void setY(int y) {
-        this.py = y;
+    public int getPositionY() {
+        return positionY;
     }
 
-    public int getPx_orig() {return px_orig;}
-
-    public int getPy_orig() {return py_orig;}
-
-    public Entity(int px, int py){
-        this.px = px;
-        this.py = py;
-        this.px_orig = px;
-        this.py_orig = py;
+    public void setPositionY(int y) {
+        this.positionY = y;
     }
+
+    public int getpositionXOrigine() {return positionXOrigine;}
+
+    public int getpositionYOrigine() {return positionYOrigine;}
 
     public void transfertBord(){
         // DO YOU EVEN TP BRO ?
         // INSTANT TP OMGHAXX
-        if(this.px == 0 && this.py == 16){
-            px=26;
-        } else if (this.px == 26 && this.py == 16){
-            px=1;
+        if(this.positionX == 0 && this.positionY == 16){
+            positionX =26;
+        } else if (this.positionX == 26 && this.positionY == 16){
+            positionX =1;
         }
     }
 
     public boolean [] collisionsPossibles(){
         //indique les collisions, dans l'ordre : N, E, S, O
         Map pacmanMap = new Map();
-        boolean [] collision = new boolean[4];
+        boolean [] tabCollision = new boolean[4];
         int [][] temp = pacmanMap.getLabyrinthe();
-        if(temp[ (this.py+1)][ this.px]==0||temp[ (this.py+1)][ this.px]==4 ||temp[ (this.py+1)][ this.px]==5){ //nord
-            collision[0] = true;
+        if(temp[ (this.positionY +1)][ this.positionX]==0||temp[ (this.positionY +1)][ this.positionX]==4 ||temp[ (this.positionY +1)][ this.positionX]==5){ //nord
+            tabCollision[0] = true;
         }
-        if(temp[this.py][this.px+1]==0 || temp[this.py][this.px+1]==4 ||temp[this.py][this.px+1]==5 ){ //est
-            collision[1] = true;
+        if(temp[this.positionY][this.positionX +1]==0 || temp[this.positionY][this.positionX +1]==4 ||temp[this.positionY][this.positionX +1]==5 ){ //est
+            tabCollision[1] = true;
         }
-        if(temp[this.py-1][this.px]==0 ||temp[this.py-1][this.px]==4 || temp[this.py-1][this.px]==5){ //sud
-            collision[2] = true;
+        if(temp[this.positionY -1][this.positionX]==0 ||temp[this.positionY -1][this.positionX]==4 || temp[this.positionY -1][this.positionX]==5){ //sud
+            tabCollision[2] = true;
         }
-        if(temp[this.py][this.px-1]==0 ||temp[this.py][this.px-1]==4 || temp[this.py][this.px-1]==5){ //ouest
-            collision[3] = true;
+        if(temp[this.positionY][this.positionX -1]==0 ||temp[this.positionY][this.positionX -1]==4 || temp[this.positionY][this.positionX -1]==5){ //ouest
+            tabCollision[3] = true;
         }
         //System.out.println(collision[0]+"\t"+collision[1]+"\t"+collision[2]+"\t"+collision[3]);
-        //System.out.println("X = "+ this.px+ "\t Y = "+ this.py);
-        return collision;
+        //System.out.println("X = "+ this.positionX+ "\t Y = "+ this.positionY);
+        return tabCollision;
     }
 
     public boolean mouvement(int direction){
@@ -76,13 +76,13 @@ public class Entity {
         switch (direction){
             case 8:
                 if (!collisions[0]){
-                    setY(this.py+1);
+                    setPositionY(this.positionY +1);
                     hasMoved = true;
                 }
                 break;
             case 6:
                 if (!collisions[1]){
-                    setX(this.px+1);
+                    setPositionX(this.positionX +1);
                     hasMoved = true;
                 }
 
@@ -90,26 +90,22 @@ public class Entity {
 
             case 2:
                 if (!collisions[2]){
-                    setY(this.py-1);
+                    setPositionY(this.positionY -1);
                     hasMoved = true;
                 }
                 break;
             case 4:
                 if (!collisions[3]){
-                    setX(this.px-1);
+                    setPositionX(this.positionX -1);
                     hasMoved = true;
                 }
                 break;
         }
-        /*System.out.println("\t"+collisions[0]);
-        System.out.println(collisions[3]+"\t"+collisions[1]);
-        System.out.printf("\t"+collisions[2]);
-        */
         return hasMoved;
     }
 
     public void tpDepart(){
-        this.setY(this.getPy_orig());
-        this.setX(this.getPx_orig());
+        this.setPositionY(this.getpositionYOrigine());
+        this.setPositionX(this.getpositionXOrigine());
     }
 }
