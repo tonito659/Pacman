@@ -23,98 +23,75 @@ public class Joueur1 {
         int[][] temp = pacmanMap.getLabyrinthe();
         boolean again = false;
         int direction = 0, degre = 0;
+
         while (true) {
-            if(reglesDuJeu.endDuGame(pacman1)==1){
-                pacmanGraphique.ecranDeFin();
+            if (reglesDuJeu.endDuGame(pacman1) == 1) {
+                again = pacmanGraphique.ecranDeFin();
             }
-            if(reglesDuJeu.endDuGame(pacman1)==9000){
-                pacmanGraphique.ecranDeWin();
+            if (reglesDuJeu.endDuGame(pacman1) == 9000) {
+                again = pacmanGraphique.ecranDeWin();
             }
-            if (StdDraw.isKeyPressed(KeyEvent.VK_DOWN) && temp[ (pacman1.getPositionY()-1)][ pacman1.getPositionX()]!=0) {
+            if (StdDraw.isKeyPressed(KeyEvent.VK_DOWN) && temp[(pacman1.getPositionY() - 1)][pacman1.getPositionX()] != 0) {
                 direction = 2;
                 degre = 270;
             }
-            if (StdDraw.isKeyPressed(KeyEvent.VK_UP) && temp[ (pacman1.getPositionY()+1)][ pacman1.getPositionX()]!=0) {
+            if (StdDraw.isKeyPressed(KeyEvent.VK_UP) && temp[(pacman1.getPositionY() + 1)][pacman1.getPositionX()] != 0) {
                 direction = 8;
                 degre = 90;
             }
-            if (StdDraw.isKeyPressed(KeyEvent.VK_LEFT) && temp[ pacman1.getPositionY()][ pacman1.getPositionX()-1]!=0) {
+            if (StdDraw.isKeyPressed(KeyEvent.VK_LEFT) && temp[pacman1.getPositionY()][pacman1.getPositionX() - 1] != 0) {
                 direction = 4;
                 degre = 180;
             }
-            if (StdDraw.isKeyPressed(KeyEvent.VK_RIGHT) && temp[ pacman1.getPositionY()][ pacman1.getPositionX()+1]!=0) {
+            if (StdDraw.isKeyPressed(KeyEvent.VK_RIGHT) && temp[pacman1.getPositionY()][pacman1.getPositionX() + 1] != 0) {
                 direction = 6;
                 degre = 0;
             }
             StdDraw.clear(StdDraw.BLACK);
             pacmanGraphique.ecranDeJeu(pacmanMap.getLabyrinthe());
-            while (true) {
-                if (reglesDuJeu.endDuGame(pacman1) == 1) {
-                    again = pacmanGraphique.ecranDeFin();
-                }
-                if (reglesDuJeu.endDuGame(pacman1) == 9000) {
-                    again = pacmanGraphique.ecranDeWin();
-                }
-                if (StdDraw.isKeyPressed(KeyEvent.VK_DOWN) && temp[(pacman1.getY() - 1)][pacman1.getX()] != 0) {
-                    direction = 2;
-                    degre = 270;
-                }
-                if (StdDraw.isKeyPressed(KeyEvent.VK_UP) && temp[(pacman1.getY() + 1)][pacman1.getX()] != 0) {
-                    direction = 8;
-                    degre = 90;
-                }
-                if (StdDraw.isKeyPressed(KeyEvent.VK_LEFT) && temp[pacman1.getY()][pacman1.getX() - 1] != 0) {
-                    direction = 4;
-                    degre = 180;
-                }
-                if (StdDraw.isKeyPressed(KeyEvent.VK_RIGHT) && temp[pacman1.getY()][pacman1.getX() + 1] != 0) {
-                    direction = 6;
-                    degre = 0;
-                }
-                StdDraw.clear(StdDraw.BLACK);
-                pacmanGraphique.ecranDeJeu(pacmanMap.getLabyrinthe());
 
 
-                // REGLES
-                reglesDuJeu.checkInvicibilite(pacman1);
-                reglesDuJeu.modifImageFantome(pacman1, tablfantomes);
+            // REGLES
+            reglesDuJeu.checkInvicibilite(pacman1);
+            reglesDuJeu.modifImageFantome(pacman1, tablfantomes);
 
-                //déplacement du joueur et des fantomes, check des TP
-                pacman1.mouvement(direction);
-                pacman1.transfertBord();
-                pacman1.mangeGraine(pacmanMap);
+            //déplacement du joueur et des fantomes, check des TP
+            pacman1.mouvement(direction);
+            pacman1.transfertBord();
+            pacman1.mangeGraine(pacmanMap);
 
-                //CHECK si pacman est mort
-                reglesDuJeu.contact(pacman1, tablfantomes);
-
-
-                //DEPLACEMENT FANTOMES
-                for (Fantome f : tablfantomes) {
-                    f.deplacement();
-                    f.transfertBord();
-                }
-
-                //CHECK si pacman est mort
-                reglesDuJeu.contact(pacman1, tablfantomes);
-
-                pacmanGraphique.afficheVie(pacman1);
-                pacmanGraphique.afficheScore(pacman1);
+            //CHECK si pacman est mort
+            reglesDuJeu.contact(pacman1, tablfantomes);
 
 
-                //DESSINAGE DES ENTITES
-                StdDraw.picture(pacman1.getX(), pacman1.getY(), "pacman2.jpg", 0.9, 0.9, degre);
-                for (Fantome f : tablfantomes) {
-                    StdDraw.picture(f.getX(), f.getY(), f.getImage(), 0.9, 0.9, f.getDegre());
-                }
+            //DEPLACEMENT FANTOMES
+            for (Fantome f : tablfantomes) {
+                f.deplacement();
+                f.transfertBord();
+            }
+
+            //CHECK si pacman est mort
+            reglesDuJeu.contact(pacman1, tablfantomes);
+
+            pacmanGraphique.afficheVie(pacman1);
+            pacmanGraphique.afficheScore(pacman1);
+
+
             //DESSINAGE DES ENTITES
             StdDraw.picture(pacman1.getPositionX(), pacman1.getPositionY(), "pacman2.jpg", 0.9, 0.9, degre);
-            for(Fantome f : tablfantomes ){
+            for (Fantome f : tablfantomes) {
+                StdDraw.picture(f.getPositionX(), f.getPositionY(), f.getImage(), 0.9, 0.9, f.getDegre());
+            }
+            //DESSINAGE DES ENTITES
+            StdDraw.picture(pacman1.getPositionX(), pacman1.getPositionY(), "pacman2.jpg", 0.9, 0.9, degre);
+            for (Fantome f : tablfantomes) {
                 StdDraw.picture(f.getPositionX(), f.getPositionY(), f.getImage(), 0.9, 0.9, f.getDegre());
             }
 
-                StdDraw.show();
-                StdDraw.pause(100);
-                if(again)break;
-            }
+            StdDraw.show();
+            StdDraw.pause(100);
+            if (again) break;
         }
     }
+}
+

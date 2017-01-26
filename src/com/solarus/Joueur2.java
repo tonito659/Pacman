@@ -14,8 +14,8 @@ public class Joueur2 {
             Regles reglesDuJeu = new Regles();
             IG pacmanGraphique = new IG();
             Map pacmanMap = new Map();
-            Pacman pacman1 = new Pacman(3, 0, "Bogoss", 14, 7);
-            Pacman pacman2 = new Pacman(3, 0, "BelleFille", 15, 7);
+            Pacman pacman1 = new Pacman(3, 0, 14, 7);
+            Pacman pacman2 = new Pacman(3, 0, 15, 7);
             Pacman[] tabljoueurs = {pacman1, pacman2};
 
             Fantome FantomeRouge = new Fantome("RED", 13, 18, "ready.png");
@@ -126,11 +126,11 @@ public class Joueur2 {
 
 
                 //DESSINAGE DES ENTITES
-                StdDraw.picture(pacman1.getX(), pacman1.getY(), "pacman2.jpg", 0.9, 0.9, degre);
-                StdDraw.picture(pacman2.getX(), pacman2.getY(), "pacman2.jpg", 0.9, 0.9, degre2);
+                StdDraw.picture(pacman1.getPositionX(), pacman1.getPositionY(), "pacman2.jpg", 0.9, 0.9, degre);
+                StdDraw.picture(pacman2.getPositionX(), pacman2.getPositionY(), "pacman2.jpg", 0.9, 0.9, degre2);
 
                 for(Fantome f : tablfantomes ){
-                    StdDraw.picture(f.getX(), f.getY(), f.getImage(), 0.9, 0.9, f.getDegre());
+                    StdDraw.picture(f.getPositionX(), f.getPositionY(), f.getImage(), 0.9, 0.9, f.getDegre());
                 }
 
 

@@ -3,7 +3,7 @@ package com.solarus;
 
 public class Entity {
 
-    protected int positionX, positionY, positionXOrigine, positionYOrigine;
+    private int positionX, positionY, positionXOrigine, positionYOrigine;
 
     public Entity(int positionX, int positionY){
         this.positionX = positionX;
@@ -33,7 +33,6 @@ public class Entity {
     public int getpositionYOrigine() {return positionYOrigine;}
 
     public void transfertBord(){
-        // DO YOU EVEN TP BRO ?
         // INSTANT TP OMGHAXX
         if(this.positionX == 0 && this.positionY == 16){
             positionX =26;

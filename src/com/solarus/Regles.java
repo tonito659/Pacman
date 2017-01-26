@@ -32,7 +32,7 @@ public class Regles {
 
     public  void modifImageFantome(Pacman pacman, Pacman pacman2, Fantome [] tabFantomes){
         //
-        if (pacman.isInvicible() || pacman2.isInvicible()){
+        if (pacman.getIsInvicible() || pacman2.getIsInvicible()){
             for (Fantome f : tabFantomes){
                 f.setImage("fantome_PLS.jpg");
             }
