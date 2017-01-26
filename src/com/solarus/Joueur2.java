@@ -97,9 +97,10 @@ public class Joueur2 {
                 // REGLES
                 for( Pacman j: tabljoueurs) {
                     reglesDuJeu.checkInvicibilite(j);
-                    reglesDuJeu.modifImageFantome(j, tablfantomes);
+
                     //déplacement du joueur et des fantomes, check des TP
                 }
+                reglesDuJeu.modifImageFantome(pacman1,pacman2, tablfantomes);
                 pacman1.mouvement(direction);
                 pacman2.mouvement(direction2);
                 for (Pacman j: tabljoueurs) {
@@ -138,7 +139,7 @@ public class Joueur2 {
                 StdDraw.pause(100);
             }
             StdDraw.clear(StdDraw.BLACK);
-            pacmanGraphique.ecranDeDemarrage();
+            //pacmanGraphique.ecranDeDemarrage();
         }
 
 }

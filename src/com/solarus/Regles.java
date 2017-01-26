@@ -44,6 +44,33 @@ public class Regles {
         }
     }
 
+    public  void modifImageFantome(Pacman pacman, Pacman pacman2, Fantome [] tabFantomes){
+        //
+        if (pacman.isInvicible() || pacman2.isInvicible()){
+            for (Fantome f : tabFantomes){
+                f.setImage("fantome_PLS.jpg");
+            }
+        } else{
+            for(Fantome f : tabFantomes){
+                switch (f.getCouleur()){
+                    case "RED":
+                        f.setImage("ready.png");
+                        break;
+                    case "PINK":
+                        f.setImage("pinkie.jpg");
+                        break;
+                    case "BLUE":
+                        f.setImage("bleue.png");
+                        break;
+                    case "ORANGE":
+                        f.setImage("yellowie.png");
+                        break;
+
+                }
+            }
+        }
+    }
+
     public  void checkInvicibilite(Pacman pacman){
         //methode qui permet de remettre les pendules à zero
         //éwé les fantomes veulent leur vengeance
