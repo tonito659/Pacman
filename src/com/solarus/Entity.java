@@ -34,7 +34,6 @@ public class Entity {
         this.py_orig = py;
     }
 
-    //public void deplacement(){}
     public void transfertBord(){
         // DO YOU EVEN TP BRO ?
         // INSTANT TP OMGHAXX
@@ -66,6 +65,7 @@ public class Entity {
         //System.out.println("X = "+ this.px+ "\t Y = "+ this.py);
         return collision;
     }
+
     public boolean mouvement(int direction){
         // prend en paramètre 8,6,2,4 comme sur un pavé numérique,
         // 8 = Nord

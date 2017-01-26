@@ -15,6 +15,7 @@ public class Joueur2 {
             //TODO : Finir le menu démarrage
             //TODO : Faire ecran de défaite
             Regles reglesDuJeu = new Regles();
+            IG pacmanGraphique = new IG();
             Map pacmanMap = new Map();
             Joueur joueur1 = new Joueur(3, 0, "Bogoss", 14, 7);
             Joueur joueur2 = new Joueur(3, 0, "BelleFille", 15, 7);
@@ -30,7 +31,7 @@ public class Joueur2 {
 
 
             StdDraw.clear(StdDraw.BLACK);
-            pacmanMap.ecranDeJeu(pacmanMap.getLabyrinthe());
+            pacmanGraphique.ecranDeJeu(pacmanMap.getLabyrinthe());
             StdDraw.show();
 
             //System.out.print("X =" + joueur1.getX() + " Y =" + joueur1.getX());
@@ -91,7 +92,7 @@ public class Joueur2 {
 
 
                 StdDraw.clear(StdDraw.BLACK);
-                pacmanMap.ecranDeJeu(pacmanMap.getLabyrinthe());
+                pacmanGraphique.ecranDeJeu(pacmanMap.getLabyrinthe());
 
 
                 // REGLES
@@ -122,7 +123,7 @@ public class Joueur2 {
                     reglesDuJeu.contact(joueur1, tablfantomes);
                 }
 
-                pacmanMap.affiche2joueurs(tabljoueurs);
+                pacmanGraphique.affiche2joueurs(tabljoueurs);
 
 
                 //DESSINAGE DES ENTITES
@@ -139,7 +140,7 @@ public class Joueur2 {
                 StdDraw.pause(100);
             }
             StdDraw.clear(StdDraw.BLACK);
-            pacmanMap.ecranDeDemarrage();
+            pacmanGraphique.ecranDeDemarrage();
         }
 
 }

@@ -2,15 +2,12 @@ package com.solarus;
 
 public class Joueur extends Entity{
     // Concerne les données sur le joueur
-
     private int nbVie ;
     private int score = 0;
     private String pseudo = "";
     private boolean isInvicible = false;
     private long invincibleBegin;
     private int compteur=0;
-
-    // Concerne les attributs du pacman
 
 
     public boolean isInvicible() {

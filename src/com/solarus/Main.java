@@ -11,7 +11,9 @@ public class Main {
         //TODO : Créer une classe Ecran qui comporte les diférents écrans qui ne sont pas le plateau de jeu, ie les menus, pause et le reste
         //TODO : Finir le menu démarrage
         //TODO : Faire ecran de défaite
+
         Regles reglesDuJeu = new Regles();
+        Sound musicPacman = new Sound();
         IG pacmanGraphique = new IG();
         Map pacmanMap = new Map();
         Joueur joueur1 = new Joueur(3, 0, "Bogoss", 14, 7);
@@ -20,14 +22,16 @@ public class Main {
         Fantome FantomeBleu = new Fantome("BLUE", 15, 18,"bleue.png");
         Fantome FantomeOrange = new Fantome("ORANGE", 16, 18,"yellowie.png");
         Fantome [] tablfantomes = {FantomeBleu,FantomeRouge,FantomeRose,FantomeOrange};
-        //instanciation
+        int [] [] temp = pacmanMap.getLabyrinthe();
+        //instanciation , déclaration
 
 
         pacmanGraphique.initialisationEcran();
+        //musicPacman.playSound("pacman_beginning.wav");
         pacmanGraphique.ecranDeDemarrage();
-        pacmanGraphique.ecranDeJeu(pacmanMap.getLabyrinthe());
-        int [] [] temp = pacmanMap.getLabyrinthe();
-         //System.out.print("X =" + joueur1.getX() + " Y =" + joueur1.getX());
+        //pacmanGraphique.ecranDeJeu(pacmanMap.getLabyrinthe());
+
+        //System.out.print("X =" + joueur1.getX() + " Y =" + joueur1.getX());
 
         StdDraw.enableDoubleBuffering();
         StdDraw.setPenColor(Color.yellow);
@@ -35,9 +39,11 @@ public class Main {
         int direction = 0, degre = 0;
         while (true) {
             if(reglesDuJeu.endDuGame(joueur1)==1){
-                break;
+                pacmanGraphique.ecranDeFin();
             }
-
+            if(reglesDuJeu.endDuGame(joueur1)==9000){
+                pacmanGraphique.ecranDeWin();
+            }
             if (StdDraw.isKeyPressed(KeyEvent.VK_DOWN) && temp[ (joueur1.getY()-1)][ joueur1.getX()]!=0) {
                 direction = 2;
                 degre = 270;
@@ -54,9 +60,6 @@ public class Main {
                 direction = 6;
                 degre = 0;
             }
-            if (StdDraw.isKeyPressed(KeyEvent.VK_ENTER)) {
-                break;
-            }
             StdDraw.clear(StdDraw.BLACK);
             pacmanGraphique.ecranDeJeu(pacmanMap.getLabyrinthe());
 
@@ -64,9 +67,6 @@ public class Main {
             // REGLES
             reglesDuJeu.checkInvicibilite(joueur1);
             reglesDuJeu.modifImageFantome(joueur1, tablfantomes);
-
-
-
 
             //déplacement du joueur et des fantomes, check des TP
             joueur1.mouvement(direction);
@@ -96,13 +96,9 @@ public class Main {
                 StdDraw.picture(f.getX(), f.getY(), f.getImage(), 0.9, 0.9, f.getDegre());
             }
 
-
-
             StdDraw.show();
             StdDraw.pause(100);
         }
-        StdDraw.clear(StdDraw.BLACK);
-        pacmanGraphique.ecranDeDemarrage();
 
     }
 
