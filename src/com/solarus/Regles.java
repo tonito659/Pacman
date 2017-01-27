@@ -106,4 +106,17 @@ public class Regles {
         if(pacman.getCompteur() == 233)fin=9000;
         return fin;
     }
+
+    public int endDuGame(Pacman pacman, Pacman pacman2){
+        /*
+        0 si non
+        1 si fin par mort du pacman, aka plus de vie
+        9000 si fin par épuisement des ressources, aka win
+        */
+        int fin = 0;
+        if(pacman.getNbVie()<=0||pacman2.getNbVie()<=0)fin=1;
+        if(pacman.getCompteur() + pacman2.getCompteur()== 233)fin=9000;
+        return fin;
+    }
+
 }

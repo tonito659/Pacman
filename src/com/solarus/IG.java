@@ -31,7 +31,7 @@ public class IG {
                 StdDraw.text(13.5, 6, "PLAYER 1");
                 StdDraw.show();
                 StdDraw.pause(80);
-                if(StdDraw.mousePressed()==true){
+                if(StdDraw.mousePressed()){
                     Joueur1.jeu1Joueur();
                 }
 
@@ -47,7 +47,7 @@ public class IG {
                 StdDraw.text(13.5, 6, "PLAYER 1");
                 StdDraw.show();
                 StdDraw.pause(80);
-                if(StdDraw.mousePressed()==true){
+                if(StdDraw.mousePressed()){
                     Joueur1.jeu1Joueur();
                 }
             }
@@ -64,7 +64,7 @@ public class IG {
                 StdDraw.text(13.5, 3, "PLAYER 2");
                 StdDraw.show();
                 StdDraw.pause(80);
-                if(StdDraw.mousePressed()==true){
+                if(StdDraw.mousePressed()){
                     Joueur2.jeu2Joueur();
                 }
 
@@ -79,7 +79,7 @@ public class IG {
                 StdDraw.text(13.5, 3, "PLAYER 2");
                 StdDraw.show();
                 StdDraw.pause(80);
-                if(StdDraw.mousePressed()==true){
+                if(StdDraw.mousePressed()){
                     Joueur2.jeu2Joueur();
                 }
             }
@@ -96,7 +96,7 @@ public class IG {
                 StdDraw.text(13.5, 0, "CONTROLS");
                 StdDraw.show();
                 StdDraw.pause(80);
-                if(StdDraw.mousePressed()==true){
+                if(StdDraw.mousePressed()){
                     Joueur2.jeu2Joueur();
                 }
 
@@ -112,7 +112,7 @@ public class IG {
                 StdDraw.text(13.5, 0, "CONTROLS");
                 StdDraw.show();
                 StdDraw.pause(80);
-                if(StdDraw.mousePressed()==true){
+                if(StdDraw.mousePressed()){
                     Joueur2.jeu2Joueur();
                 }
             }
@@ -195,7 +195,7 @@ public class IG {
                 StdDraw.text(13.5, 3, "REPLAY ?");
                 StdDraw.show();
                 StdDraw.pause(80);
-                if(StdDraw.mousePressed()==true){
+                if(StdDraw.mousePressed()){
                     again = true;
                 }
 
@@ -210,7 +210,7 @@ public class IG {
                 StdDraw.text(13.5, 3, "REPLAY ?");
                 StdDraw.show();
                 StdDraw.pause(80);
-                if(StdDraw.mousePressed()==true){
+                if(StdDraw.mousePressed()){
                     again= true;
                 }
             }
@@ -263,7 +263,7 @@ public class IG {
                 StdDraw.text(13.5, 3, "REPLAY ?");
                 StdDraw.show();
                 StdDraw.pause(80);
-                if(StdDraw.mousePressed()==true){
+                if(StdDraw.mousePressed()){
                     again = true;
                 }
                 StdDraw.clear(StdDraw.BLACK);
@@ -277,7 +277,7 @@ public class IG {
                 StdDraw.text(13.5, 3, "REPLAY ?");
                 StdDraw.show();
                 StdDraw.pause(80);
-                if(StdDraw.mousePressed()==true){
+                if(StdDraw.mousePressed()){
                     again= true;
                 }
             }
@@ -328,7 +328,7 @@ public class IG {
                 StdDraw.text(13.5, 3, "REPLAY ?");
                 StdDraw.show();
                 StdDraw.pause(80);
-                if(StdDraw.mousePressed()==true){
+                if(StdDraw.mousePressed()){
                     again = true;
 
                 }
@@ -343,7 +343,7 @@ public class IG {
                 StdDraw.text(13.5, 3, "REPLAY ?");
                 StdDraw.show();
                 StdDraw.pause(80);
-                if(StdDraw.mousePressed()==true){
+                if(StdDraw.mousePressed()){
                     again = true;
 
                 }
@@ -398,7 +398,7 @@ public class IG {
                 StdDraw.text(13.5, 3, "REPLAY ?");
                 StdDraw.show();
                 StdDraw.pause(80);
-                if(StdDraw.mousePressed()==true){
+                if(StdDraw.mousePressed()){
                     again = true;
 
                 }
@@ -414,7 +414,7 @@ public class IG {
                 StdDraw.text(13.5, 3, "REPLAY ?");
                 StdDraw.show();
                 StdDraw.pause(80);
-                if(StdDraw.mousePressed()==true){
+                if(StdDraw.mousePressed()){
                     again = true;
 
                 }
