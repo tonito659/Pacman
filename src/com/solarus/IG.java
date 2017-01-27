@@ -97,7 +97,7 @@ public class IG {
                 StdDraw.show();
                 StdDraw.pause(80);
                 if(StdDraw.mousePressed()){
-                    Joueur2.jeu2Joueur();
+                    this.toucheControleDesJoueur();
                 }
 
                 StdDraw.clear(StdDraw.BLACK);
@@ -113,7 +113,7 @@ public class IG {
                 StdDraw.show();
                 StdDraw.pause(80);
                 if(StdDraw.mousePressed()){
-                    Joueur2.jeu2Joueur();
+                    this.toucheControleDesJoueur();
                 }
             }
 
@@ -141,6 +141,75 @@ public class IG {
                 StdDraw.show();
                 StdDraw.pause(80);
             }
+
+        }
+    }
+
+    public void toucheControleDesJoueur(){
+        Font font = new Font("DialogInput", Font.CENTER_BASELINE , 20);
+        Font font2 = new Font("DialogInput", Font.CENTER_BASELINE , 30);
+        StdDraw.enableDoubleBuffering();
+    while(true){
+        if(StdDraw.mouseX()>=10&& StdDraw.mouseX()<=17&&StdDraw.mouseY()>-1&&StdDraw.mouseY()<=0.70){
+            StdDraw.clear(StdDraw.BLACK);
+            StdDraw.setPenColor(Color.RED);
+            StdDraw.picture(13.5, 24, "PAC-MAN.jpg", 24,8 );
+            StdDraw.picture(13.5, 13, "pacmanDemarrage.jpg", 17,7 );
+            StdDraw.setFont(font);
+            StdDraw.text(13.5, 6, "JOUEUR 2 : Z= HAUT , S= BAS , Q= GAUCHE , D= DROITE ");
+            StdDraw.text(13.5, 3, "JOUEUR 1 : ▲ , ▼ , ► , ◄");
+            StdDraw.setFont(font2);
+            StdDraw.text(13.5,0,"EXIT");
+            StdDraw.show();
+            StdDraw.pause(80);
+            if(StdDraw.mousePressed()){
+                break;
+            }
+
+            StdDraw.clear(StdDraw.BLACK);
+            StdDraw.setPenColor(Color.RED);
+            StdDraw.picture(13.5, 24, "PAC-MAN.jpg", 24,8 );
+            StdDraw.picture(13.5, 13, "pacmanDemarrage.jpg", 17,7 );
+            StdDraw.setFont(font);
+            StdDraw.text(13.5, 6, "JOUEUR 2 : Z= HAUT , S= BAS , Q= GAUCHE , D= DROITE ");
+            StdDraw.text(13.5, 3, "JOUEUR 1 : ▲ , ▼ , ► , ◄");
+            StdDraw.setFont(font2);
+            StdDraw.setPenColor(Color.white);
+            StdDraw.text(13.5,0,"EXIT");
+            StdDraw.show();
+            StdDraw.pause(80);
+            if(StdDraw.mousePressed()){
+                break;
+            }
+        }
+
+        else{
+            StdDraw.clear(StdDraw.BLACK);
+            StdDraw.setPenColor(Color.RED);
+            StdDraw.picture(13.5, 24, "PAC-MAN.jpg", 24,8 );
+            StdDraw.picture(13.5, 13, "pacmanDemarrage.jpg", 17,7 );
+            StdDraw.setFont(font);
+            StdDraw.text(13.5, 6, "JOUEUR 2 : Z= HAUT , S= BAS , Q= GAUCHE , D= DROITE ");
+            StdDraw.text(13.5, 3, "JOUEUR 1 : ▲ , ▼ , ► , ◄");
+            StdDraw.text(13.5,0,"EXIT");
+            StdDraw.show();
+            StdDraw.pause(80);
+
+
+            StdDraw.clear(StdDraw.BLACK);
+            StdDraw.setPenColor(Color.RED);
+            StdDraw.picture(13.5, 24, "PAC-MAN.jpg", 24,8 );
+            StdDraw.picture(13.5, 13, "pacmanDemarrage.jpg", 17,7 );
+            StdDraw.setFont(font);
+            StdDraw.text(13.5, 6, "JOUEUR 2 : Z= HAUT , S= BAS , Q= GAUCHE , D= DROITE ");
+            StdDraw.text(13.5, 3, "JOUEUR 1 : ▲ , ▼ , ► , ◄");
+            StdDraw.setPenColor(Color.white);
+            StdDraw.text(13.5,0,"EXIT");
+            StdDraw.show();
+            StdDraw.pause(80);
+
+
+        }
 
         }
     }

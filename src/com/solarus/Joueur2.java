@@ -40,7 +40,6 @@ public class Joueur2 {
                 if(reglesDuJeu.endDuGame(pacman1,pacman2)==9000){
                    again = pacmanGraphique.ecranDeWin2Joueur(pacman1,pacman2);
                 }
-//////////////////////////////////////////////
 
 
                 //INPUTS J1
@@ -115,7 +114,7 @@ public class Joueur2 {
 
             for (Pacman j : tabljoueurs) {
                 //CHECK si le pacman est mort
-                reglesDuJeu.contact(pacman1, tablfantomes);
+                reglesDuJeu.contact(j, tablfantomes);
             }
 
             pacmanGraphique.affiche2joueurs(tabljoueurs);
