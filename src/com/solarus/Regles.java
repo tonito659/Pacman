@@ -106,5 +106,4 @@ public class Regles {
         if(pacman.getCompteur() == 233)fin=9000;
         return fin;
     }
-
 }

@@ -31,19 +31,19 @@ public class Joueur1 {
             if (reglesDuJeu.endDuGame(pacman1) == 9000) {
                 again = pacmanGraphique.ecranDeWin(pacman1);
             }
-            if (StdDraw.isKeyPressed(KeyEvent.VK_DOWN) && temp[(pacman1.getPositionY() - 1)][pacman1.getPositionX()] != 0) {
+            if (StdDraw.isKeyPressed(KeyEvent.VK_DOWN) && temp[(pacman1.getPositionY() - 1)][pacman1.getPositionX()] != 0 && temp[(pacman1.getPositionY() - 1)][pacman1.getPositionX()] != 4) {
                 direction = 2;
                 degre = 270;
             }
-            if (StdDraw.isKeyPressed(KeyEvent.VK_UP) && temp[(pacman1.getPositionY() + 1)][pacman1.getPositionX()] != 0) {
+            if (StdDraw.isKeyPressed(KeyEvent.VK_UP) && temp[(pacman1.getPositionY() + 1)][pacman1.getPositionX()] != 0 && temp[(pacman1.getPositionY() + 1)][pacman1.getPositionX()] != 4) {
                 direction = 8;
                 degre = 90;
             }
-            if (StdDraw.isKeyPressed(KeyEvent.VK_LEFT) && temp[pacman1.getPositionY()][pacman1.getPositionX() - 1] != 0) {
+            if (StdDraw.isKeyPressed(KeyEvent.VK_LEFT) && temp[pacman1.getPositionY()][pacman1.getPositionX() - 1] != 0 && temp[pacman1.getPositionY() ][pacman1.getPositionX()-1] != 4) {
                 direction = 4;
                 degre = 180;
             }
-            if (StdDraw.isKeyPressed(KeyEvent.VK_RIGHT) && temp[pacman1.getPositionY()][pacman1.getPositionX() + 1] != 0) {
+            if (StdDraw.isKeyPressed(KeyEvent.VK_RIGHT) && temp[pacman1.getPositionY()][pacman1.getPositionX() + 1] != 0 && temp[pacman1.getPositionY() ][pacman1.getPositionX()+1] != 4) {
                 direction = 6;
                 degre = 0;
             }

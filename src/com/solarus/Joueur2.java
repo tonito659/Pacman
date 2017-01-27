@@ -23,6 +23,7 @@ public class Joueur2 {
             Fantome FantomeBleu = new Fantome("BLUE", 15, 18,"bleue.png");
             Fantome FantomeOrange = new Fantome("ORANGE", 16, 18,"yellowie.png");
             Fantome [] tablfantomes = {FantomeBleu,FantomeRouge,FantomeRose,FantomeOrange};
+            int[][] temp = pacmanMap.getLabyrinthe();
             //instanciation
 
             //System.out.print("X =" + pacman1.getX() + " Y =" + pacman1.getX());
@@ -39,54 +40,45 @@ public class Joueur2 {
                 if(reglesDuJeu.endDuGame(pacman1)==9000 && reglesDuJeu.endDuGame(pacman2)==9000){
                     pacmanGraphique.ecranDeWin2Joueur(pacman1,pacman2);
                 }
-
-
                 //////////////////////////////////////////////
                 //INPUTS J1
                 //////////////////////////////////////////////
 
-                if (StdDraw.isKeyPressed(KeyEvent.VK_DOWN)) {
+                if (StdDraw.isKeyPressed(KeyEvent.VK_DOWN) && temp[(pacman1.getPositionY() - 1)][pacman1.getPositionX()] != 0 && temp[(pacman1.getPositionY() - 1)][pacman1.getPositionX()] != 4) {
                     direction = 2;
                     degre = 270;
                 }
-                if (StdDraw.isKeyPressed(KeyEvent.VK_UP)) {
+                if (StdDraw.isKeyPressed(KeyEvent.VK_UP)&& temp[(pacman1.getPositionY() + 1)][pacman1.getPositionX()] != 0 && temp[(pacman1.getPositionY() + 1)][pacman1.getPositionX()] != 4) {
                     direction = 8;
                     degre = 90;
                 }
-                if (StdDraw.isKeyPressed(KeyEvent.VK_LEFT)) {
+                if (StdDraw.isKeyPressed(KeyEvent.VK_LEFT)&& temp[(pacman1.getPositionY())][pacman1.getPositionX()-1] != 0 && temp[pacman1.getPositionY()][pacman1.getPositionX()-1] != 4) {
                     direction = 4;
                     degre = 180;
                 }
-                if (StdDraw.isKeyPressed(KeyEvent.VK_RIGHT)) {
+                if (StdDraw.isKeyPressed(KeyEvent.VK_RIGHT)&& temp[(pacman1.getPositionY())][pacman1.getPositionX()+1] != 0 && temp[pacman1.getPositionY()][pacman1.getPositionX()+1] != 4) {
                     direction = 6;
                     degre = 0;
                 }
-                if (StdDraw.isKeyPressed(KeyEvent.VK_ENTER)) {
-                    break;
-                }
-
 
                 //////////////////////////////////////////////
                 //INPUTS J2
                 //////////////////////////////////////////////
-                if (StdDraw.isKeyPressed(KeyEvent.VK_Z)) {
+                if (StdDraw.isKeyPressed(KeyEvent.VK_Z) && temp[(pacman2.getPositionY() + 1)][pacman2.getPositionX()] != 0 && temp[(pacman1.getPositionY() + 1)][pacman2.getPositionX()] != 4) {
                     direction2 = 8;
                     degre2 = 90;
                 }
-                if (StdDraw.isKeyPressed(KeyEvent.VK_Q)) {
+                if (StdDraw.isKeyPressed(KeyEvent.VK_Q)&& temp[(pacman2.getPositionY() )][pacman2.getPositionX()-1] != 0 && temp[pacman2.getPositionY()][pacman2.getPositionX()-1] != 4) {
                     direction2 = 4;
                     degre2 = 180;
                 }
-                if (StdDraw.isKeyPressed(KeyEvent.VK_D)) {
+                if (StdDraw.isKeyPressed(KeyEvent.VK_D)&& temp[pacman2.getPositionY()][pacman2.getPositionX()+1] != 0 && temp[pacman2.getPositionY()][pacman2.getPositionX()+1] != 4) {
                     direction2 = 6;
                     degre2 = 0;
                 }
-                if (StdDraw.isKeyPressed(KeyEvent.VK_S)) {
+                if (StdDraw.isKeyPressed(KeyEvent.VK_S)&& temp[(pacman2.getPositionY() - 1)][pacman2.getPositionX()] != 0 && temp[(pacman2.getPositionY() - 1)][pacman2.getPositionX()] != 4) {
                     direction2 = 2;
                     degre2 = 270;
-                }
-                if (StdDraw.isKeyPressed(KeyEvent.VK_ENTER)) {
-                    break;
                 }
 
 
@@ -138,8 +130,5 @@ public class Joueur2 {
                 StdDraw.show();
                 StdDraw.pause(100);
             }
-            StdDraw.clear(StdDraw.BLACK);
-            //pacmanGraphique.ecranDeDemarrage();
         }
-
 }
